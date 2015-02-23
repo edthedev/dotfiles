@@ -145,8 +145,8 @@ Plugin 'edthedev/cmd.vim'
 Plugin 'itchyny/thumbnail.vim'
 " :Thumbnail
 "
-Plugin 'farseer90718/vim-taskwarrior'
-let g:task_rc_override = 'defaultwidth=999'
+" Plugin 'farseer90718/vim-taskwarrior'
+" let g:task_rc_override = 'defaultwidth=999'
 " Read up on it here:  https://github.com/farseer90718/vim-taskwarrior
 "
 
