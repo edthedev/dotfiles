@@ -145,5 +145,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Nice multiline git-aware prompt.
 antigen bundle sindresorhus/pure
 
+# Quickly create and fetch text files.
+antigen bundle edthedev/minion
+
 # # Tell antigen that you're done.
 antigen apply
