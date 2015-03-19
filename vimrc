@@ -148,7 +148,6 @@ Plugin 'itchyny/thumbnail.vim'
 " Plugin 'farseer90718/vim-taskwarrior'
 " let g:task_rc_override = 'defaultwidth=0'
 " let g:task_report_name     = 'list'
-" let g:task_rc_override = 'defaultwidth=999'
 " Read up on it here:  https://github.com/farseer90718/vim-taskwarrior
 "
 
@@ -171,6 +170,11 @@ Plugin 'Shougo/unite.vim'
 " Better status line.
 Plugin 'bling/vim-airline'
 
+Plugin 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/Box Sync/wiki', 'path_html': '~/cites_wiki_html/'},{'path': '~/Dropbox/wiki', 'path_html': '~/vim_wiki_html/'}]
+
+# Emacs style kill-paste ring
+Plugin 'vim-scripts/YankRing.vim'
 
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
