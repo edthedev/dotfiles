@@ -178,6 +178,19 @@ Plugin 'vim-scripts/YankRing.vim'
 "    :h yankring.txt
 "    :h yankring-tutorial
 
+" Javascript
+Plugin 'maksimr/vim-jsbeautify'
+"Plugin 'einars/js-beautify'
+Plugin 'Delapouite/vim-javascript-syntax'
+"Plugin 'pangloss/vim-javascript'
+
+" HTML
+Bundle 'othree/html5.vim'
+"Bundle 'evidens/vim-twig'
+"Bundle 'tokutake/twig-indent'
+"Bundle 'groenewege/vim-less'
+"Bundle 'hail2u/vim-css3-syntax'
+
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
 
