@@ -174,7 +174,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Box Sync/wiki', 'path_html': '~/cites_wiki_html/'},{'path': '~/Dropbox/wiki', 'path_html': '~/vim_wiki_html/'}]
 
-# Emacs style kill-paste ring
+" Emacs style kill-paste ring
 Plugin 'vim-scripts/YankRing.vim'
 
 call vundle#end()
