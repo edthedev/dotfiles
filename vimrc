@@ -129,7 +129,7 @@ let g:PyLintOnWrite = 1
 " let g:PyLintDissabledMessages = 'C0103,C0111,C0301,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0631,E1101,E1120,R0201,R0901,R0903,R0904,R0913'
 " let g:PyLintDissabledMessages = 'C0103,C0111,C0301,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0631,E1101,E1120,R0201,R0901,R0903,R0904,R0913,E1002,E1103'
 " let g:PyLintDissabledMessages = 'C0103,C0111,C0301,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0631,E1002,E1101,E1103,E1120,R0201,R0901,R0903,R0904,R0913'
-let g:PyLintDissabledMessages = 'C0103,C0111,C0301,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0621,W0631,E0611,E1002,E1101,E1103,E1120,F0401,R0201,R0901,R0903,R0904,R0913'
+let g:PyLintDissabledMessages = 'C0103,C0111,C0301,C0322,C0323,C0324,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0621,W0631,E0611,E1002,E1101,E1103,E1120,F0401,R0201,R0901,R0903,R0904,R0913'
 
 Plugin 'edthedev/arduino.vim'
 " Plugin 'edthedev/vim-arduino-ino'
@@ -144,12 +144,15 @@ Plugin 'edthedev/cmd.vim'
 Plugin 'itchyny/thumbnail.vim'
 " :Thumbnail
 "
-Plugin 'farseer90718/vim-taskwarrior'
-let g:task_rc_override = 'defaultwidth=999'
+" Plugin 'farseer90718/vim-taskwarrior'
+" let g:task_rc_override = 'defaultwidth=999'
+" Plugin 'farseer90718/vim-taskwarrior'
+" let g:task_rc_override = 'defaultwidth=0'
+" let g:task_report_name     = 'list'
 " Read up on it here:  https://github.com/farseer90718/vim-taskwarrior
 "
 
-" For REST APIs
+" For REST APIs Press QQ in normal mode to open.
 Plugin 'nicwest/QQ.vim'
 
 Plugin 'scrooloose/syntastic'
@@ -161,6 +164,18 @@ map <leader>a :BufstopModeFast<CR>     " a command for quick switching
 " Sensible defaults for Markdown
 Plugin 'plasticboy/vim-markdown'
 set nofoldenable "Do not fold everything
+
+" Ctrl P on steroids...
+Plugin 'Shougo/unite.vim'
+
+" Better status line.
+Plugin 'bling/vim-airline'
+
+Plugin 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/Box Sync/wiki', 'path_html': '~/cites_wiki_html/'},{'path': '~/Dropbox/wiki', 'path_html': '~/vim_wiki_html/'}]
+
+# Emacs style kill-paste ring
+Plugin 'vim-scripts/YankRing.vim'
 
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
@@ -185,6 +200,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au FileType markdown set tabstop=2
 au FileType markdown set shiftwidth=2
 " au FileType yaml set expandtab
+"
+
 
 set softtabstop=4 " makes the spaces feel like real tabs
 " Sensible default for everything else.
