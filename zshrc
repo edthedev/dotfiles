@@ -143,10 +143,14 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Nice multiline git-aware prompt.
-antigen bundle sindresorhus/pure
+# antigen bundle sindresorhus/pure
+#   Does not play nicely with Git two-factor auth / SSH key auth
 
-# Quickly create and fetch text files.
-antigen bundle edthedev/minion
+# Automatically activate virtualenvs
+antigen bundle sharat87/autoenv
+
+# Git Aware Prompt
+antigen bundle nojhan/liquidprompt
 
 # # Tell antigen that you're done.
 antigen apply
