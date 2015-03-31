@@ -171,23 +171,23 @@ Plugin 'Shougo/unite.vim'
 " Better status line.
 Plugin 'bling/vim-airline'
 
-Plugin 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/Box Sync/wiki', 'path_html': '~/cites_wiki_html/'},{'path': '~/Dropbox/wiki', 'path_html': '~/vim_wiki_html/'}]
+" Plugin 'vimwiki/vimwiki'
+" let g:vimwiki_list = [{'path': '~/Box Sync/wiki', 'path_html': '~/cites_wiki_html/'},{'path': '~/Dropbox/wiki', 'path_html': '~/vim_wiki_html/'}]
 
 " Emacs style kill-paste ring
-Plugin 'vim-scripts/YankRing.vim'
+" Plugin 'vim-scripts/YankRing.vim'
 "    :h yankring.txt
 "    :h yankring-tutorial
 
 " Javascript
-Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'maksimr/vim-jsbeautify'
 "Plugin 'einars/js-beautify'
 " 
 " Plugin 'Delapouite/vim-javascript-syntax'
 "Plugin 'pangloss/vim-javascript'
 
 " HTML
-Bundle 'othree/html5.vim'
+" Bundle 'othree/html5.vim'
 "Bundle 'evidens/vim-twig'
 "Bundle 'tokutake/twig-indent'
 "Bundle 'groenewege/vim-less'
