@@ -182,7 +182,8 @@ Plugin 'vim-scripts/YankRing.vim'
 " Javascript
 Plugin 'maksimr/vim-jsbeautify'
 "Plugin 'einars/js-beautify'
-Plugin 'Delapouite/vim-javascript-syntax'
+" 
+" Plugin 'Delapouite/vim-javascript-syntax'
 "Plugin 'pangloss/vim-javascript'
 
 " HTML
@@ -192,6 +193,10 @@ Bundle 'othree/html5.vim'
 "Bundle 'groenewege/vim-less'
 "Bundle 'hail2u/vim-css3-syntax'
 
+" AsciiDoc
+" Very broken:
+" Bundle 'dahu/vim-asciidoc'
+
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
 
@@ -199,6 +204,10 @@ filetype plugin indent on     " required for Vundle Bundle
 nn <space> <c-d>
 " Shift space is undetectable in many terminals...
 nn <S-space> <c-u>
+
+
+" If not something else, then asciidoc
+" set filetype=asciidoc
 
 " Don't show tabs for HTML files. Do show trailing spaces."
 au FileType html set nolist
@@ -222,3 +231,4 @@ set softtabstop=4 " makes the spaces feel like real tabs
 " Sensible default for everything else.
 set tabstop=2
 set shiftwidth=2
+
