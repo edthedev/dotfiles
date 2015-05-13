@@ -46,12 +46,14 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " Helper scripts for editing ReStructuredText
-" Plugin 'edthedev/text-helper.vim'
+Plugin 'edthedev/text-helper.vim'
 
 " EdTheDev's Minion file organizer.
 Plugin 'edthedev/minion'
 " let g:minion_map_keys = 0
 
+
+" Syntax helpers for ReStructuredText
 Plugin 'edthedev/rst-syntax.vim'
 
 " EdTheDev's Vim configuration for Python PEP8
@@ -108,6 +110,7 @@ Plugin 'tpope/vim-dispatch'
 "let g:org_todo_keywords=['TODO', 'DONE', 'WAITING', 'CANCELED']
 "let g:org_agenda_files=['~/Google Drive/index.org']
 
+" More obvious default behaviors
 Plugin 'edthedev/wordlike.vim'
 
 " Plugin 'xolox/vim-notes'
@@ -131,6 +134,7 @@ let g:PyLintOnWrite = 1
 " let g:PyLintDissabledMessages = 'C0103,C0111,C0301,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0631,E1002,E1101,E1103,E1120,R0201,R0901,R0903,R0904,R0913'
 let g:PyLintDissabledMessages = 'C0103,C0111,C0301,C0322,C0323,C0324,W0141,W0142,W0212,W0221,W0223,W0232,W0401,W0613,W0621,W0631,E0611,E1002,E1101,E1103,E1120,F0401,R0201,R0901,R0903,R0904,R0913'
 
+" Help building Arduino source files.
 Plugin 'edthedev/arduino.vim'
 " Plugin 'edthedev/vim-arduino-ino'
 let g:arduino_compile_command = 'ino build --board-model=atmega328'
@@ -139,6 +143,7 @@ let g:arduino_upload_command = 'ino upload --board-model=atmega328'
 
 " Plugin 'tomswartz07/vim-todo'
 "
+" Run commands from the current line and get their output.
 Plugin 'edthedev/cmd.vim'
 
 Plugin 'itchyny/thumbnail.vim'
@@ -155,18 +160,18 @@ Plugin 'itchyny/thumbnail.vim'
 " For REST APIs Press QQ in normal mode to open.
 Plugin 'nicwest/QQ.vim'
 
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 Plugin 'mihaifm/bufstop'
 nn <leader>b :Bufstop<CR>             " get a visual on the buffers
 map <leader>a :BufstopModeFast<CR>     " a command for quick switching
 
 " Sensible defaults for Markdown
-Plugin 'plasticboy/vim-markdown'
-set nofoldenable "Do not fold everything
+" Plugin 'plasticboy/vim-markdown'
+" set nofoldenable "Do not fold everything
 
 " Ctrl P on steroids...
-Plugin 'Shougo/unite.vim'
+" Plugin 'Shougo/unite.vim'
 
 " Better status line.
 Plugin 'bling/vim-airline'
@@ -201,9 +206,9 @@ call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
 
 " Page down with space key
-nn <space> <c-d>
+" nn <space> <c-d>
 " Shift space is undetectable in many terminals...
-nn <S-space> <c-u>
+" nn <S-space> <c-u>
 
 
 " If not something else, then asciidoc
