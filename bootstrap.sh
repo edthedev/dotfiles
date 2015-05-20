@@ -2,6 +2,10 @@
 # You can scp just this file to the destination host,
 #   and then run it.
 
+if [ ! -f ~/.ssh/id_rsa ]; then
+	ssh-keygen
+fi
+
 if [ ! -d ~/dotfiles ]; then
 	cd ~; git clone git@github.com:edthedev/dotfiles.git
 fi
