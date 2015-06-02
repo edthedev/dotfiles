@@ -8,6 +8,8 @@ fi
 
 if [ ! -d ~/dotfiles ]; then
 	cd ~; git clone git@github.com:edthedev/dotfiles.git
+	cp ~/dotfiles/id_rsa.pub ~/id_rsa.pub
+	chmod go+r ~/id_rsa.pub
 fi
 
 if [ ! -f ~/.zshrc ]; then
