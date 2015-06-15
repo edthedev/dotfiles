@@ -16,6 +16,10 @@ if [ ! -f ~/.zshrc ]; then
 	ln -s ~/dotfiles/zshrc ~/.zshrc
 fi
 
+if [ ! -f ~/.screenrc ]; then
+	ln -s ~/dotfiles/screenrc ~/.screenrc
+fi
+
 if [ ! -f ~/dotfiles/antigen/README.md ]; then
 	cd ~/dotfiles;git submodule update --init
 fi
