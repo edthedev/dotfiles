@@ -1,0 +1,48 @@
+
+# Being able to scroll back with Ctrl+] is nice.
+defscrollback 5000
+
+# escape a
+#k# escape ^\\
+
+# Choose a shell
+# shell "/usr/bin/zsh"
+# if [ -f "/usr/bin/zsh" ]
+#	shell "/bin/bash"
+# fi
+# shell -${SHELL}
+# shell "zsh"
+#if [ -f "/usr/bin/zsh" ]
+#	shell "/bin/bash"
+#fi
+#shell -${SHELL}
+
+# Fix for Control key not working in ConnectBot:
+#     was to buy Better Terminal Emulator Pro
+
+# don't display the copyright page
+startup_message off
+
+caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+
+
+hardstatus on
+hardstatus alwayslastline
+
+# Boxes and color...
+# hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%C %{g}]'
+
+# Smoother...
+# hardstatus string "%{=}%-w%{+b w}%n %t%{-b w}%+w %=%c"
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n* %f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}* %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+# hardstatus string '$PS1'
+
+# Default screens
+# screen -t shell1 0 alsamixer
+# screen -t shell1 0 mutt
+# screen -t shell2 1 ncmpc
+# screen -t shell2 1 mcabber
+
+shell /bin/zsh
