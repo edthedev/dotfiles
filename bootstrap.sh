@@ -1,5 +1,6 @@
 # Reminder to future self:
 # Step 1: ssh-keygen on remote host.
+# Step 0: Remove any existing .vim, .vimrc and .zsrhrc on remote host.
 # Step 2: Add ssh pubkey to GitHub as deploy key.
 # Step 3: clone the repo.
 # Step 4: Run this bootstrap script.
