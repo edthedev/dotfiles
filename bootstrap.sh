@@ -1,4 +1,9 @@
 # Reminder to future self:
+# Step 1: ssh-keygen on remote host.
+# Step 2: Add ssh pubkey to GitHub as deploy key.
+# Step 3: clone the repo.
+# Step 4: Run this bootstrap script.
+
 # You can scp just this file to the destination host,
 #   and then run it.
 
