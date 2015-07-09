@@ -202,6 +202,9 @@ Plugin 'bling/vim-airline'
 " Very broken:
 " Bundle 'dahu/vim-asciidoc'
 
+" Syntax Highlighting for AsiiDoc
+Plugin 'dagwieers/asciidoc-vim'
+
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
 
@@ -212,7 +215,8 @@ filetype plugin indent on     " required for Vundle Bundle
 
 
 " If not something else, then asciidoc
-" set filetype=asciidoc
+set filetype=asciidoc
+" set syntax=asciidoc
 
 " Don't show tabs for HTML files. Do show trailing spaces."
 au FileType html set nolist
@@ -230,8 +234,6 @@ au FileType markdown set tabstop=2
 au FileType markdown set shiftwidth=2
 " au FileType yaml set expandtab
 "
-
-
 set softtabstop=4 " makes the spaces feel like real tabs
 " Sensible default for everything else.
 set tabstop=2
