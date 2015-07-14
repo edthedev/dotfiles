@@ -103,6 +103,11 @@ nmap <leader>r :NERDTreeToggle<CR>
 " Async dispatch by Tim Pope
 Plugin 'tpope/vim-dispatch'
 
+" Markdown highlighting
+Plugin 'tpope/vim-markdown'
+let g:markdown_github_languages = ['sh', 'python']
+
+
 " Bundle 'vim-scripts/confluencewiki.vim'
 "  - Caused syntax color problems for RST?
 "
@@ -204,6 +209,9 @@ Plugin 'bling/vim-airline'
 
 " Syntax Highlighting for AsiiDoc
 Plugin 'dagwieers/asciidoc-vim'
+
+" Learn me! <cs - change surrounding, ds - delete sur, ys - add surrounding)
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
