@@ -208,7 +208,8 @@ Plugin 'bling/vim-airline'
 " Bundle 'dahu/vim-asciidoc'
 
 " Syntax Highlighting for AsiiDoc
-Plugin 'dagwieers/asciidoc-vim'
+" Poor color choices for dark theme: Plugin 'dagwieers/asciidoc-vim'
+Plugin 'traycerb/asciidoc-vim'
 
 " Learn me! <cs - change surrounding, ds - delete sur, ys - add surrounding)
 Plugin 'tpope/vim-surround'
@@ -224,7 +225,7 @@ filetype plugin indent on     " required for Vundle Bundle
 
 " If not something else, then asciidoc
 set filetype=asciidoc
-" set syntax=asciidoc
+set syntax=asciidoc
 
 " Don't show tabs for HTML files. Do show trailing spaces."
 au FileType html set nolist
