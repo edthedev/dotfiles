@@ -214,6 +214,13 @@ Plugin 'traycerb/asciidoc-vim'
 " Learn me! <cs - change surrounding, ds - delete sur, ys - add surrounding)
 Plugin 'tpope/vim-surround'
 
+" Quick complete of stuff...
+Plugin 'SirVer/ultisnips'
+
+" Snippets for ultisnips
+Plugin 'honza/vim-snippets'
+
+
 call vundle#end()
 filetype plugin indent on     " required for Vundle Bundle
 
