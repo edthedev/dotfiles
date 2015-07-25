@@ -215,7 +215,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 
 " Quick complete of stuff...
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -223,6 +223,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Snippets for ultisnips
 Plugin 'edthedev/vim-snippets'
+
+" Default to use strapdown and markdown for blog posts.
+" UltiSnipsAddFiletypes markdown.strapdown
 
 
 call vundle#end()
