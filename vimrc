@@ -217,6 +217,10 @@ Plugin 'tpope/vim-surround'
 " Quick complete of stuff...
 Plugin 'SirVer/ultisnips'
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " Snippets for ultisnips
 Plugin 'honza/vim-snippets'
 
