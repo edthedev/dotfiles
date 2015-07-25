@@ -209,7 +209,7 @@ Plugin 'bling/vim-airline'
 
 " Syntax Highlighting for AsiiDoc
 " Poor color choices for dark theme: Plugin 'dagwieers/asciidoc-vim'
-Plugin 'traycerb/asciidoc-vim'
+" Plugin 'traycerb/asciidoc-vim'
 
 " Learn me! <cs - change surrounding, ds - delete sur, ys - add surrounding)
 Plugin 'tpope/vim-surround'
@@ -222,7 +222,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Snippets for ultisnips
-Plugin 'honza/vim-snippets'
+Plugin 'edthedev/vim-snippets'
 
 
 call vundle#end()
