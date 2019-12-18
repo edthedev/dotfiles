@@ -2,7 +2,13 @@
 if(-Not(Test-Path -Path $profile)) {
   New-Item -Path "$profile" -ItemType File
 }
-$sourceMeLine = "source $pwd/Microsoft.PowerShell_profile.ps1"
+$sourceMeFile = "$pwd\Microsoft.PowerShell_profile.ps1"
+$sourceMeLine = '$profileContents = [string]::join([environment]::newline, (get-content -path'
+$sourceMeLine += $sourceMeFile
+$sourceMeLine += '));invoke-expression $profileContents'
+
+Write-Host $sourceMeLine
+
 $profileContents = Get-Content $profile 
 if(! $profileContents -contains $sourceMeLine) {
   Add-Content -Path $profile -Value $sourceMeLine
