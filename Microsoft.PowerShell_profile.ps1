@@ -9,4 +9,5 @@ $ENV:PATH+=";C:\Program Files (x86)\Common Files\Oracle\Java\javapath"
 $ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin"
 $ENV:PATH+=";C:\Program Files\Git\cmd"
 $ENV:PATH+=";C:\ProgramData\chocolatey\bin"
+$ENV:PATH+=";C:\Program Files\nodejs" # KataKoda wants to add tools via npm
 $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
