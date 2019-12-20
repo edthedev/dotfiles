@@ -19,3 +19,8 @@ if(! $profileContents -contains $sourceMeLine) {
 
 # Install Stub PowerShell Profile that sources the one from DotFiles
 
+# Install profile for Windows Terminal
+$destFile = "C:\Users\delaport\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json"
+if(-Not(Test-Path -Path $destFile)) {
+  Copy-Item -Path ./profiles.json -Destination $destFile
+}
