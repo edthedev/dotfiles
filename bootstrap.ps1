@@ -23,4 +23,7 @@ if(! $profileContents -contains $sourceMeLine) {
 $destFile = "C:\Users\delaport\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json"
 if(-Not(Test-Path -Path $destFile)) {
   Copy-Item -Path ./profiles.json -Destination $destFile
+} else {
+  # Brute force ensure we update our git copy once in awhile.
+  Copy-Item -Path $destFile -Destination ./profiles.json
 }
