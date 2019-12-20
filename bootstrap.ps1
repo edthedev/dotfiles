@@ -27,3 +27,9 @@ if(-Not(Test-Path -Path $destFile)) {
   # Brute force ensure we update our git copy once in awhile.
   Copy-Item -Path $destFile -Destination ./profiles.json
 }
+
+# Vault for secret management
+# ... and really for coding better intergrations i.e. for RobotFramework
+if($false) {
+  choco install vault
+}
