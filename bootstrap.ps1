@@ -31,5 +31,6 @@ if(-Not(Test-Path -Path $destFile)) {
 # Vault for secret management
 # ... and really for coding better intergrations i.e. for RobotFramework
 if($false) {
+  choco install consul
   choco install vault
 }

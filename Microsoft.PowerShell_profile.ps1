@@ -9,3 +9,8 @@ $ENV:PATH+=";C:\Program Files\Git\cmd" # Version control is nice.
 $ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
 $ENV:PATH+=";C:\Program Files\nodejs" # KataKoda wants to add tools via npm
 $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
+
+function Launch-Vault() {
+  consul agent -dev # Run in Dev Mode
+  vault sever -config c:\src\dotfiles\vaultconfig.hcl # Use local dev Consul as storage
+}
