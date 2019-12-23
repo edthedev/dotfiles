@@ -12,7 +12,15 @@ $ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
 $ENV:PATH+=";C:\Program Files\nodejs" # KataKoda wants to add tools via npm
 $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 
-function Launch-Vault() {
+function Start-Vault() {
   consul agent -dev # Run in Dev Mode
   vault sever -config c:\src\dotfiles\vaultconfig.hcl -address=http://127.0.0.1:8200 # Use local dev Consul as storage
 }
+
+function New-DockerRStudio() {
+  docker run --name=rpython -Pit -p 8888:8888 -p 8787:8787 -p 8022:22 -p 6006:6006 -v c:\src\data:/mnt/data datascienceschool/rpython
+}
+function Start-DockerRStudio() {
+  docker start rpython
+}
+
