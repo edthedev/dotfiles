@@ -22,5 +22,7 @@ function New-DockerRStudio() {
 }
 function Start-DockerRStudio() {
   docker start rpython
+  Write-Host "R Studio is running at http://localhost:8787/"
+  Write-Host "Jupyter is running at http://localhost:8888/"
 }
 
