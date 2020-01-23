@@ -43,7 +43,7 @@ function Start-DockerWebGoat() {
   Write-Host "Vulnerable Webgoat running on 8080"
 }
 
-function Start-JuiceShop() {
+function Start-DockerJuiceShop() {
   docker pull bkimminich/juice-shop
   docker run --rm -p 3000:3000 bkimminich/juice-shop
   Write-Host "Vulnerable Juice Shop running on 3000"
