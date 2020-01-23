@@ -38,6 +38,13 @@ function Start-DockerOWASPZap() {
 
 
 function Start-DockerWebGoat() {
-  docker pull webgoat/webgoat-8.0 docker run -p 8080:8080 -t webgoat/webgoat-8.0
-  Write-Host "Webgoat running on 8080"
+  docker pull webgoat/webgoat-8.0 
+  docker run -p 8080:8080 -t webgoat/webgoat-8.0
+  Write-Host "Vulnerable Webgoat running on 8080"
+}
+
+function Start-JuiceShop() {
+  docker pull bkimminich/juice-shop
+  docker run --rm -p 3000:3000 bkimminich/juice-shop
+  Write-Host "Vulnerable Juice Shop running on 3000"
 }
