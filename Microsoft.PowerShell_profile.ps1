@@ -26,3 +26,12 @@ function Start-DockerRStudio() {
   Write-Host "Jupyter is running at http://localhost:8888/"
 }
 
+function Start-DockerOWASPZap() {
+  Param(
+    [string]$URL
+  )
+  # https://github.com/zaproxy/zaproxy/wiki/Docker
+  docker run owasp/zap2docker-stable
+  docker run -i owasp/zap2docker-stable zap-cli quick-scan --self-contained --start-options '-config api.disablekey=true' $URL
+  Write-Host "https://github.com/zaproxy/zaproxy/wiki/Docker"
+}

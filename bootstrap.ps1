@@ -34,3 +34,8 @@ if($false) {
   choco install consul
   choco install vault
 }
+
+# OWASP ZAP for web application security scanning
+if($false) {
+  choco install zap
+}
