@@ -35,3 +35,9 @@ function Start-DockerOWASPZap() {
   docker run -i owasp/zap2docker-stable zap-cli quick-scan --self-contained --start-options '-config api.disablekey=true' $URL
   Write-Host "https://github.com/zaproxy/zaproxy/wiki/Docker"
 }
+
+
+function Start-DockerWebGoat() {
+  docker pull webgoat/webgoat-8.0 docker run -p 8080:8080 -t webgoat/webgoat-8.0
+  Write-Host "Webgoat running on 8080"
+}
