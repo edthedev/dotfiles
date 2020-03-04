@@ -1,8 +1,8 @@
 # dotfiles
-My Linux dot files.
 
-# Setup
-Copy the file `setup.sh` to the destination system.
-Source it there.
+My Linux dot files. These are shared so that I can easily share a link to a tip or trick.
 
-Make sure your shell is set to PowerShell
+## Setup
+
+`bootstrap.ps1` - Script I use to setup on Windows. Mostly relies on Chocolatey, of course.
+`bootstrap.sh` - Script I use to setup on Linux. Makes many decisions, as some of my Linux hosts are for targeted purposes.
