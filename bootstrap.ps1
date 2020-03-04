@@ -14,6 +14,9 @@ if(! $profileContents -contains $sourceMeLine) {
   Add-Content -Path $profile -Value $sourceMeLine
 }
 # Install Chocolatey
+if($false) {
+  choco install docker-desktop
+}
 
 # Install Python3 and Pip
 
