@@ -12,6 +12,8 @@ $ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
 $ENV:PATH+=";C:\Program Files\nodejs" # KataKoda wants to add tools via npm
 $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 
+
+
 function Start-Vault() {
   consul agent -dev # Run in Dev Mode
   vault sever -config c:\src\dotfiles\vaultconfig.hcl -address=http://127.0.0.1:8200 # Use local dev Consul as storage
@@ -47,4 +49,14 @@ function Start-DockerJuiceShop() {
   docker pull bkimminich/juice-shop
   docker run --rm -p 3000:3000 bkimminich/juice-shop
   Write-Host "Vulnerable Juice Shop running on 3000"
+}
+
+# Import some home grown PowerShell modules, if they are installed.
+$modPaths = @("C:\src\toybox\toybox.psm1")
+$modPaths | ForEach-Object {
+  Write-Host $_
+  $_ | Format-Table
+  if(Test-Path -Path $_) {
+    Import-Module $_
+  }
 }
