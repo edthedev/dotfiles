@@ -1,7 +1,7 @@
 $TOYBOX_ROOT = "C:\src\dotfiles\toybox"
 
-function Start-DockerPythonBash {
-  docker run -it python /bin/bash
-}
+# function Start-DockerPythonWhatever {
+#   docker run -it python /bin/bash
+# }
 
-Export-ModuleMember -Function Start-DockerPythonBash
+# Export-ModuleMember -Function Start-DockerPythonWhatever

@@ -60,3 +60,11 @@ $modPaths | ForEach-Object {
     Write-Host "Loaded $_"
   }
 }
+
+function Start-DockerPython3Bash {
+  docker run -it python /bin/bash
+}
+
+function Start-DockerPython2Bash {
+  docker run -it python:2-buster /bin/bash
+}
