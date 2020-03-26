@@ -52,11 +52,11 @@ function Start-DockerJuiceShop() {
 }
 
 # Import some home grown PowerShell modules, if they are installed.
-$modPaths = @("C:\src\toybox\toybox.psm1")
+$modPaths = @("C:\src\dotfiles\ToyBox\toybox.psm1")
 $modPaths | ForEach-Object {
-  Write-Host $_
   $_ | Format-Table
   if(Test-Path -Path $_) {
     Import-Module $_
+    Write-Host "Loaded $_"
   }
 }
