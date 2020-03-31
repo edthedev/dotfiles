@@ -42,3 +42,5 @@ if($false) {
 if($false) {
   choco install zap
 }
+
+## TODO: Can I set this via command line: chrome://flags/#enable-force-dark 
