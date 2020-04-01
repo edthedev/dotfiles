@@ -7,10 +7,10 @@ $sourceMeLine = '$profileContents = [string]::join([environment]::newline, (get-
 $sourceMeLine += $sourceMeFile
 $sourceMeLine += '));invoke-expression $profileContents'
 
-Write-Host $sourceMeLine
+# Write-Host $sourceMeLine
 
 $doneFlagFile = "./DONE.md"
-$doBootStrap = Test-Path -Path $doneFlagFile
+$doBootStrap = -Not (Test-Path -Path $doneFlagFile)
 
 $profileContents = Get-Content $profile 
 if(! $profileContents -contains $sourceMeLine) {
