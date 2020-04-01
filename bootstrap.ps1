@@ -43,4 +43,8 @@ if($false) {
   choco install zap
 }
 
+# Install GNU Make for Windows
+if($false) {
+  choco install make
+}
 ## TODO: Can I set this via command line: chrome://flags/#enable-force-dark 
