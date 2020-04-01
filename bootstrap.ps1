@@ -9,6 +9,9 @@ $sourceMeLine += '));invoke-expression $profileContents'
 
 Write-Host $sourceMeLine
 
+$doneFlagFile = "./DONE.md"
+$doBootStrap = Test-Path -Path $doneFlagFile
+
 $profileContents = Get-Content $profile 
 if(! $profileContents -contains $sourceMeLine) {
   Add-Content -Path $profile -Value $sourceMeLine
@@ -48,3 +51,8 @@ if($false) {
   choco install make
 }
 ## TODO: Can I set this via command line: chrome://flags/#enable-force-dark 
+
+if($doBootStrap) {
+  # DONE!
+  New-Item -ItemType File -Path $doneFlagFile
+}
