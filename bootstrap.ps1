@@ -16,7 +16,9 @@ $profileContents = Get-Content $profile
 if(! $profileContents -contains $sourceMeLine) {
   Add-Content -Path $profile -Value $sourceMeLine
 }
-# Install Chocolatey
+
+# TODO Install Chocolatey
+
 if($false) {
   choco install docker-desktop
 }
@@ -55,4 +57,9 @@ if($false) {
 if($doBootStrap) {
   # DONE!
   New-Item -ItemType File -Path $doneFlagFile
+}
+
+# ArchiMate for enterprise modeling
+if($false) {
+  choco install archi
 }
