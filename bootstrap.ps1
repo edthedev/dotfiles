@@ -63,3 +63,7 @@ if($doBootStrap) {
 if($false) {
   choco install archi
 }
+
+if($false) {
+  choco install powershell-core
+}
