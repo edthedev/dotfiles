@@ -68,3 +68,7 @@ function Start-DockerPython3Bash {
 function Start-DockerPython2Bash {
   docker run -it python:2-buster /bin/bash
 }
+
+function Stop-Docker {
+  docker stop $(docker ps -a -q)
+}
