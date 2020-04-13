@@ -23,6 +23,10 @@ if($false) {
   choco install docker-desktop
 }
 
+if($false) {
+  choco install gnupg
+  gpg --full-generate-key
+}
 # Install Python3 and Pip
 
 # Install Stub PowerShell Profile that sources the one from DotFiles
