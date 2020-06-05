@@ -1,4 +1,11 @@
 
+# Courtesty of MKletz
+# Get-ChildItem -Path 'C:\Repos' -Filter "*.psd1" -Recurse | ForEach-Object -Process {
+#     $Path = Split-Path -Path $_.Directory -Parent
+#     $env:PSModulePath = $env:PSModulePath + ";$($Path)"
+#}
+$env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
+
 # Kali linux env
 $ENV:PATH +=":/home/delaport/development/flutter/bin" # Flutter in Kali under WSL
 
@@ -24,6 +31,7 @@ function New-DockerRStudio() {
 }
 function Start-DockerRStudio() {
   docker start rpython
+  jupyter notebook list
   Write-Host "R Studio is running at http://localhost:8787/"
   Write-Host "Jupyter is running at http://localhost:8888/"
 }
@@ -49,6 +57,11 @@ function Start-DockerJuiceShop() {
   docker pull bkimminich/juice-shop
   docker run --rm -p 3000:3000 bkimminich/juice-shop
   Write-Host "Vulnerable Juice Shop running on 3000"
+}
+
+function Start-DockerGrafana() {
+  docker run --rm -d --name=grafana -p 3001:3001 -user $ID --volume "C:\src\data:/var/lib/grafana" grafana/grafana
+  Write-Host "Grafana running on 3001"
 }
 
 # Import some home grown PowerShell modules, if they are installed.
