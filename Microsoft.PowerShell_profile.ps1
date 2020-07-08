@@ -1,4 +1,5 @@
 
+Import-Module posh-git
 # Courtesty of MKletz
 # Get-ChildItem -Path 'C:\Repos' -Filter "*.psd1" -Recurse | ForEach-Object -Process {
 #     $Path = Split-Path -Path $_.Directory -Parent
@@ -93,4 +94,10 @@ function New-DockerAirflow {
 
 function Start-DockerAirflow {
   docker run airflow -f webserver
+}
+
+function Start-DockerFindSecrets {
+  # docker run -v "$((Get-Item .).FullName)":/etc/src dxa4481/trufflehog /bin/bash
+  # Write-Host "Current folder mounted as /etc/src"
+  docker run -v /c/src:/etc/src dxa4481/trufflehog /etc/src/SecOps-Tools
 }
