@@ -85,3 +85,12 @@ function Start-DockerPython2Bash {
 function Stop-Docker {
   docker stop $(docker ps -a -q)
 }
+
+function New-DockerAirflow {
+  docker run -v ./:/etc/myscripts apache/airflow /bin/bash /etc/myscripts/airflow.sh
+
+}
+
+function Start-DockerAirflow {
+  docker run airflow -f webserver
+}
