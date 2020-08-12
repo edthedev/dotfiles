@@ -1,4 +1,11 @@
 
+
+## Setup reminder:
+# code $profile
+# Set-ExecutionPolicy RemoteSigned
+# . C:\src\dotfiles\Microsoft.PowerShell_profile.ps1
+
+
 Import-Module posh-git
 # Courtesty of MKletz
 # Get-ChildItem -Path 'C:\Repos' -Filter "*.psd1" -Recurse | ForEach-Object -Process {
@@ -156,3 +163,14 @@ Function ConvertTo-ASCIIArt {
       Write-Verbose "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
   } #end
 }
+
+
+#### User Configuraable Variables ####
+## https://github.com/techservicesillinois/Powershell-SupportApp
+
+# Customize the title bar of your console.
+[string]$SA_title="PowerShell Support App for U of I"
+# Path to a text editor
+[string]$SA_TextEditor="C:\Program Files (x86)\Notepad++\notepad++.exe"
+$SA_Config_base=$true
+import-module .\PowerShellSupportAppV2\PowerShellSupportAppV2.psm1
