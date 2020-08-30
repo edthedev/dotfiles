@@ -19,6 +19,10 @@ if [ ! -f ~/.vimrc ]; then
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 fi
 
+if [ ! -f ~/.i3 ]; then
+	sudo apt-get install i3
+fi
+
 ## Setup PowerShell
 if [ ! -f ~/.config/powershell/Microsoft.PowerShell_profile.ps1 ]; then
 	sudo apt-get install powershell
