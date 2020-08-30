@@ -53,3 +53,7 @@ if [ ! -d ~/.vim/bundle ]; then
  	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +BundleInstall +qall
 fi
+
+echo "https://github.com/settings/keys"
+echo "vim .git/config -- add: url = git@github.com:edthedev/dotfiles.git"
+cat ~/.ssh/id_rsa.pub
