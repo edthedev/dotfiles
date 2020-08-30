@@ -4,6 +4,8 @@
 
 echo "Git, vi are already installed."
 
+mkdir -p ~/.installed
+
 ## Setup Git and Vim
 if [ ! -d ~/dotfiles ]; then
 	sudo apt-get install git vim-nox
@@ -19,8 +21,9 @@ if [ ! -f ~/.vimrc ]; then
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 fi
 
-if [ ! -f ~/.i3 ]; then
+if [ ! -f ~/.installed/i3 ]; then
 	sudo apt-get install i3
+	touch ~/.installed/i3
 fi
 
 ## Setup PowerShell
@@ -54,6 +57,16 @@ if [ ! -d ~/.vim/bundle ]; then
 	vim +BundleInstall +qall
 fi
 
+if [ ! -d ~/.installed/code ]; then
+	# sudo apt install snapd
+	# sudo snap install --classic code
+	wget https://packagecloud.io/headmelted/codebuilds/gpgkey -O - | sudo apt-key add -
+  curl -L https://raw.githubusercontent.com/headmelted/codebuilds/master/docs/installers/apt.sh | sudo bash
+	touch ~/.installed/code
+fi
+
 echo "https://github.com/settings/keys"
 echo "vim .git/config -- add: url = git@github.com:edthedev/dotfiles.git"
 cat ~/.ssh/id_rsa.pub
+
+ls -al ~/.installed
