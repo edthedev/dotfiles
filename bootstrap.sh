@@ -8,9 +8,6 @@
 # You can scp just this file to the destination host,
 #   and then run it.
 
-# sudo apt-get install zsh
-# TODO: CURL me...
-
 ## Setup Git and Vim
 if [ ! -d ~/dotfiles ]; then
 	sudo apt-get install git install vim
