@@ -5,4 +5,4 @@ if [ ! -f ~/.installed/gimp ]; then
 	touch ~/.installed/gimp
 fi
 
-ls -al ~/.installeear
+ls -al ~/.installed

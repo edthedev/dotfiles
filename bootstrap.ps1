@@ -19,18 +19,6 @@ if(! $profileContents -contains $sourceMeLine) {
 
 # TODO Install Chocolatey
 
-# PoshGit
-PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
-
-
-if($false) {
-  choco install docker-desktop
-}
-
-if($false) {
-  choco install gnupg
-  gpg --full-generate-key
-}
 # Install Python3 and Pip
 
 # Install Stub PowerShell Profile that sources the one from DotFiles
@@ -56,10 +44,6 @@ if($false) {
   choco install zap
 }
 
-# Install GNU Make for Windows
-if($false) {
-  choco install make
-}
 ## TODO: Can I set this via command line: chrome://flags/#enable-force-dark 
 
 if($doBootStrap) {
@@ -72,6 +56,5 @@ if($false) {
   choco install archi
 }
 
-if($false) {
-  choco install powershell-core
-}
+# Install dev tools
+./install/dev.ps1

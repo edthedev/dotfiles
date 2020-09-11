@@ -29,7 +29,11 @@ $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 
 
 function Find-LargeFiles() {
-   Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, Location
+   Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, FullName
+}
+
+function List-DriveSpace() {
+  Get-PSDrive C | Select-Object Used,Free
 }
 
 
@@ -111,6 +115,11 @@ function Start-DockerFindSecrets {
   # docker run -v "$((Get-Item .).FullName)":/etc/src dxa4481/trufflehog /bin/bash
   # Write-Host "Current folder mounted as /etc/src"
   docker run -v /c/src:/etc/src dxa4481/trufflehog /etc/src/SecOps-Tools
+}
+
+function Export-VSCodeExtensions {
+  code --list-extensions | Out-File -FilePath /src/dotfiles/vscode-extensions.txt
+  Get-Content -Path /src/dotfiles/vscode-extensions.txt
 }
 
 
