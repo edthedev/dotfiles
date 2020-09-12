@@ -13,6 +13,10 @@ $ENV:PATH+=";C:\Program Files\nodejs" # KataKoda wants to add tools via npm
 $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 
 
+function Find-LargeFiles() {
+   Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, Location
+}
+
 
 function Start-Vault() {
   consul agent -dev # Run in Dev Mode
