@@ -29,7 +29,11 @@ $ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 
 
 function Find-LargeFiles() {
-   Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, Location
+   Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, FullName
+}
+
+function List-DriveSpace() {
+  Get-PSDrive C | Select-Object Used,Free
 }
 
 
