@@ -1,4 +1,19 @@
 
+
+## Setup reminder:
+# code $profile
+# Set-ExecutionPolicy RemoteSigned
+# . C:\src\dotfiles\Microsoft.PowerShell_profile.ps1
+
+
+Import-Module posh-git
+# Courtesty of MKletz
+# Get-ChildItem -Path 'C:\Repos' -Filter "*.psd1" -Recurse | ForEach-Object -Process {
+#     $Path = Split-Path -Path $_.Directory -Parent
+#     $env:PSModulePath = $env:PSModulePath + ";$($Path)"
+#}
+$env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
+
 # Kali linux env
 $ENV:PATH +=":/home/delaport/development/flutter/bin" # Flutter in Kali under WSL
 
@@ -28,6 +43,7 @@ function New-DockerRStudio() {
 }
 function Start-DockerRStudio() {
   docker start rpython
+  jupyter notebook list
   Write-Host "R Studio is running at http://localhost:8787/"
   Write-Host "Jupyter is running at http://localhost:8888/"
 }
@@ -55,6 +71,11 @@ function Start-DockerJuiceShop() {
   Write-Host "Vulnerable Juice Shop running on 3000"
 }
 
+function Start-DockerGrafana() {
+  docker run --rm -d --name=grafana -p 3001:3001 -user $ID --volume "C:\src\data:/var/lib/grafana" grafana/grafana
+  Write-Host "Grafana running on 3001"
+}
+
 # Import some home grown PowerShell modules, if they are installed.
 $modPaths = @("C:\src\dotfiles\ToyBox\toybox.psm1")
 $modPaths | ForEach-Object {
@@ -76,3 +97,84 @@ function Start-DockerPython2Bash {
 function Stop-Docker {
   docker stop $(docker ps -a -q)
 }
+
+function New-DockerAirflow {
+  docker run -v ./:/etc/myscripts apache/airflow /bin/bash /etc/myscripts/airflow.sh
+
+}
+
+function Start-DockerAirflow {
+  docker run airflow -f webserver
+}
+
+function Start-DockerFindSecrets {
+  # docker run -v "$((Get-Item .).FullName)":/etc/src dxa4481/trufflehog /bin/bash
+  # Write-Host "Current folder mounted as /etc/src"
+  docker run -v /c/src:/etc/src dxa4481/trufflehog /etc/src/SecOps-Tools
+}
+
+
+#requires -version 5.1
+#ConvertTo-ASCIIArt.ps1
+ 
+<#
+font list at https://artii.herokuapp.com/fonts_list
+font names are case-sensitive
+ 
+invoke-restmethod https://artii.herokuapp.com/fonts_list
+ 
+#>
+ 
+<#
+.SYNOPSIS
+Output strings as ASCII art fonts.
+
+.EXAMPLE
+cart "Testing"-Font cursive
+
+.NOTES
+From https://jdhitsolutions.com/blog/powershell/7278/friday-fun-powershell-ascii-art/
+#>
+Function ConvertTo-ASCIIArt {
+  [cmdletbinding()]
+  [alias("cart")]
+  [outputtype([System.String])]
+  Param(
+      [Parameter(Position = 0, Mandatory, HelpMessage = "Enter a short string of text to convert", ValueFromPipeline)]
+      [ValidateNotNullOrEmpty()]
+      [string]$Text,
+      [Parameter(Position = 1,HelpMessage = "Specify a font from https://artii.herokuapp.com/fonts_list. Font names are case-sensitive")]
+      [ValidateNotNullOrEmpty()]
+      [string]$Font = "big"
+  )
+
+  Begin {
+      Write-Verbose "[$((Get-Date).TimeofDay) BEGIN] Starting $($myinvocation.mycommand)"
+  } #begin
+
+  Process {
+      Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Processing $text with font $Font"
+      $testEncode = [uri]::EscapeDataString($Text)
+      $url = "http://artii.herokuapp.com/make?text=$testEncode&font=$Font"
+      Try {
+          Invoke-Restmethod -Uri $url -DisableKeepAlive -ErrorAction Stop
+      }
+      Catch {
+          Throw $_
+      }
+  } #process
+  End {
+      Write-Verbose "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+  } #end
+}
+
+
+#### User Configuraable Variables ####
+## https://github.com/techservicesillinois/Powershell-SupportApp
+
+# Customize the title bar of your console.
+[string]$SA_title="PowerShell Support App for U of I"
+# Path to a text editor
+[string]$SA_TextEditor="C:\Program Files (x86)\Notepad++\notepad++.exe"
+$SA_Config_base=$true
+import-module .\PowerShellSupportAppV2\PowerShellSupportAppV2.psm1
