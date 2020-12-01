@@ -16,5 +16,5 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#215732",
-  "python.pythonPath": "c:\\src\\dotfiles\\env\\Scripts\\python.exe"
+  "python.pythonPath": "/usr/bin/python3"
 }
