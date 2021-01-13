@@ -11,7 +11,7 @@
 
 .EXAMPLE
 
-> ./Teams2Markdown.ps1 -Path C:\tmp\TeamsExport.xlsx | Out-File -Path c:\TeamsMarkdown.md
+> ./Teams2Markdown.ps1 -Path C:\tmp\TeamsExport.xlsx | Out-File c:\tmp\TeamsMarkdown.md
 
 .NOTES
 
