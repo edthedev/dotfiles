@@ -10,13 +10,20 @@ Requires PsIni
 
 #>
 
+# --- Arrange
 $FileContent = Get-IniContent ".salesforce.conf"
-
 $url = $FileContent['salesforce']['url']
-Write-Output $url
+$api_url = "$url/services/data"
 
-$aboutAPI = curl $url
+# --- Act
 
-$aboutAPI | Format-List
+$aboutAPI = curl $api_url
+
+# --- Assert
+
+# Write-Output $api_url
+# $aboutAPI | Format-List
+$basicAPIInfo = $aboutAPI.Content | ConvertFrom-Json
+return $basicAPIInfo
 
 # Write-Output $aboutAPI.
