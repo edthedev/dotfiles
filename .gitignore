@@ -4,3 +4,4 @@ DONE.md
 env/*
 *.json
 OneTrust.ipynb
+*.conf
