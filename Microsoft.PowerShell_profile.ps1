@@ -117,6 +117,11 @@ function Start-DockerFindSecrets {
   docker run -v /c/src:/etc/src dxa4481/trufflehog /etc/src/SecOps-Tools
 }
 
+function Export-VSCodeExtensions {
+  code --list-extensions | Out-File -FilePath /src/dotfiles/vscode-extensions.txt
+  Get-Content -Path /src/dotfiles/vscode-extensions.txt
+}
+
 
 #requires -version 5.1
 #ConvertTo-ASCIIArt.ps1

@@ -6,8 +6,8 @@ echo "Git, vi are already installed."
 
 mkdir -p ~/.installed
 
-## Setup Git and Vim
 if [ ! -d ~/dotfiles ]; then
+	echo "************** Setup Git and Vim"
 	sudo apt-get install git vim-nox
 	cd ~; git clone git@github.com:edthedev/dotfiles.git
 fi
@@ -15,6 +15,7 @@ fi
 # sudo apt-get install vim-nox
 
 if [ ! -f ~/.vimrc ]; then
+	echo "************** Configure Git and link Vimrc"
 	git config --global user.email "edward@delaporte.us"
 	git config --global user.name "Edward Delaporte"
 	git config --global core.editor /usr/bin/vim
@@ -22,12 +23,14 @@ if [ ! -f ~/.vimrc ]; then
 fi
 
 if [ ! -f ~/.installed/i3 ]; then
+	echo "************** Install i3 Window Manager"
 	sudo apt-get install i3
 	touch ~/.installed/i3
 fi
 
 ## Setup PowerShell
 if [ ! -f ~/.config/powershell/Microsoft.PowerShell_profile.ps1 ]; then
+	echo "************** Install PowerShell and setup profile"
 	sudo apt-get install powershell
 	chsh --shell /usr/bin/pwsh
 	mkdir -p ~/.config/powershell/
@@ -36,6 +39,7 @@ fi
 
 ## Create SSH Keys
 if [ ! -f ~/.ssh/id_rsa ]; then
+	echo "************** Generate an SSH key"
 	ssh-keygen
 fi
 
@@ -47,17 +51,20 @@ fi
 
 ## Setup Screen
 if [ ! -f ~/.screenrc ]; then
+	echo "************** Install Screen"
 	sudo apt-get install screen
 	ln -s ~/dotfiles/screenrc ~/.screenrc
 fi
 
 ## Setup Vundle for Vim
 if [ ! -d ~/.vim/bundle ]; then
+	echo "************** Setup Vundle for Vim"
  	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +BundleInstall +qall
 fi
 
 if [ ! -d ~/.installed/code ]; then
+	echo "************** Install Visual Studio Code"
 	# sudo apt install snapd
 	# sudo snap install --classic code
 	wget https://packagecloud.io/headmelted/codebuilds/gpgkey -O - | sudo apt-key add -
