@@ -42,3 +42,37 @@ sudo reboot
 ```
 
 [Explanation of availabe over-clock settings](https://haydenjames.io/raspberry-pi-3-overclock/)
+
+## Set up for TV Remote Control
+
+### TODO: Install XMBC / Kodi
+
+Once called XBox Media Center.
+
+Maybe install Kodi or [OSMC](https://osmc.tv/download/)
+
+Simplest is to image the whole install...
+https://www.raspberrypi.org/documentation/usage/kodi/README.md
+
+```powershell
+sudo apt install kodi
+```
+
+### TODO: Commands from TV remote into Pi
+
+HDMI can send TV remote commands to the Pi via [CEC](https://github.com/Pulse-Eight).
+
+List connected devices:
+
+```powershell
+cec-client -l
+```
+
+List available commands
+```powershell
+echo h | cec-client -s -d 1
+```
+
+
+
+[Reference](https://ownyourbits.com/2017/02/02/control-your-raspberry-pi-with-your-tv-remote/)
