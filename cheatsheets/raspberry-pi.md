@@ -1,4 +1,20 @@
 
+## Remote Access
+
+Under Preferences
+
++ Change Password
++ Under Interfaces - Enable SSH and VNC
+
+On a Windows computer:
+
+```powershell
+choco install vnc-viewer
+```
+
+VNC remote host will be `raspberrypi.local`.
+User is `pi`. Password is whatever you set in the step above.
+
 ## Overclock
 
 Watch your speed with one of these commands:
@@ -25,4 +41,4 @@ Reboot to apply changes.
 sudo reboot
 ```
 
-[Explanation of availabe settings](https://haydenjames.io/raspberry-pi-3-overclock/)
+[Explanation of availabe over-clock settings](https://haydenjames.io/raspberry-pi-3-overclock/)
