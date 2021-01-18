@@ -43,6 +43,17 @@ sudo reboot
 
 [Explanation of availabe over-clock settings](https://haydenjames.io/raspberry-pi-3-overclock/)
 
+## Set up for TV Use
+
+### Change Scale
+
++ Right-Click
++ Desktop Preferences
++ System
++ Font: 22+
++ Mouse Cursor: Large
+
+
 ## Set up for TV Remote Control
 
 ### TODO: Install XMBC / Kodi
