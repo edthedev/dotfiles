@@ -59,14 +59,6 @@ Plugin 'gmarik/vundle'
 
 
 " let g:vimroom_ctermbackground = "black"
-"
-
-" Trac plugin for Vim
-" Plugin 'mjbrownie/Trac.vim'
-" :help trac
-" let g:tracServerList = {}
-" let g:tracServerList['sdg'] = 
-""	\'http://username:password@trac.nukulele.org/login/xmlrpc'
 
 "Plugin 'fmoralesc/vim-pad'
 " let g:pad_dir='~/Copy/notes'
@@ -81,10 +73,6 @@ Plugin 'gmarik/vundle'
 " EdTheDev's Vim configuration for TODO list items.
 " Plugin 'edthedev/vim-todo'
 " let g:vim_todo_keys = 1
-
-" Automatic closing of parenthesis
-" Plugin 'Raimondi/delimitMate'
-"  - Caused syntax color problems for RST?
 
 " Browsing files made easier.
 " Plugin 'scrooloose/nerdtree'
@@ -154,17 +142,7 @@ nnoremap <leader>w :Goyo<Cr>
 " Better status line.
 Plugin 'bling/vim-airline'
 
-" Plugin 'vimwiki/vimwiki'
-" let g:vimwiki_list = [{'path': '~/Box Sync/wiki', 'path_html': '~/cites_wiki_html/'},{'path': '~/Dropbox/wiki', 'path_html': '~/vim_wiki_html/'}]
-
-Plugin 'Windows-PowerShell-Syntax-Plugin'
-
-" HTML
-" Bundle 'othree/html5.vim'
-"Bundle 'evidens/vim-twig'
-"Bundle 'tokutake/twig-indent'
-"Bundle 'groenewege/vim-less'
-"Bundle 'hail2u/vim-css3-syntax'
+" Plugin 'Windows-PowerShell-Syntax-Plugin'
 
 " Quick complete of stuff...
 " Plugin 'SirVer/ultisnips'
@@ -202,6 +180,5 @@ set softtabstop=4 " makes the spaces feel like real tabs
 " Sensible default for everything else.
 set tabstop=2
 set shiftwidth=2
-
 
 colorscheme slate
