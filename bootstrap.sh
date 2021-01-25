@@ -21,6 +21,7 @@ if [ ! -f ~/.vimrc ]; then
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 fi
 
+
 ## Setup PowerShell
 if [ ! -f ~/.config/powershell/Microsoft.PowerShell_profile.ps1 ]; then
 	sudo apt-get install powershell
@@ -56,6 +57,16 @@ fi
 
 ## Setup Vundle for Vim
 if [ ! -d ~/.vim/bundle ]; then
+	echo "*** Setup Vundle for Vim***"
  	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+	sudo apt-get install vim-gtk3 # For python support
+	sudo update-alternatives --set editor /usr/bin/vim.gtk3  
+	sudo update-alternatives --set vim /usr/bin/vim.gtk3  
+	sudo update-alternatives --set vi /usr/bin/vim.gtk3  
+
 	vim +BundleInstall +qall
+
 fi
+
+

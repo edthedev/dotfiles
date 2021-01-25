@@ -12,9 +12,9 @@
 " vim +BundleInstall +qall
 "
 " Automatically setup Vundle on first run
-if !isdirectory(expand("~/.vim/bundle/Vundle.vim"))
-     call system("git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle")
-     endif
+" if !isdirectory(expand("~/.vim/bundle/Vundle.vim"))
+"     call system("git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle")
+"     endif
 
 " Let the leader key be ,  
 let mapleader=","
