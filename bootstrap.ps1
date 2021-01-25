@@ -58,3 +58,5 @@ if($false) {
 
 # Install dev tools
 ./install/dev.ps1
+
+PowerShellGet\Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force
