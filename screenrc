@@ -18,4 +18,8 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}* %t%?(%u)%?
 # screen -t shell2 1 mcabber
 
 # Pick ye olde shell.
-shell /bin/zsh
+# shell /bin/zsh
+
+if [ -d /opt/powershell ]; then
+	shell /opt/powershell/pwsh
+fi
