@@ -262,3 +262,5 @@ set softtabstop=4 " makes the spaces feel like real tabs
 set tabstop=2
 set shiftwidth=2
 
+
+colorscheme slate
