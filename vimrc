@@ -45,9 +45,6 @@ call vundle#begin()
 " required! 
 Plugin 'gmarik/vundle'
 
-" Helper scripts for editing ReStructuredText
-Plugin 'edthedev/text-helper.vim'
-
 " EdTheDev's Minion file organizer.
 " Plugin 'edthedev/minion'
 " let g:minion_map_keys = 0
@@ -98,7 +95,7 @@ Plugin 'edthedev/text-helper.vim'
 
 " Markdown highlighting
 Plugin 'tpope/vim-markdown'
-let g:markdown_github_languages = ['sh', 'python']
+" let g:markdown_github_languages = ['sh', 'python']
 
 "Plugin 'jceb/vim-orgmode'
 "let g:org_todo_keywords=['TODO', 'DONE', 'WAITING', 'CANCELED']
