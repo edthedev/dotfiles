@@ -1,13 +1,32 @@
+<#
+.SYNOPSIS
+
+Setup my Windows PowerShell environment.
+
+.DESCRIPTION
+
+.NOTES
+
+Relies heavily on the Chocolatey package manager.
+
+#>
+
+param(
+  [Parameter(Mandatory=$true, HelpMessage="Install Development Tools")]
+  [switch]$dev_tools,
+  [Parameter(Mandatory=$true, HelpMessage="Install Modeling Tools")]
+  [switch]$archi,
+)
+
 # Setup my PowerShell Profile (on Windows)
 if(-Not(Test-Path -Path $profile)) {
   New-Item -Path "$profile" -ItemType File
 }
+
 $sourceMeFile = "$pwd\Microsoft.PowerShell_profile.ps1"
 $sourceMeLine = '$profileContents = [string]::join([environment]::newline, (get-content -path'
 $sourceMeLine += $sourceMeFile
 $sourceMeLine += '));invoke-expression $profileContents'
-
-# Write-Host $sourceMeLine
 
 $doneFlagFile = "./DONE.md"
 $doBootStrap = -Not (Test-Path -Path $doneFlagFile)
@@ -17,7 +36,12 @@ if(! $profileContents -contains $sourceMeLine) {
   Add-Content -Path $profile -Value $sourceMeLine
 }
 
-# TODO Install Chocolatey
+## Install Chocolatey
+$testchoco = powershell choco -v
+if(-not($testchoco)){
+  Write-Output "Seems Chocolatey is not installed, installing now..."
+  Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+}
 
 # Install Python3 and Pip
 
@@ -30,13 +54,6 @@ if(-Not(Test-Path -Path $destFile)) {
 } else {
   # Brute force ensure we update our git copy once in awhile.
   Copy-Item -Path $destFile -Destination ./profiles.json
-}
-
-# Vault for secret management
-# ... and really for coding better intergrations i.e. for RobotFramework
-if($false) {
-  choco install consul
-  choco install vault
 }
 
 # OWASP ZAP for web application security scanning
@@ -52,11 +69,15 @@ if($doBootStrap) {
 }
 
 # ArchiMate for enterprise modeling
-if($false) {
+if($archi) {
   choco install archi
 }
 
 # Install dev tools
-./install/dev.ps1
+if($dev_tools){
+  ./install/dev.ps1
+}
 
 PowerShellGet\Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force
+
+choco install vim
