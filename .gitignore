@@ -6,3 +6,4 @@ env/*
 OneTrust.ipynb
 *.conf
 *.*~
+*.swp
