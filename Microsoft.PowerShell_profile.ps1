@@ -60,6 +60,6 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
 Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
 
-. C:/src/minion/alias.ps1
+. C:\src\minion\minion_ps_alias.ps1
 
 cd c:\src
