@@ -62,6 +62,14 @@ if($IsWindows){
 }
 
 function New-JournalToday() {
+	# gvim "$(mn -today)"
 	vim "$(mn -today)"
 }
 New-Alias today New-JournalToday
+
+# Linux-like up/down in shell
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward 
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
+Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
+
+
