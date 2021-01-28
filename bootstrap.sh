@@ -69,4 +69,6 @@ if [ ! -d ~/.vim/bundle ]; then
 
 fi
 
-
+# Vim-Plu
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
