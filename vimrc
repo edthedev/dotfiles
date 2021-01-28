@@ -27,24 +27,25 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 " Markdown highlighting
-Plugin 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 " let g:markdown_github_languages = ['sh', 'python']
 
 " Distraction free writing.
-Plugin 'junegunn/goyo.vim'
-nnoremap <leader>w :Goyo<Cr>
-
+Plug 'junegunn/goyo.vim'
 
 " Better status line.
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Plugin 'Windows-PowerShell-Syntax-Plugin'
 
 " PowerShell Highlighting and detection
-Plugin 'pprovost/vim-ps1'
+Plug 'pprovost/vim-ps1'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on     " required for Vundle Bundle
+
+nnoremap <leader>w :Goyo<Cr>
 
 " If not something else, then assume Markdown
 set filetype=markdown

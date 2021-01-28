@@ -85,3 +85,6 @@ choco install vim
 # Install vim-plug
 iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni $HOME/vimfiles/autoload/plug.vim -Force
+
+# Deploy a stub file to source my vimrc when on Windows.
+cp win_vimrc ~/.vimrc
