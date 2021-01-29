@@ -16,7 +16,10 @@ $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$
 $ENV:PATH +=":/home/delaport/development/flutter/bin" # Flutter in Kali under WSL
 
 # Some Paths that are annoying to find/restore if the installer fails
-$IsWindows = ($env:OS -eq "Windows_NT")
+if($IsWindows -eq "") {
+	# Bootstrap for older PowerShell
+	$IsWindows = ($env:OS -eq "Windows_NT")
+}
 if($IsWindows){
 	$ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin" # One Editor to rule them all
 	$ENV:PATH+=";C:\Program Files\Python38\Scripts\;C:\Program Files\Python38\" # Python latest as of 2019 December
