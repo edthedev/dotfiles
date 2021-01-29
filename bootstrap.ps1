@@ -19,7 +19,8 @@ param(
   # [Parameter(Mandatory=$true, HelpMessage="Install Vim")]
   [switch]$vim,
   # [Parameter(Mandatory=$true, HelpMessage="Setup PowerShell Profile")]
-  [switch]$profile
+  [switch]$profile,
+  [switch]$fav_ps_modules
 )
 
 ## Always Install Chocolatey if missing
@@ -57,4 +58,9 @@ if($vim){
 
 if($profile){
   ./install/profile.ps1
+}
+
+if($fav_ps_modules) {
+  Write-Host "Reminder: Need to install these modules with admin escalation."
+  ./install/admin/favorite-ps-modules.ps1
 }
