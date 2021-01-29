@@ -40,3 +40,5 @@ else {
 #  # Brute force ensure we update our git copy once in awhile.
 #  Copy-Item -Path $destFile -Destination ./profiles.json
 #}
+
+PowerShellGet\Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force
