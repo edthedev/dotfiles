@@ -7,7 +7,6 @@ Setup EdTheDev's PowerShell Profile
 
 #>
 
-
 # Setup my PowerShell Profile (on Windows)
 if(-Not(Test-Path -Path $profile)) {
   New-Item -Path "$profile" -ItemType File
@@ -19,12 +18,18 @@ $sourceMeLine = '$profileContents = [string]::join([environment]::newline, (get-
 $sourceMeLine += $sourceMeFile
 $sourceMeLine += '));invoke-expression $profileContents'
 
-$doneFlagFile = "./DONE.md"
-$doBootStrap = -Not (Test-Path -Path $doneFlagFile)
+# $doneFlagFile = "./DONE.md"
+# $doBootStrap = -Not (Test-Path -Path $doneFlagFile)
 
-$profileContents = Get-Content $profile 
-if(! $profileContents -contains $sourceMeLine) {
-  Add-Content -Path $profile -Value $sourceMeLine
+$profileStuff = Get-Content -Path $profile 
+if($profileStuff -Contains $sourceMeLine) {
+    Write-Host "Found profile source line: $sourceMeLine"
+    Write-Host "in file $profile"
+}
+else {
+    Write-Host "Profile source line will be added to $profile"
+    Add-Content -Path $profile -Value "" # Blank line to enforce newline.
+    Add-Content -Path $profile -Value $sourceMeLine
 }
 
 # Install profile for Windows Terminal
