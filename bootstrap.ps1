@@ -16,6 +16,8 @@ param(
   [switch]$dev_tools,
   [Parameter(Mandatory=$true, HelpMessage="Install Modeling Tools")]
   [switch]$archi,
+  [Parameter(Mandatory=$true, HelpMessage="Install Vim")]
+  [switch]$vim,
 )
 
 # Setup my PowerShell Profile (on Windows)
@@ -78,13 +80,6 @@ if($dev_tools){
   ./install/dev.ps1
 }
 
-PowerShellGet\Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force
-
-choco install vim
-
-# Install vim-plug
-iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni $HOME/vimfiles/autoload/plug.vim -Force
-
-# Deploy a stub file to source my vimrc when on Windows.
-cp win_vimrc ~/.vimrc
+if($vim){
+  ./install/vim.ps1
+}
