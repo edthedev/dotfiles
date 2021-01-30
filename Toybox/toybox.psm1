@@ -6,11 +6,11 @@ $TOYBOX_ROOT = "C:\src\dotfiles\toybox"
 
 # Export-ModuleMember -Function Start-DockerPythonWhatever
 #
-function Find-LargeFiles() {
+function List-LargeFiles() {
 	 Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, FullName
 }
 
-function List-DriveSpace() {
+function Get-DriveSpace() {
 	Get-PSDrive C | Select-Object Used,Free
 }
 
@@ -19,6 +19,6 @@ function List-DriveSpace() {
 #  Get-Content -Path /src/dotfiles/vscode-extensions.txt
 #}
 
-Export-ModuleMember -Function List-DriveSpace
+Export-ModuleMember -Function Get-DriveSpace
 Export-ModuleMember -Function List-LargeFiles
 
