@@ -1,1 +1,0 @@
-$profileContents = [string]::join([environment]::newline, (get-content -pathC:\src\dotfiles\Microsoft.PowerShell_profile.ps1));invoke-expression $profileContents
