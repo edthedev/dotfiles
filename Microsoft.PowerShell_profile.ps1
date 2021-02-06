@@ -36,6 +36,10 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
 Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
 
-. C:\src\minion\minion_ps_alias.ps1
+# Minion commands - 'today'
+. C:\src\minion\profiles\alias.ps1
 
-cd c:\src
+# Unix dies hard.
+New-Alias which get-command
+
+# cd c:\src
