@@ -23,6 +23,9 @@ param(
   [switch]$fav_ps_modules
 )
 
+## Install SSH client
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+
 ## Always Install Chocolatey if missing
 $testchoco = powershell choco -v
 if(-not($testchoco)){
