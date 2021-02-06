@@ -44,6 +44,9 @@ Plug 'pprovost/vim-ps1'
 
 " Much better theme
 " Plug NLKNguyen/papercolor-theme
+"
+"
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -65,8 +68,16 @@ set softtabstop=4 " makes the spaces feel like real tabs
 set tabstop=2
 set shiftwidth=2
 
+" Working with Go
+au BufNewFile,BufRead *.go set noet ts=2 sw=2 sts=2
+
+" Working with Markdown
+
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 colorscheme slate
 " colorscheme papercolor
 set number
 
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
