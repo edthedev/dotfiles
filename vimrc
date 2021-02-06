@@ -81,3 +81,4 @@ set number
 set backupdir=c:\temp,.backup/,~/.backup/,/tmp//
 set directory=c:\temp,.swp/,~/.swp/,/tmp//
 set undodir=c:\temp,.undo/,~/.undo/,/tmp//
+set backspace=indent,eol,start " Do not be pedantic about backspace.
