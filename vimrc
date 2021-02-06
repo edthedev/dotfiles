@@ -27,7 +27,8 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 " Markdown highlighting
-Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 " let g:markdown_github_languages = ['sh', 'python']
 
 " Distraction free writing.
@@ -40,6 +41,9 @@ Plug 'bling/vim-airline'
 
 " PowerShell Highlighting and detection
 Plug 'pprovost/vim-ps1'
+
+" Much better theme
+" Plug NLKNguyen/papercolor-theme
 
 call plug#end()
 
@@ -61,5 +65,8 @@ set softtabstop=4 " makes the spaces feel like real tabs
 set tabstop=2
 set shiftwidth=2
 
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 colorscheme slate
+" colorscheme papercolor
 set number
+
