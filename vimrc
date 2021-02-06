@@ -78,6 +78,6 @@ colorscheme slate
 " colorscheme papercolor
 set number
 
-set backupdir=.backup/,~/.backup/,/tmp//
-set directory=.swp/,~/.swp/,/tmp//
-set undodir=.undo/,~/.undo/,/tmp//
+set backupdir=c:\temp,.backup/,~/.backup/,/tmp//
+set directory=c:\temp,.swp/,~/.swp/,/tmp//
+set undodir=c:\temp,.undo/,~/.undo/,/tmp//
