@@ -9,6 +9,7 @@ Requires PsIni
 > Install-Module PsIni
 
 #>
+function Connect-SalesforceAPI {
 
 # --- Arrange
 $FileContent = Get-IniContent ".salesforce.conf"
@@ -27,3 +28,4 @@ $basicAPIInfo = $aboutAPI.Content | ConvertFrom-Json
 return $basicAPIInfo
 
 # Write-Output $aboutAPI.
+}
