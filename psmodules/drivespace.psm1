@@ -15,7 +15,10 @@ Display the free space on the C drive.
 
 #>
 function Show-Drivespace() {
-	Get-PSDrive C | Select-Object Used,Free
+	Get-PSDrive C | Select-Object Used,Free | ForEach {
+		Write-Host "Free space GB: " ($_.Free / 1GB)
+		Write-Host "Used space GB: " ($_.Used / 1GB)
+	}
 }
 
 Export-ModuleMember -Function Show-Drivespace 
