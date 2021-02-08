@@ -3,6 +3,31 @@
 
 Commands to maintain a local code singing cert.
 
+This is a hack to solve allowing PowerShell to trust a PowerShell profile hosted on a UNC path, without allowing 'Unrestricted' execution policy.
+
+I created this because it annoys me that my mandatory UNC path profile counts as a remote script, and I'm too pedantic to un-restrict all remote scripts just to allow my profile to load.
+
+.NOTES
+
+Works fine under PowerShell Core 6 with ExecutionPolicy RemoteSigned. PowerShell 7
+
+.EXAMPLE
+
+Set-ExecutionPolicy RemoteSigned
+
+Import-Module c:\src\dotfiles\psmodules\sign.psm1
+
+# Make a cert
+
+> New-CodeSignCert 
+# Install it - you will be promted whether to trust it.
+
+> Install-CodeSignCert 
+
+# Sign your UNC path PowerShell profile
+> Invoke-CodeSign $profile
+
+
 #>
 $certName = "Local Code Sign Cert"
 $codeSigning = ""
