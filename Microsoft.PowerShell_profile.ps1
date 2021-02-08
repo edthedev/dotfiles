@@ -24,6 +24,9 @@ if($IsWindows -eq "") {
 # Import some home grown PowerShell modules, if they are installed.
 
 $modPaths = Get-Childitem -Path "c:\src\dotfiles\psmodules"
+if($modPaths.length -eq 0){
+	Write-Host "No modules found."
+}
 $modPaths | ForEach-Object {
 #    $_ | Format-Table
   if(Test-Path -Path $_) {
