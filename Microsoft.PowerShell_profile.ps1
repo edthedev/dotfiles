@@ -24,15 +24,14 @@ if($IsWindows -eq "") {
 # Import some home grown PowerShell modules, if they are installed.
 
 $modPaths = Get-Childitem -Path "c:\src\dotfiles\psmodules"
+$modPaths += Get-Childitem -Path "c:\src\minion\psmodule"
 if($modPaths.length -eq 0){
 	Write-Host "No modules found."
 }
 $modPaths | ForEach-Object {
-#    $_ | Format-Table
-  if(Test-Path -Path $_) {
-    Import-Module $_
-    Write-Host ">> Loaded $_"
-	}
+	$fileName = $_.FullName
+	Import-Module $fileName
+	Write-Host ">> Loaded $fileName"
 }
 #}
 # $env:PSModulePath = $env:PSModulePath + ";c:\src\dotfiles\psmodules"
