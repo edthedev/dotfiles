@@ -57,7 +57,7 @@ function Invoke-CodeSign {
 	Set-AuthenticodeSignature -FilePath $Path -Certificate $cert
 }
 
-Invoke-CodeSignProfile {
+function Invoke-CodeSignProfile {
 	Invoke-CodeSign -Path $profile
 }
 
