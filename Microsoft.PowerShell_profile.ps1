@@ -55,5 +55,7 @@ function Enable-PoshGit {
 New-Alias pg    Enable-PoshGit
 Write-Host "+ Type 'pg' to enable PoshGit"
 
-# cd c:\src
-#
+
+if((Get-Location).Path -eq $HOME){
+	cd c:\src
+}
