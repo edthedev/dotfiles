@@ -42,8 +42,11 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
 Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
 
-# Minion commands - 'today'
+# Minion alias commands - 'today'
 . C:\src\minion\profiles\alias.ps1
+# Add Minion to path
+Write-Host "+ Added minion command to path."
+$ENV:PATH+=";c:\src\minion\go" # Flag to ensure my profile kicked in.
 
 # Unix dies hard.
 New-Alias which get-command
