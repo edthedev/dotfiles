@@ -21,8 +21,9 @@ if($IsWindows -eq "") {
 #	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 #}
 
-# Import some home grown PowerShell modules, if they are installed.
+$env:Journal = "~\Journal\2021" # allows cd $env:journal
 
+# Import some home grown PowerShell modules, if they are installed.
 $modPaths = Get-Childitem -Path "c:\src\dotfiles\psmodules"
 $modPaths += Get-Childitem -Path "c:\src\minion\psmodule"
 if($modPaths.length -eq 0){
