@@ -45,9 +45,8 @@ Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
 
 # Minion alias commands - 'today'
 . C:\src\minion\profiles\alias.ps1
-# Add Minion to path
-Write-Host "+ Added minion command to path."
-$ENV:PATH+=";c:\src\minion\go" # Flag to ensure my profile kicked in.
+# Add Minion go executable to path.
+. C:\src\minion\profiles\path.ps1
 
 # Unix dies hard.
 New-Alias which get-command
