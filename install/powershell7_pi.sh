@@ -26,3 +26,6 @@ mkdir -p /opt/powershell
 
 # Unpack the tar.gz file
 tar -xvf /tmp/powershell.tar.gz -C /opt/powershell/
+
+# Link the shell to the usual place to find it.
+ln -s /opt/powershell/pwsh /usr/bin/pwsh
