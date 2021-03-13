@@ -16,14 +16,13 @@ sudo apt-get install '^libssl1.0.[0-9]$' libunwind8 -y
 # Download and extract PowerShell
 
 # Grab the latest tar.gz
-if [ ! -d ~/.install/powershell.tar.gz ]; then
-	wget https://github.com/PowerShell/PowerShell/releases/download/v7.1.2/powershell-7.1.2-linux-arm32.tar.gz ~/.install/powershell.tar.gz
-
-	# Make folder to put powershell
-	mkdir -p ~/powershell
-
-	# Unpack the tar.gz file
-	tar -xvf ./.install/powershell.tar.gz -C ~/powershell
-
+if [ ! -f /tmp/powershell.tar.gz ]; then
+	wget https://github.com/PowerShell/PowerShell/releases/download/v7.1.2/powershell-7.1.2-linux-arm32.tar.gz -O /tmp/powershell.tar.gz
 fi
 
+# Make folder to put powershell
+mkdir -p /opt
+mkdir -p /opt/powershell
+
+# Unpack the tar.gz file
+tar -xvf /tmp/powershell.tar.gz -C /opt/powershell/
