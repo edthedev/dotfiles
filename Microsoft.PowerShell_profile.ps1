@@ -33,6 +33,9 @@ if($IsWindows){
 #
 $modPaths = Get-Childitem -Path "$src\dotfiles\psmodules"
 $modPaths += Get-Childitem -Path "$src\minion\psmodule"
+if($IsWindows){
+	$modPaths += Get-Childitem -Path "$src\dotfiles\win_psmodules"
+}
 if($modPaths.length -eq 0){
 	Write-Host "No modules found."
 }
@@ -44,11 +47,13 @@ $modPaths | ForEach-Object {
 
 # $env:PSModulePath = $env:PSModulePath + ";$src\dotfiles\psmodules"
 
+# Windows Only Modules
+
 
 # Linux-like up/down in shell
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward 
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
-Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
+Set-PSReadlineOption -HistorySavePath $src\PSHistory.log
 
 # Minion alias commands - 'today'
 . $src\minion\profiles\alias.ps1
