@@ -26,5 +26,5 @@ fi
 
 echo "Installed:"
 ls -al ~/.installed
-echo "Setup Options:
+echo "Setup Options:"
 ls -al ~/setup
