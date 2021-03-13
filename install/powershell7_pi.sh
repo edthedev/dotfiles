@@ -29,3 +29,6 @@ tar -xvf /tmp/powershell.tar.gz -C /opt/powershell/
 
 # Link the shell to the usual place to find it.
 ln -s /opt/powershell/pwsh /usr/bin/pwsh
+echo "/usr/bin/pwsh" >> /etc/shells
+
+echo "PowerShell should now be installed. See ./setup/powershell.sh for how to chagne shells."

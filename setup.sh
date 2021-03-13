@@ -13,13 +13,6 @@ if [ ! -f ~/.screenrc ]; then
 	ln -s ~/dotfiles/screenrc ~/.screenrc
 fi
 
-if [ ! -f ~/.config/powershell/Microsoft.PowerShell_profile.ps1 ]; then
-	echo "************** Setup PowerShell"
-	chsh --shell /usr/bin/pwsh
-	mkdir -p ~/.config/powershell/
-	ln -s ~/dotfiles/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1 
-fi
-
 if [ ! -f ~/.vimrc ]; then
 	echo "************** Link Vimrc"
 	ln -s ~/dotfiles/vimrc ~/.vimrc
