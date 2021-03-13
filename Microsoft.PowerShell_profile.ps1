@@ -8,10 +8,11 @@
 #}
 # $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
 
-if($IsWindows -eq "") {
-	# Bootstrap for older PowerShell
-	$IsWindows = ($env:OS -eq "Windows_NT")
-}
+# No longer needed in PowerShell 7
+# if($IsWindows -eq "") {
+# 	# Bootstrap for older PowerShell
+# 	$IsWindows = ($env:OS -eq "Windows_NT")
+# }
 
 #if($IsWindows){
 #	# Some Paths that are annoying to find/restore if the installer fails
@@ -23,9 +24,15 @@ if($IsWindows -eq "") {
 
 $env:Journal = "~\Journal\2021" # allows cd $env:journal
 
+$src = "~"
+if($IsWindows){
+  $src = "c:\src"
+}
+
 # Import some home grown PowerShell modules, if they are installed.
-$modPaths = Get-Childitem -Path "c:\src\dotfiles\psmodules"
-$modPaths += Get-Childitem -Path "c:\src\minion\psmodule"
+#
+$modPaths = Get-Childitem -Path "$src\dotfiles\psmodules"
+$modPaths += Get-Childitem -Path "$src\minion\psmodule"
 if($modPaths.length -eq 0){
 	Write-Host "No modules found."
 }
@@ -34,8 +41,8 @@ $modPaths | ForEach-Object {
 	Import-Module $fileName
 	Write-Host ">> Loaded $fileName"
 }
-#}
-# $env:PSModulePath = $env:PSModulePath + ";c:\src\dotfiles\psmodules"
+
+# $env:PSModulePath = $env:PSModulePath + ";$src\dotfiles\psmodules"
 
 
 # Linux-like up/down in shell
@@ -44,10 +51,10 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
 
 # Minion alias commands - 'today'
-. C:\src\minion\profiles\alias.ps1
+. $src\minion\profiles\alias.ps1
 # Add Minion to path
 Write-Host "+ Added minion command to path."
-$ENV:PATH+=";c:\src\minion\go" # Flag to ensure my profile kicked in.
+$ENV:PATH+=";$src\minion\go" # Flag to ensure my profile kicked in.
 
 # Unix dies hard.
 New-Alias which get-command
@@ -61,5 +68,5 @@ Write-Host "+ Type 'pg' to enable PoshGit"
 
 
 if((Get-Location).Path -eq $HOME){
-	cd c:\src
+	cd $src
 }
