@@ -1,0 +1,4 @@
+
+
++ [ ] get PowerShell available as a system level shell.
++ [ ] clone the minion repo
