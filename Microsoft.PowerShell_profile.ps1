@@ -8,24 +8,40 @@
 #}
 # $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
 
+# No longer needed in PowerShell 7
 if($IsWindows -eq "") {
-	# Bootstrap for older PowerShell
-	$IsWindows = ($env:OS -eq "Windows_NT")
+ 	# Bootstrap for older PowerShell
+	Write-Host "***Bootstrapped Is Windows for older PowerShell***"
+ 	$IsWindows = ($env:OS -eq "Windows_NT")
 }
 
-#if($IsWindows){
-#	# Some Paths that are annoying to find/restore if the installer fails
-#	$ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin" # One Editor to rule them all
-#	$ENV:PATH+=";C:\Program Files\Git\cmd" # Version control is nice.
-#	$ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
-#	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
-#}
+$env:src = "~"
+if($IsWindows){
+	Write-Host "***Is Windows***"
+  $env:src = "c:\src"
+}
+
+if($IsWindows){
+	# Some Paths that are annoying to find/restore if the installer fails
+	$ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin" # One Editor to rule them all
+	$ENV:PATH+=";C:\Program Files\Git\cmd" # Version control is nice.
+	$ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
+	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
+}
+
 
 $env:Journal = "~\Journal\2021" # allows cd $env:journal
+$env:minion = "$env:src\minion"
 
 # Import some home grown PowerShell modules, if they are installed.
-$modPaths = Get-Childitem -Path "c:\src\dotfiles\psmodules"
-$modPaths += Get-Childitem -Path "c:\src\minion\psmodule"
+#
+$modPaths = Get-Childitem -Path "$env:src\dotfiles\psmodules"
+$modPaths += Get-Childitem -Path "$env:minion\psmodule"
+
+# Windows Only Modules
+if($IsWindows){
+	$modPaths += Get-Childitem -Path "$env:src\dotfiles\win_psmodules"
+}
 if($modPaths.length -eq 0){
 	Write-Host "No modules found."
 }
@@ -34,19 +50,22 @@ $modPaths | ForEach-Object {
 	Import-Module $fileName
 	Write-Host ">> Loaded $fileName"
 }
-#}
-# $env:PSModulePath = $env:PSModulePath + ";c:\src\dotfiles\psmodules"
+
 
 
 # Linux-like up/down in shell
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward 
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
-Set-PSReadlineOption -HistorySavePath c:\temp\PSHistory.log
+Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 
 # Minion alias commands - 'today'
-. C:\src\minion\profiles\alias.ps1
+# . C:\src\minion\profiles\alias.ps1
+. $env:minion\profiles\alias.ps1
 # Add Minion go executable to path.
-. C:\src\minion\profiles\path.ps1
+. $env:minion\profiles\path.ps1
+# Add Minion to path
+Write-Host "+ Added minion command to path."
+$ENV:PATH+=";$env:minion\go" # Flag to ensure my profile kicked in.
 
 # Unix dies hard.
 New-Alias which get-command
@@ -60,5 +79,5 @@ Write-Host "+ Type 'pg' to enable PoshGit"
 
 
 if((Get-Location).Path -eq $HOME){
-	cd c:\src
+	cd $env:src
 }
