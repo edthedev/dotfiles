@@ -9,7 +9,7 @@
 # $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
 
 # No longer needed in PowerShell 7
-if($IsWindows -eq "") {
+if(-Not $IsWindows) {
  	# Bootstrap for older PowerShell
 	Write-Host "***Bootstrapped Is Windows for older PowerShell***"
  	$IsWindows = ($env:OS -eq "Windows_NT")
