@@ -81,3 +81,14 @@ Write-Host "+ Type 'pg' to enable PoshGit"
 if((Get-Location).Path -eq $HOME){
 	cd $env:src
 }
+
+function Get-GitLog() {
+	git log --oneline
+}
+
+function Get-GitStatus() {
+	git status -b --short
+}
+
+New-Alias ol 		Get-GitLog
+New-Alias st 		Get-GitStatus
