@@ -8,7 +8,6 @@ function Get-MyDashboard() {
       New-UDLink -Text 'This is a link' -Url '#!'
       ) -Size 'small'
     }
-  }
   return $MyDashboard
 }
 

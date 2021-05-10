@@ -22,7 +22,7 @@ function Show-Drivespace() {
 }
 
 function Show-DrivespacePretty() {
-	Start-Job -Name "FileCollection" -ScriptBlock {Show-Drivespace() }
+	Start-Job -Name "FileCollection" -ScriptBlock { Show-Drivespace }
 While((Get-Job -Name "FileCollection").State -eq "Running") {
 	     Write-Progress -Activity "Collecting Files..." -PercentComplete $x
 	If($x -eq 100){
