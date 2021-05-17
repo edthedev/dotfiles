@@ -21,22 +21,6 @@ function Show-Drivespace() {
 	}
 }
 
-function Show-DrivespacePretty() {
-	Start-Job -Name "FileCollection" -ScriptBlock {Show-Drivespace() }
-While((Get-Job -Name "FileCollection").State -eq "Running") {
-	     Write-Progress -Activity "Collecting Files..." -PercentComplete $x
-	If($x -eq 100){
-		$x = 1
-	}
-	Else{
-		$x += 1
-	}
-}
-Write-Progress -Activity "Collecting Files..." -Completed
-$Files = Get-Job -Name "FileCollection" | Receive-Job
-Get-Job -Name "FileCollection" | Remove-Job
-}
 
 Export-ModuleMember -Function Show-Drivespace 
-Export-ModuleMember -Function Show-DrivespacePretty
 Export-ModuleMember -Function Show-LargeFiles
