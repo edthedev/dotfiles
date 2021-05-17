@@ -1,3 +1,6 @@
+
+*.gif
+
 *.log
 DONE.md
 .github_access_token

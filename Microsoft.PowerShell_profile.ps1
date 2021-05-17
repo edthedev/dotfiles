@@ -78,6 +78,14 @@ function Enable-PoshGit {
 New-Alias pg    Enable-PoshGit
 Write-Host "+ Type 'pg' to enable PoshGit"
 
+function Invoke-X16Emu {
+	param(
+		[string]$File
+	)
+	x16emu.exe -bas $File -keymap en-us
+}
+
+New-Alias x16   Invoke-X16Emu
 
 if((Get-Location).Path -eq $HOME){
 	cd $env:src
