@@ -9,7 +9,7 @@
 # $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
 
 # No longer needed in PowerShell 7
-if($IsWindows -eq "") {
+if(-Not $IsWindows) {
  	# Bootstrap for older PowerShell
 	Write-Host "***Bootstrapped Is Windows for older PowerShell***"
  	$IsWindows = ($env:OS -eq "Windows_NT")
@@ -90,3 +90,14 @@ New-Alias x16   Invoke-X16Emu
 if((Get-Location).Path -eq $HOME){
 	cd $env:src
 }
+
+function Get-GitLog() {
+	git log --oneline
+}
+
+function Get-GitStatus() {
+	git status -b --short
+}
+
+New-Alias ol 		Get-GitLog
+New-Alias st 		Get-GitStatus
