@@ -26,6 +26,7 @@ if($IsWindows){
 	$ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin" # One Editor to rule them all
 	$ENV:PATH+=";C:\Program Files\Git\cmd" # Version control is nice.
 	$ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
+	$ENV:PATH+=";C:\Program Files (x86)\GnuWin32\bin" # GNU Utils - i.e. rm
 	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 }
 
