@@ -100,5 +100,12 @@ function Get-GitStatus() {
 	git status -b --short
 }
 
+function Get-DashBoard() {
+	Measure-JournalTodos
+	chart
+	todo
+}
+
 New-Alias ol 		Get-GitLog
 New-Alias st 		Get-GitStatus
+New-Alias dash  Get-Dashboard
