@@ -103,9 +103,20 @@ function Get-GitStatus() {
 function Get-DashBoard() {
 	Measure-JournalTodos
 	chart
-	todo
+	# todo
+	# Get-JournalAgenda
+	Write-Host "Todo items for today:"
+	Get-JournalTodayTodos
+	Write-Host "Use command 'todo' to list more tasks."
+	Write-Host "Use command 'agenda' to list the plan for today."
 }
+
+function Get-JournalAgenda() {
+	Get-Content $(Get-JournalFile -date $(Get-Date))
+}
+
 
 New-Alias ol 		Get-GitLog
 New-Alias st 		Get-GitStatus
 New-Alias dash  Get-Dashboard
+New-Alias agenda Get-JournalAgenda
