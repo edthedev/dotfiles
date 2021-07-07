@@ -53,6 +53,9 @@ function Get-GHMine() {
     $issues += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
   }
 
+  # Ignore issues that have been updated in the last day.
+  $issues = $issues | Where-Object { $_.updated_at -lt (Get-Date).AddDays(-1) }
+
   return $issues
 }
 
