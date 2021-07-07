@@ -46,9 +46,6 @@ Fetch GitHub issues I am working on.
 
 #>
 function Get-GHMine() {
-  param(
-    [int]$days = -14
-  )
   $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
   $issueSearchParams = @{ Assignee = 'edthedev'; State = 'open'; OwnerName = 'techservicesillinois' }
   $issues = @()
@@ -66,8 +63,6 @@ Show GitHub issues I am working on.
 
 #>
 function Show-GHMine() {
-  param(
-  )
   Get-GHMine | ForEach-Object {
     # Markdown output
     " + [" + $_.Title + " (" + $_.Number + ")](" + $_.html_url + ")"
@@ -77,4 +72,5 @@ function Show-GHMine() {
 
 Export-ModuleMember -Function Get-GHClosed
 Export-ModuleMember -Function Show-GHClosed
+Export-ModuleMember -Function Get-GHMine
 Export-ModuleMember -Function Show-GHMine
