@@ -1,19 +1,16 @@
 
-function Get-MyDashboard() {
-  $MyDashboard = New-UDDashboard -Title "Hello, World" -Content {
-    New-UDCard -Title "Hello, Universal Dashboard" -Content {
-      New-UDParagraph -Text 'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.'
-    } -Links @(
-      New-UDLink -Text 'This is a link' -Url '#!'
-      New-UDLink -Text 'This is a link' -Url '#!'
-      ) -Size 'small'
-    }
-  return $MyDashboard
+function Get-MyDashBoard() {
+	Measure-JournalTodos
+	chart
+	# todo
+	# Get-JournalAgenda
+	Write-Host "Todo items for today:"
+	Get-JournalTodayTodos
+  Write-Host "GitHub Issues Assigned"
+  Show-GHMine
+	Write-Host "Use command 'todo' to list more tasks."
+	Write-Host "Use command 'agenda' to list the plan for today."
 }
 
-function Inovke-MyDashboard() {
-  Start-UDDashboard -Port 1000 -Dashboard Get-MyDashboard
-  Write-Host "http://localhost:1000"
-}
 
-Export-ModuleMember -Function Invoke-MyDashboard
+Export-ModuleMember -Function Get-MyDashboard

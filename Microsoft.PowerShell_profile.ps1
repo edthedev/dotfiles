@@ -100,23 +100,14 @@ function Get-GitStatus() {
 	git status -b --short
 }
 
-function Get-DashBoard() {
-	Measure-JournalTodos
-	chart
-	# todo
-	# Get-JournalAgenda
-	Write-Host "Todo items for today:"
-	Get-JournalTodayTodos
-	Write-Host "Use command 'todo' to list more tasks."
-	Write-Host "Use command 'agenda' to list the plan for today."
-}
-
 function Get-JournalAgenda() {
 	Get-Content $(Get-JournalFile -date $(Get-Date))
 }
 
-
+# Nice for git
 New-Alias ol 		Get-GitLog
 New-Alias st 		Get-GitStatus
-New-Alias dash  Get-Dashboard
+
+# Dashboard
+New-Alias dash   Get-MyDashboard # See dash.psm1
 New-Alias agenda Get-JournalAgenda
