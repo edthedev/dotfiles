@@ -100,14 +100,10 @@ function Get-GitStatus() {
 	git status -b --short
 }
 
-function Get-JournalAgenda() {
-	Get-Content $(Get-JournalFile -date $(Get-Date))
-}
-
 # Nice for git
 New-Alias ol 		Get-GitLog
 New-Alias st 		Get-GitStatus
 
 # Dashboard
-New-Alias dash   Get-MyDashboard # See dash.psm1
-New-Alias agenda Get-JournalAgenda
+New-Alias dash   Get-MyDashboard # from dash.psm1
+New-Alias agenda Get-JournalAgenda # from minion_go.psm1
