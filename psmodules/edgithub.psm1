@@ -72,8 +72,40 @@ function Show-GHMine() {
   }
 }
 
+<#
+
+Target GitHub search:
+is:open is:issue -label:M -label:L -label:S -label:XL -label:XS 
+
+#>
+function Get-GHUnsized() {
+  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
+  $issues = @()
+  $repos | ForEach-Object { 
+    $issues += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
+  }
+
+  # Ignore issues that have been updated in the last day.
+  $issues = $issues | Where-Object { -Not $_.labels -Contains 'XS' }
+  $issues = $issues | Where-Object { -Not $_.labels -Contains 'S' }
+  $issues = $issues | Where-Object { -Not $_.labels -Contains 'M' }
+  $issues = $issues | Where-Object { -Not $_.labels -Contains 'L' }
+  # Leave XL issues, as they need split.
+
+  return $issues
+}
+
+function Show-GHUnsized() {
+  Get-GHUnsized | ForEach-Object {
+    # Markdown output
+    " + [" + $_.Title + " (" + $_.Number + ")](" + $_.html_url + ")" + $_.labels
+  }
+}
 
 Export-ModuleMember -Function Get-GHClosed
 Export-ModuleMember -Function Show-GHClosed
 Export-ModuleMember -Function Get-GHMine
 Export-ModuleMember -Function Show-GHMine
+Export-ModuleMember -Function Get-GHUnsized
+Export-ModuleMember -Function Show-GHUnsized
