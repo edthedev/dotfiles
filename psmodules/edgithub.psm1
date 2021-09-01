@@ -22,6 +22,28 @@ function Get-GHClosed {
 
 
 <#
+.SYNPOSIS
+
+Fetch GitHub issues that are tagged to discuss this morning.
+
+#>
+function Get-GHToDiscuss {
+  param(
+    [int]$days = -14
+  )
+  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
+  $closed = @()
+  $repos | ForEach-Object { 
+    $closed += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
+  }
+  $issues = $issues | Where-Object { $_.labels -Contains 'DiscussAtStandUp' }
+
+  return $issues
+}
+
+
+<#
 .SYNOPSIS
 
 Show closed GitHub issues that were updated in the last 14 days.
@@ -103,9 +125,24 @@ function Show-GHUnsized() {
   }
 }
 
+function Show-GHToDiscuss() {
+  Get-GHToDiscuss | Show-GHIssuesAsMarkdown
+}
+
+
+function Show-GHIssuesAsMarkdown() {
+  process
+	{
+    # Markdown output
+    " + [" + $_.Title + " (" + $_.Number + ")](" + $_.html_url + ")" + $_.labels
+  }
+}
+
+
 Export-ModuleMember -Function Get-GHClosed
 Export-ModuleMember -Function Show-GHClosed
 Export-ModuleMember -Function Get-GHMine
 Export-ModuleMember -Function Show-GHMine
 Export-ModuleMember -Function Get-GHUnsized
 Export-ModuleMember -Function Show-GHUnsized
+Export-ModuleMember -Function Show-GHToDiscuss
