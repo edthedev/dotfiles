@@ -95,8 +95,13 @@ function Show-GHMine() {
 }
 
 <#
+.SYNOPSIS
 
-Target GitHub search:
+Get GitHub issues that need sized.
+
+.DESCRIPTION
+
+Runs this GitHub search:
 is:open is:issue -label:M -label:L -label:S -label:XL -label:XS 
 
 #>
@@ -118,12 +123,44 @@ function Get-GHUnsized() {
   return $issues
 }
 
+function Get-GHNoMilestone() {
+  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
+  $issues = @()
+  $repos | ForEach-Object { 
+    $issues += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
+  }
+
+  # Get open issues with empty milestone
+  $issues = $issues | Where-Object { $null -eq $_.milestone }
+  return $issues
+}
+function Show-GHNoMilestone(){
+  Get-GHNoMilestone| Show-GHIssuesAsMarkdown
+}
+
+
 function Show-GHUnsized() {
   Get-GHUnsized | ForEach-Object {
     # Markdown output
     " + [" + $_.Title + " (" + $_.Number + ")](" + $_.html_url + ")" + $_.labels
   }
 }
+
+function Show-GHByAssignee() {
+  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
+  $issues = @()
+  $repos | ForEach-Object { 
+    $issues += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
+  }
+
+  # TODO: Group output by assignee.
+
+  return $issues
+}
+
+
 
 function Show-GHToDiscuss() {
   Get-GHToDiscuss | Show-GHIssuesAsMarkdown
@@ -134,7 +171,7 @@ function Show-GHIssuesAsMarkdown() {
   process
 	{
     # Markdown output
-    " + [" + $_.Title + " (" + $_.Number + ")](" + $_.html_url + ")" + $_.labels
+    " + [" + $_.Title + " (" + $_.Number + ")](" + $_.html_url + ")" 
   }
 }
 
@@ -146,3 +183,4 @@ Export-ModuleMember -Function Show-GHMine
 Export-ModuleMember -Function Get-GHUnsized
 Export-ModuleMember -Function Show-GHUnsized
 Export-ModuleMember -Function Show-GHToDiscuss
+Export-ModuleMember -Function Show-GHNoMilestone
