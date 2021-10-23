@@ -24,3 +24,5 @@ if [ ! -f ~/.screenrc ]; then
 	sudo apt-get install -y screen
 fi
 
+echo "************** Install Midnight Commander"
+sudo apt-get install mc

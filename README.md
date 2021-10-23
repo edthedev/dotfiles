@@ -1,24 +1,39 @@
 # dotfiles
 
-EdTheDev's Linux and Windows dot files. These are shared so that I can easily share a link to a tip or trick.
+EdTheDev's Linux and Windows dot files. 
+These are shared so that I can easily share a link to a tip or trick.
 
-LATEST
+## Getting Started - Raspberyy Pi
 
-Before Git Clone
-rasppi-config -- set wireless
-rasppi-config -- set keyboard location
+### Get Online
 
-After git clone
+```sh
+rasppi-config
+```
+
++ Set up wireless
++ Set keyboard location
+
+### Clone this repository
+
+```sh
+sudo apt-get install git
+git clone https://github.com/edthedev/dotfiles.git
+```
+
+### Create a new user
+
+```sh
 sudo useradd bob -m -G sudo
 sudo passwd bob
 sudo passwd pi
+```
 
+### Boostrap CLI
 
-## Bare Minimum
-
-+ `install.sh` - Script I use to install packages on Linux, most typically a Raspberry Pi. 
-+ `setup.sh` - Script I use to get to bare minimum (by my definition) setup on Linux - typically a Raspberry Pi.
-+ `bootstrap.ps1` - Script I use to setup on Windows. Mostly relies on the `Chocolatey` package manager for Windows, of course.
+```
+sudo ./install_cli_basics.sh
+```
 
 ## Installations
 
@@ -32,3 +47,7 @@ These are, obviously, just my preferred configurations.
 In general, these work by setting up symlinks on Linux, and on Windows by copying a stub file that sources the versioned file. 
 
 Most of these are cross platform `.ps1` files that run under PowerShell.
+
+## Further Reading
+
+See `i3.md` for info on setting up the I3 window manager.
