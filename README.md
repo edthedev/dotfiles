@@ -2,6 +2,18 @@
 
 EdTheDev's Linux and Windows dot files. These are shared so that I can easily share a link to a tip or trick.
 
+LATEST
+
+Before Git Clone
+rasppi-config -- set wireless
+rasppi-config -- set keyboard location
+
+After git clone
+sudo useradd bob -m -G sudo
+sudo passwd bob
+sudo passwd pi
+
+
 ## Bare Minimum
 
 + `install.sh` - Script I use to install packages on Linux, most typically a Raspberry Pi. 
