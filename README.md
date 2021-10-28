@@ -6,14 +6,22 @@ These are shared so that I can easily share a link to a tip or trick.
 ## Getting Started - Windows
 
 1. [Install chocolatey](https://chocolatey.org/install)
-2. Install bare minimum packages:
-
-Run a command prompt as administrator:
+2. Install a decent terminal. This invokes a bunch of KBs.
 ```powershell
+choco install microsoft-windows-terminal
+```
+
+3. Set dark theme (non-admin prompt)
+```
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
+```
+
+4. More packages
+```
 choco install git 
 choco install code
 choco install powertoys
-choco install microsoft-windows-terminal 
+ 
 ```
 
 
