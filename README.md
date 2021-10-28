@@ -5,10 +5,17 @@ These are shared so that I can easily share a link to a tip or trick.
 
 ## Getting Started - Windows
 
+> Note: Bookmark this guide. You're going to reboot at least a few times.
+
+Optional - change host name
+```
+Rename-Computer -NewName FOOOOOOO -Restart
+```
+
 1. [Install chocolatey](https://chocolatey.org/install)
 2. Install a decent terminal. This invokes a bunch of KBs.
 ```powershell
-choco install microsoft-windows-terminal
+choco install microsoft-windows-terminal # reboot after
 ```
 
 3. Set dark theme (non-admin prompt)
