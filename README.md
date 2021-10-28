@@ -45,6 +45,22 @@ cd dotfiles
 code .
 ```
 
+Admin prompt:
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+```
+
+Install VSCode plugins:
+```
+.\setup\code-plugins.ps1
+```
+
+Set git username.
+```
+git config --global user.email "edward@delaporte.us"
+git config --global user.name "Edward Delaporte"
+```
+
 ## Getting Started - Raspberyy Pi
 
 ### Get Online
