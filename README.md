@@ -35,7 +35,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Pe
 4. More packages
 ```
 choco install git 
-choco install code
+choco install vscode
 choco install powertoys # reboot after
  
 ```
