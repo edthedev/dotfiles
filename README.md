@@ -13,7 +13,13 @@ Rename-Computer -NewName FOOOOOOO -Restart
 ```
 
 1. [Install chocolatey](https://chocolatey.org/install)
-2. Install a decent terminal. This invokes a bunch of KBs.
+
+2. Tell `choco` to watch for reboots, as this is Windows.
+```
+choco feature enable -name=exitOnRebootDetected
+```
+
+3. Install a decent terminal. This invokes a bunch of KBs.
 ```powershell
 choco install microsoft-windows-terminal # reboot after
 ```
