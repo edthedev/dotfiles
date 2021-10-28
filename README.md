@@ -16,6 +16,9 @@ choco install microsoft-windows-terminal
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
 ```
 
+4. Reboot after first setup - you may see errors in `choco` commands otherwise.
+5. Set the PC time zone correctly - otherwise expect an install error in later `choco` commands.
+
 4. More packages
 ```
 choco install git 
