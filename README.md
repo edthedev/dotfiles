@@ -3,6 +3,17 @@
 EdTheDev's Linux and Windows dot files. 
 These are shared so that I can easily share a link to a tip or trick.
 
+## Getting Started - Windows
+
+1. [Install chocolatey](https://chocolatey.org/install)
+2. Install bare minimum packages:
+
+Run a command prompt as administrator:
+```powershell
+choco install git code powertoys microsoft-windows-terminal 
+```
+
+
 ## Getting Started - Raspberyy Pi
 
 ### Get Online
