@@ -37,9 +37,13 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Pe
 choco install git 
 choco install vscode
 choco install powertoys # reboot after
- 
 ```
 
+```
+git clone https://github.com/edthedev/dotfiles.git
+cd dotfiles
+code .
+```
 
 ## Getting Started - Raspberyy Pi
 
