@@ -10,7 +10,10 @@ These are shared so that I can easily share a link to a tip or trick.
 
 Run a command prompt as administrator:
 ```powershell
-choco install git code powertoys microsoft-windows-terminal 
+choco install git 
+choco install code
+choco install powertoys
+choco install microsoft-windows-terminal 
 ```
 
 
