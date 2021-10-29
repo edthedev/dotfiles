@@ -1,2 +1,1 @@
-sudo apt install xrdp
-sudo apt install remmina
+sudo apt install xrdp remmina
