@@ -139,7 +139,6 @@ function Show-GHNoMilestone(){
   Get-GHNoMilestone| Show-GHIssuesAsMarkdown
 }
 
-
 function Show-GHUnsized() {
   Get-GHUnsized | ForEach-Object {
     # Markdown output
@@ -183,4 +182,5 @@ Export-ModuleMember -Function Show-GHMine
 Export-ModuleMember -Function Get-GHUnsized
 Export-ModuleMember -Function Show-GHUnsized
 Export-ModuleMember -Function Show-GHToDiscuss
+Export-ModuleMember -Function Get-GHNoMilestone
 Export-ModuleMember -Function Show-GHNoMilestone
