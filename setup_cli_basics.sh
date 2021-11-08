@@ -30,6 +30,5 @@ if [ -f ~/.gitconfig ]; then
 fi
 
 echo "************** Reminder to setup GitHub key"
-echo "https://github.com/settings/keys"
-echo "vim .git/config -- add: url = git@github.com:edthedev/dotfiles.git"
+cat GitHubKey.md
 cat ~/.ssh/id_rsa.pub
