@@ -3,13 +3,20 @@
 
 Fetch closed GitHub issues that were updated in the last 14 days.
 
+.NOTES
+
+Thism modules requires the following in your PowerShell profile:
+$env:GITHUB_USERNAME = 'github_username'
+$env:GITHUB_ORG = 'github_organization_name'
+$env:GITHUB_REPOS = @('repository1', 'repository2', 'repository3')
+
 #>
 function Get-GHClosed {
   param(
     [int]$days = -14
   )
-  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
-  $issueSearchParams = @{ State = 'closed'; OwnerName = 'techservicesillinois' }
+  $repos = $env:GITHUB_REPOS.split(" ")
+  $issueSearchParams = @{ State = 'closed'; OwnerName = $env:GITHUB_ORG }
   $closed = @()
   $repos | ForEach-Object { 
     $closed += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
@@ -31,8 +38,8 @@ function Get-GHToDiscuss {
   param(
     [int]$days = -14
   )
-  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
-  $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
+  $repos = $env:GITHUB_REPOS.split(" ")
+  $issueSearchParams = @{ State = 'open'; OwnerName = $env:GITHUB_ORG }
   $closed = @()
   $repos | ForEach-Object { 
     $closed += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
@@ -68,8 +75,9 @@ Fetch GitHub issues I am working on.
 
 #>
 function Get-GHMine() {
-  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
-  $issueSearchParams = @{ Assignee = 'edthedev'; State = 'open'; OwnerName = 'techservicesillinois' }
+  $repos = $env:GITHUB_REPOS.split(" ")
+  $issueSearchParams = @{ Assignee = $env:GITHUB_USERNAME;
+    State = 'open'; OwnerName = $env:GITHUB_ORG }
   $issues = @()
   $repos | ForEach-Object { 
     $issues += Get-GitHubIssue -RepositoryName $_ @issueSearchParams
@@ -106,7 +114,7 @@ is:open is:issue -label:M -label:L -label:S -label:XL -label:XS
 
 #>
 function Get-GHUnsized() {
-  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  $repos = $env:GITHUB_REPOS.split(" ")
   $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
   $issues = @()
   $repos | ForEach-Object { 
@@ -124,7 +132,13 @@ function Get-GHUnsized() {
 }
 
 function Get-GHNoMilestone() {
-  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  param(
+    [string]$repository
+  )
+  $repos = $env:GITHUB_REPOS.split(" ")
+  if($repository){
+    $repos = @($repository)
+  }
   $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
   $issues = @()
   $repos | ForEach-Object { 
@@ -136,7 +150,10 @@ function Get-GHNoMilestone() {
   return $issues
 }
 function Show-GHNoMilestone(){
-  Get-GHNoMilestone| Show-GHIssuesAsMarkdown
+  param(
+    [string]$repository
+  )
+  Get-GHNoMilestone -Repository $repository | Show-GHIssuesAsMarkdown
 }
 
 function Show-GHUnsized() {
@@ -147,7 +164,7 @@ function Show-GHUnsized() {
 }
 
 function Show-GHByAssignee() {
-  $repos = @('SecOps-Tools', 'secdev-job-aids', 'awscli-login')
+  $repos = $env:GITHUB_REPOS.split(" ")
   $issueSearchParams = @{ State = 'open'; OwnerName = 'techservicesillinois' }
   $issues = @()
   $repos | ForEach-Object { 
