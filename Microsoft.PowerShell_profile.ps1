@@ -40,6 +40,9 @@ $env:minion = "$env:src\minion"
 $modPaths = Get-Childitem -Path "$env:src\dotfiles\psmodules"
 $modPaths += Get-Childitem -Path "$env:minion\psmodule"
 
+# https://github.com/uillinois-community/powershell-scripts
+$modPaths += Get-Childitem -Path "$env:src\powershell-scripts\modules"
+
 # Windows Only Modules
 if($IsWindows){
 	$modPaths += Get-Childitem -Path "$env:src\dotfiles\win_psmodules"
