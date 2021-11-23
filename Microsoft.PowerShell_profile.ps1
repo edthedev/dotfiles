@@ -32,6 +32,7 @@ if($IsWindows){
 }
 else {
 	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
+	$ENV:PATH+=":$HOME/src/x16-demo" # x16 python tools
 }
 
 $env:Journal = "~\Journal\2021" # allows cd $env:journal
