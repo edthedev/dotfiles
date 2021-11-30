@@ -52,8 +52,10 @@ if($modPaths.length -eq 0){
 }
 $modPaths | ForEach-Object {
 	$fileName = $_.FullName
-	Import-Module $fileName
-	Write-Host ">> Loaded $fileName"
+	if($filename -Like "*.psm1") {
+		Import-Module $fileName
+		Write-Host ">> Loaded $fileName"
+	}
 }
 
 
