@@ -30,7 +30,11 @@ if($IsWindows){
 	$ENV:PATH+=";C:\Program Files (x86)\GnuWin32\bin" # GNU Utils - i.e. rm
 	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 }
-
+else {
+	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
+	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
+}
+# alias renumber $HOME/src/x16-demo/
 
 $env:Journal = "~\Journal\2021" # allows cd $env:journal
 $env:minion = "$env:src\minion"
@@ -72,7 +76,9 @@ Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 . $env:minion\profiles\path.ps1
 # Add Minion to path
 Write-Host "+ Added minion command to path."
-$ENV:PATH+=";$env:minion\go" # Flag to ensure my profile kicked in.
+if($IsWindows){
+	$ENV:PATH+=";$env:minion\go" # Flag to ensure my profile kicked in.
+}
 
 # Unix dies hard.
 New-Alias which get-command
