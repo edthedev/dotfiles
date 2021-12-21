@@ -114,8 +114,14 @@ function Get-GitStatus() {
 # Tell my scripts which GitHub repositories to look in.
 $env:GITHUB_USERNAME = 'edthedev'
 $env:GITHUB_ORG = 'techservicesillinois'
-$env:GITHUB_REPOS = @('SecOps-Tools', 'secdev-job-aids', 
-	'awscli-login', 'farmit')
+$env:GITHUB_ORGS = @('techservicesillinois', 'uillinois-community')
+$env:GITHUB_REPOS = @(
+	'techservicesillinois/SecOps-Tools', 
+	'techservicesillinois/secdev-job-aids', 
+	'techservicesillinois/awscli-login', 
+	'techservicesillinois/farmit',
+	'uillinois-community/uillinois-community.github.io'
+)
 
 # Nice for git
 New-Alias ol 		Get-GitLog
