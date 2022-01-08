@@ -5,7 +5,10 @@ Find 10 largest files on the C drive.
 
 #>
 function Show-LargeFiles() {
-	 Get-ChildItem c:\ -r| sort -descending -property length | select -first 10 name, Length, FullName
+	param(
+		[int]$Max=10
+	)
+	Get-ChildItem c:\ -r| sort -descending -property length | select -first $Max name, Length, FullName
 }
 
 <#
