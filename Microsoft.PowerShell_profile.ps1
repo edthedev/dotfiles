@@ -46,6 +46,9 @@ $env:minion = "$env:src\minion"
 $modPaths = Get-Childitem -Path "$env:src\dotfiles\psmodules"
 $modPaths += Get-Childitem -Path "$env:minion\psmodule"
 
+# https://github.com/uillinois-community/powershell-scripts
+$modPaths += Get-Childitem -Path "$env:src\powershell-scripts\modules"
+
 # Windows Only Modules
 if($IsWindows){
 	$modPaths += Get-Childitem -Path "$env:src\dotfiles\win_psmodules"
@@ -55,8 +58,10 @@ if($modPaths.length -eq 0){
 }
 $modPaths | ForEach-Object {
 	$fileName = $_.FullName
-	Import-Module $fileName
-	Write-Host ">> Loaded $fileName"
+	if($filename -Like "*.psm1") {
+		Import-Module $fileName
+		Write-Host ">> Loaded $fileName"
+	}
 }
 
 
@@ -107,6 +112,18 @@ function Get-GitLog() {
 function Get-GitStatus() {
 	git status -b --short
 }
+
+# Tell my scripts which GitHub repositories to look in.
+$env:GITHUB_USERNAME = 'edthedev'
+$env:GITHUB_ORG = 'techservicesillinois'
+$env:GITHUB_ORGS = @('techservicesillinois', 'uillinois-community')
+$env:GITHUB_REPOS = @(
+	'techservicesillinois/SecOps-Tools', 
+	'techservicesillinois/secdev-job-aids', 
+	'techservicesillinois/awscli-login', 
+	'techservicesillinois/farmit',
+	'uillinois-community/uillinois-community.github.io'
+)
 
 # Nice for git
 New-Alias ol 		Get-GitLog
