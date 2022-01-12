@@ -11,5 +11,6 @@ OneTrust.ipynb
 *.*~
 *.swp
 vimrc~
+plug.vim
 
 node_modules

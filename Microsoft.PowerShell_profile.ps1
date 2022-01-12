@@ -15,7 +15,7 @@ if(-Not $IsWindows) {
  	$IsWindows = ($env:OS -eq "Windows_NT")
 }
 
-$env:src = "~"
+$env:src = "~\src"
 if($IsWindows){
 	Write-Host "***Is Windows***"
   $env:src = "c:\src"
@@ -29,6 +29,8 @@ if($IsWindows){
 	$ENV:PATH+=";C:\bin\x16emu" # Package management is nice.
 	$ENV:PATH+=";C:\Program Files (x86)\GnuWin32\bin" # GNU Utils - i.e. rm
 	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
+	$ENV:PATH+=";$env:src\x16-demo\tools" # x16 python tools
+	$ENV:PATH+=";$env:src\chart" # command line chart utility edthedev\chart
 }
 else {
 	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
