@@ -1,5 +1,5 @@
 
-function Get-MyDashBoard() {
+function Show-MyDashBoard() {
 	Write-Host "## Todo items for today:"
 	Measure-JournalTodos
 	chart
@@ -15,4 +15,13 @@ function Get-MyDashBoard() {
 	Write-Host "Use command 'agenda' to list the plan for today."
 }
 
-Export-ModuleMember -Function Get-MyDashboard
+function Show-MyTeamWork() {
+	$team = @('ddriddle', 'zcarrington', 'tzturner', 'mpitcel', 'edthedev')
+	$team | ForEach-Object {
+		"## $_ - Issues Assigned"
+		Get-AgileQuery -Assignee $_ | Invoke-AgileQuery | Show-MarkdownFromGitHub
+	}
+}
+
+Export-ModuleMember -Function Show-MyDashboard
+Export-ModuleMember -Function Show-MyTeamWork

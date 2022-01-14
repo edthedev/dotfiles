@@ -130,5 +130,5 @@ New-Alias ol 		Get-GitLog
 New-Alias st 		Get-GitStatus
 
 # Dashboard
-New-Alias dash   Get-MyDashboard # from dash.psm1
+New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias agenda Get-JournalAgenda # from minion_go.psm1
