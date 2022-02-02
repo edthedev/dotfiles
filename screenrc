@@ -20,6 +20,10 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}* %t%?(%u)%?
 # Pick ye olde shell.
 # shell /bin/zsh
 
-if [ -d /opt/powershell ]; then
-	shell /opt/powershell/pwsh
-fi
+# if [ -d /opt/powershell ]; then
+#	shell /opt/powershell/pwsh
+#else
+#	shell /bin/bash
+#fi
+
+shell -$SHELL
