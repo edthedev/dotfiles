@@ -16,6 +16,16 @@
           }
         },
         {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "<#CB4B16>[</>",
+            "postfix": "<#CB4B16>]</>",
+            "template": " Py {{ .Full }} "
+          }
+        },
+        {
           "type": "git",
           "style": "plain",
           "foreground": "#ffffff",
