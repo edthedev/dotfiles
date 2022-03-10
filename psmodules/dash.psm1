@@ -14,7 +14,8 @@ function Show-MyDashBoard() {
 	Write-Host ""
 	Write-Host "## GitHub Issues with no milestone. (Select-AgileNoMilestone)"
 	Write-Host "(Get-AgileQuery -state 'Open' | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub)"
-    Get-AgileQuery -state 'Open' -Skip uillinois-community.github.io | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub
+    $queries = Get-AgileQuery -state 'Open' -Skip uillinois-community.github.io 
+	Invoke-AgileQuery -queries $queries | Select-AgileNoMilestone | Show-MarkdownFromGitHub
     # $orphans_count = ($orphans | Measure-Object -Property updated_at -Min -Max).Count
 	# $orphans | Measure-Object -Property updated_at -Min -Max
 	Write-Host ""
