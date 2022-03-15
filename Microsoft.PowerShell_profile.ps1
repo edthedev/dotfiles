@@ -122,7 +122,7 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/farmit',
 	'uillinois-community/uillinois-community.github.io',
 	'techservicesillinois/SecOps-Powershell-CSOC'
-)
+) -join ' '
 
 # Nice for git
 New-Alias ol 		Get-GitLog
