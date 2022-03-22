@@ -123,6 +123,7 @@ $env:GITHUB_REPOS = @(
 	'uillinois-community/uillinois-community.github.io',
 	'techservicesillinois/SecOps-Powershell-CSOC'
 ) -join ' '
+$ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
 
 # Nice for git
 New-Alias ol 		Get-GitLog
