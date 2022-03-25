@@ -36,9 +36,10 @@ else {
 	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
 	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
 }
+
 # alias renumber $HOME/src/x16-demo/
 
-$env:Journal = "~\Journal\2021" # allows cd $env:journal
+$env:Journal = "~\Journal\2022" # allows cd $env:journal
 $env:minion = "$env:src\minion"
 
 # Import some home grown PowerShell modules, if they are installed.
@@ -124,6 +125,11 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/SecOps-Powershell-CSOC'
 ) -join ' '
 $ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
+
+# Todo List
+$ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
+$env:todolist = "C:\Users\delaport\Journal\2022"
+# New-Alias todo      todolist
 
 # Nice for git
 New-Alias ol 		Get-GitLog
