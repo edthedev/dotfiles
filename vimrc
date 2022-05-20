@@ -55,7 +55,7 @@ Plug 'pprovost/vim-ps1'
 " Plug NLKNguyen/papercolor-theme
 "
 "
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 

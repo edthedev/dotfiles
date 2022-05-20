@@ -36,9 +36,10 @@ else {
 	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
 	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
 }
+
 # alias renumber $HOME/src/x16-demo/
 
-$env:Journal = "~\Journal\2021" # allows cd $env:journal
+$env:Journal = "~\Journal\2022" # allows cd $env:journal
 $env:minion = "$env:src\minion"
 
 # Import some home grown PowerShell modules, if they are installed.
@@ -115,15 +116,20 @@ function Get-GitStatus() {
 
 # Tell my scripts which GitHub repositories to look in.
 $env:GITHUB_USERNAME = 'edthedev'
-$env:GITHUB_ORG = 'techservicesillinois'
-$env:GITHUB_ORGS = @('techservicesillinois', 'uillinois-community')
 $env:GITHUB_REPOS = @(
 	'techservicesillinois/SecOps-Tools', 
 	'techservicesillinois/secdev-job-aids', 
 	'techservicesillinois/awscli-login', 
 	'techservicesillinois/farmit',
-	'uillinois-community/uillinois-community.github.io'
-)
+	'uillinois-community/uillinois-community.github.io',
+	'techservicesillinois/SecOps-Powershell-CSOC'
+) -join ' '
+$ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
+
+# Todo List
+$ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
+$env:todolist = "C:\Users\delaport\Journal\2022"
+# New-Alias todo      todolist
 
 # Nice for git
 New-Alias ol 		Get-GitLog
@@ -132,3 +138,7 @@ New-Alias st 		Get-GitStatus
 # Dashboard
 New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias agenda Get-JournalAgenda # from minion_go.psm1
+
+function Invoke-FixWslVPN {
+	Get-NetAdapter | Where-Object {$_.InterfaceDescription -Match "Cisco AnyConnect Secure Mobility Client Virtual Miniport Adapter for Windows x64"} | Set-NetIPInterface -InterfaceMetric 6000
+}
