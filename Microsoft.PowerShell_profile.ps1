@@ -8,13 +8,6 @@
 #}
 # $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
 
-# No longer needed in PowerShell 7
-if(-Not $IsWindows) {
- 	# Bootstrap for older PowerShell
-	Write-Host "***Bootstrapped Is Windows for older PowerShell***"
- 	$IsWindows = ($env:OS -eq "Windows_NT")
-}
-
 $env:src = "~\src"
 if($IsWindows){
 	Write-Host "***Is Windows***"
@@ -44,15 +37,15 @@ $env:minion = "$env:src\minion"
 
 # Import some home grown PowerShell modules, if they are installed.
 #
-$modPaths = Get-Childitem -Path "$env:src\dotfiles\psmodules"
-$modPaths += Get-Childitem -Path "$env:minion\psmodule"
+$modPaths = Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\psmodules"
+$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:minion\psmodule"
 
 # https://github.com/uillinois-community/powershell-scripts
-$modPaths += Get-Childitem -Path "$env:src\powershell-scripts\modules"
+$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\powershell-scripts\modules"
 
 # Windows Only Modules
 if($IsWindows){
-	$modPaths += Get-Childitem -Path "$env:src\dotfiles\win_psmodules"
+	$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\win_psmodules"
 }
 if($modPaths.length -eq 0){
 	Write-Host "No modules found."
@@ -74,14 +67,14 @@ Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 
 # Minion alias commands - 'today'
 # . C:\src\minion\profiles\alias.ps1
-. $env:minion\profiles\alias.ps1
+# . $env:minion\profiles\alias.ps1
 # Add Minion go executable to path.
-. $env:minion\profiles\path.ps1
+# . $env:minion\profiles\path.ps1
 # Add Minion to path
-Write-Host "+ Added minion command to path."
-if($IsWindows){
-	$ENV:PATH+=";$env:minion\go" # Flag to ensure my profile kicked in.
-}
+# Write-Host "+ Added minion command to path."
+# if($IsWindows){
+# 	$ENV:PATH+=";$env:minion\go" # Flag to ensure my profile kicked in.
+# }
 
 # Unix dies hard.
 New-Alias which get-command
