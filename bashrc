@@ -121,7 +121,7 @@ alias pyenv='LDFLAGS=-lffi pyenv' # Fix for Python before 3.9
 
 eval "$(oh-my-posh --init --shell bash --config ~/oh-my-posh.omp.json)"
 
-# For Windows Subsystem for Linux
+# Call Windows apps from within Windows Subsystem for Linux
 alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
 alias clip="/mnt/c/Windows/system32/clip.exe"
 alias paste="/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command Get-Clipboard"
