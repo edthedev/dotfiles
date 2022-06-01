@@ -124,4 +124,4 @@ eval "$(oh-my-posh --init --shell bash --config ~/oh-my-posh.omp.json)"
 # Call Windows apps from within Windows Subsystem for Linux
 alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
 alias clip="/mnt/c/Windows/system32/clip.exe"
-alias paste="/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command Get-Clipboard"
+alias paste="/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -command Get-Clipboard"
