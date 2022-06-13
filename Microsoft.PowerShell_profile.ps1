@@ -115,7 +115,8 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/awscli-login', 
 	'techservicesillinois/farmit',
 	'uillinois-community/uillinois-community.github.io',
-	'techservicesillinois/SecOps-Powershell-CSOC'
+	'techservicesillinois/SecOps-Powershell-CSOC',
+	'techservicesillinois/SecOps-Powershell-CISDSC/'
 ) -join ' '
 $ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
 
