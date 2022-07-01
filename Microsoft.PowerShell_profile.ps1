@@ -10,7 +10,6 @@
 
 $env:src = "~\src"
 if($IsWindows){
-	Write-Host "***Is Windows***"
   $env:src = "c:\src"
 }
 
