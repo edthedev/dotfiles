@@ -10,8 +10,8 @@ function Show-MyDashBoard() {
 	Get-JournalAgenda
 	Write-Host ""
 	Write-Host "## GitHub Issues Assigned (Show-AgileMine)"
-	Show-AgileMine
-	# Show-AgileMine -DaysAgo 6
+	# Show-AgileMine
+	Show-AgileMine -DaysAgo 6
 	Write-Host ""
 	Write-Host "## GitHub Issues with no milestone. (Select-AgileNoMilestone)"
 	Write-Host "(Get-AgileQuery -state 'Open' | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub)"
