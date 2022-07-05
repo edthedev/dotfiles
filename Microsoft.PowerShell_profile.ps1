@@ -1,4 +1,4 @@
-# .EXAMPLE
+#WebDriverException: Message: unknown error: cannot determine loading status .EXAMPLE
 # . C:\src\dotfiles\Microsoft.PowerShell_profile.ps1
 
 # Courtesty of MKletz
@@ -15,6 +15,7 @@ if($IsWindows){
 
 if($IsWindows){
 	# Some Paths that are annoying to find/restore if the installer fails
+	$ENV:PATH+=";$env:src\bin" # anything else I need
 	$ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin" # One Editor to rule them all
 	$ENV:PATH+=";C:\Program Files\Git\cmd" # Version control is nice.
 	$ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
