@@ -30,6 +30,11 @@ else {
 	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
 }
 
+# Todo List
+$ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
+$env:todolist = "C:\Users\delaport\Journal\"
+# New-Alias todo      todolist
+
 # alias renumber $HOME/src/x16-demo/
 
 $env:Journal = "~\Journal" # allows cd $env:journal
@@ -121,10 +126,6 @@ $env:GITHUB_REPOS = @(
 ) -join ' '
 $ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
 
-# Todo List
-$ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
-$env:todolist = "C:\Users\delaport\Journal\"
-# New-Alias todo      todolist
 
 # Nice for git
 New-Alias ol 		Get-GitLog
