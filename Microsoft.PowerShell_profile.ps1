@@ -32,7 +32,7 @@ else {
 
 # alias renumber $HOME/src/x16-demo/
 
-$env:Journal = "~\Journal\2022" # allows cd $env:journal
+$env:Journal = "~\Journal" # allows cd $env:journal
 $env:minion = "$env:src\minion"
 
 # Import some home grown PowerShell modules, if they are installed.
@@ -116,13 +116,14 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/farmit',
 	'uillinois-community/uillinois-community.github.io',
 	'techservicesillinois/SecOps-Powershell-CSOC',
-	'techservicesillinois/SecOps-Powershell-CISDSC'
+	'techservicesillinois/SecOps-Powershell-CISDSC',
+	'techservicesillinois/secops-splunk-null-router'
 ) -join ' '
 $ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
 
 # Todo List
 $ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
-$env:todolist = "C:\Users\delaport\Journal\2022"
+$env:todolist = "C:\Users\delaport\Journal\"
 # New-Alias todo      todolist
 
 # Nice for git
