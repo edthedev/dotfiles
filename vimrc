@@ -84,6 +84,7 @@ au BufNewFile,BufRead *.go set noet ts=2 sw=2 sts=2
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 colorscheme elflord
+set bg=dark
 set number
 
 set backupdir=c:\temp,.backup/,~/.backup/,/tmp//

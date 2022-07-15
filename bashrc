@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# alias pyenv='CC="$(brew --prefix gcc)/bin/gcc-11" pyenv' # Fix for Python before 3.9
-alias pyenv='LDFLAGS=-lffi pyenv' # Fix for Python before 3.9
+alias pyenv='CC="$(brew --prefix gcc)/bin/gcc-11" pyenv'
+# alias pyenv='LDFLAGS=-lffi pyenv'
 
 eval "$(oh-my-posh --init --shell bash --config ~/oh-my-posh.omp.json)"
 

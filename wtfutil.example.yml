@@ -1,0 +1,42 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [32, 32, 32, 32, 90]
+    rows: [10, 10, 10, 4, 4, 90]
+  refreshInterval: 1
+  mods:
+    github:
+      apiKey: ""
+      baseURL: ""
+      customQueries:
+        othersPRs:
+          title: "Others Pull Requests"
+          filter: "is:open is:pr draft:false -author:edthedev"
+      enabled: true
+      enableStatus: true
+      position:
+        top: 0
+        left: 0
+        height: 2
+        width: 2
+      refreshInterval: 5m
+      repositories:
+        - 'uillinois-community/uillinois-community.github.io'
+      uploadURL: ""
+      username: ""
+    agenda:
+      title: "Agenda"
+      cmd: "agenda"
+      args: ["-path", "/Journal/{YYYY}/{MM}-{DD}.md"]
+      enabled: true
+      position:
+        top: 0
+        left: 2
+        width: 2
+        height: 2
+      refreshInterval: 60
+      type: cmdrunner
