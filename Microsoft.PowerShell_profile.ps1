@@ -23,14 +23,15 @@ if($IsWindows){
 	$ENV:PATH+=";C:\Program Files (x86)\GnuWin32\bin" # GNU Utils - i.e. rm
 	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
 	$ENV:PATH+=";$env:src\x16-demo\tools" # x16 python tools
-	$ENV:PATH+=";$env:src\chart" # command line chart utility edthedev\chart
 }
 else {
 	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
 	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
 }
 
-# Todo List
+# Command line tools
+$ENV:PATH+=";$env:src\chart" # command line chart utility edthedev\chart
+$ENV:PATH+=";$env:src\agenda" # command line chart utility edthedev\chart
 $ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
 $env:todolist = "C:\Users\delaport\Journal\"
 # New-Alias todo      todolist
@@ -133,7 +134,11 @@ New-Alias st 		Get-GitStatus
 
 # Dashboard
 New-Alias dash   Show-MyDashboard # from dash.psm1
-New-Alias agenda Get-JournalAgenda # from minion_go.psm1
+
+function Get-JournalAgenda() {
+	agenda.exe -path "$HOME/Journal/$(Get-Date -Format "yyyy/MM-dd").md"
+}
+New-Alias agenda Get-JournalAgenda
 
 function Invoke-FixWslVPN {
 	Get-NetAdapter | Where-Object {$_.InterfaceDescription -Match "Cisco AnyConnect Secure Mobility Client Virtual Miniport Adapter for Windows x64"} | Set-NetIPInterface -InterfaceMetric 6000
