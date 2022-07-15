@@ -136,9 +136,9 @@ New-Alias st 		Get-GitStatus
 New-Alias dash   Show-MyDashboard # from dash.psm1
 
 function Get-JournalAgenda() {
-	agenda.exe -path "$HOME/Journal/$(Get-Date -Format "yyyy/MM-dd").md"
+	agenda.exe -path "$HOME/Journal/{YYYY}/{MM}-{DD}.md"
 }
-New-Alias agenda Get-JournalAgenda
+New-Alias today Get-JournalAgenda
 
 function Invoke-FixWslVPN {
 	Get-NetAdapter | Where-Object {$_.InterfaceDescription -Match "Cisco AnyConnect Secure Mobility Client Virtual Miniport Adapter for Windows x64"} | Set-NetIPInterface -InterfaceMetric 6000
