@@ -3,11 +3,6 @@ if [ ! -d ~/dotfiles ]; then
 	cd ~; git clone git@github.com:edthedev/dotfiles.git
 fi
 
-if [ ! -f ~/.ssh/id_rsa ]; then
-	echo "************** Generate an SSH key"
-	ssh-keygen
-fi
-
 if [ ! -f ~/.screenrc ]; then
 	echo "************** Setup Screen"
 	ln -s ~/dotfiles/screenrc ~/.screenrc
@@ -29,6 +24,12 @@ if [ -f ~/.gitconfig ]; then
 	git config --global user.name "Edward Delaporte"
 fi
 
-echo "************** Reminder to setup GitHub key"
-cat GitHubKey.md
-cat ~/.ssh/id_rsa.pub
+if [ ! -f ~/.ssh/id_rsa ]; then
+	echo "************** Generate an SSH key"
+	ssh-keygen
+
+	echo "************** Reminder to setup GitHub key"
+	cat GitHubKey.md
+	cat ~/.ssh/id_rsa.pub
+fi
+
