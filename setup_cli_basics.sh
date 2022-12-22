@@ -5,15 +5,12 @@ fi
 
 if [ ! -f ~/.screenrc ]; then
 	echo "************** Setup Screen"
-	ln -s ~/dotfiles/screenrc ~/.screenrc
-fi
-
-if [ ! -f ~/.vimrc ]; then
-	echo "************** Link Vimrc"
-	ln -s ~/dotfiles/vimrc ~/.vimrc
+	ln -s ~/dotfiles/files/screenrc ~/.screenrc
 fi
 
 if [ -f ~/.vimrc ]; then
+	echo "************** Link Vimrc"
+	ln -s ~/dotfiles/files/vimrc ~/.vimrc
 	echo "************** Configure Git to use Vim"
 	git config --global core.editor /usr/bin/vim
 fi
@@ -24,9 +21,9 @@ if [ -f ~/.gitconfig ]; then
 	git config --global user.name "Edward Delaporte"
 fi
 
-if [ ! -f ~/.ssh/id_rsa ]; then
+if [ ! -f ~/.ssh/id_ed25519 ]; then
 	echo "************** Generate an SSH key"
-	ssh-keygen
+	ssh-keygen -t ed25519
 
 	echo "************** Reminder to setup GitHub key"
 	cat GitHubKey.md
