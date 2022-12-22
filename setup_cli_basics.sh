@@ -3,7 +3,7 @@ if [ ! -d ~/dotfiles ]; then
 	cd ~; git clone git@github.com:edthedev/dotfiles.git
 fi
 
-if [ ! -f ~/.bashrc]; then
+if [ ! -f ~/.bashrc ]; then
 	echo "************** Setup Bash"
 	~/dotfiles/setup/bash.sh
 fi
