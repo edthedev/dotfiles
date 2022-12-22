@@ -13,18 +13,18 @@ if [ ! -f ~/.screenrc ]; then
 	ln -s ~/dotfiles/files/screenrc ~/.screenrc
 fi
 
-if [ -f ~/.vimrc ]; then
-	echo "************** Link Vimrc"
-	ln -s ~/dotfiles/files/vimrc ~/.vimrc
-	echo "************** Configure Git to use Vim"
-	git config --global core.editor /usr/bin/vim
-fi
-
-if [ -f ~/.gitconfig ]; then
+if [ ! -f ~/.gitconfig ]; then
 	echo "************** Configure Git user"
 	git config --global user.email "edward@delaporte.us"
 	git config --global user.name "Edward Delaporte"
 	git config --global pull.ff only
+	git config --global core.editor /usr/bin/vi
+fi
+
+if [ ! -f ~/.vimrc ]; then
+	echo "************** Link Vimrc"
+	ln -s ~/dotfiles/files/vimrc ~/.vimrc
+	ls -a ~ | grep vim
 fi
 
 if [ ! -f ~/.ssh/id_ed25519 ]; then
@@ -33,6 +33,12 @@ if [ ! -f ~/.ssh/id_ed25519 ]; then
 
 	echo "************** Reminder to setup GitHub key"
 	cat ~/dotfiles/doc/GitHubKey.md
-	cat ~/.ssh/id_rsa.pub
+	cat ~/.ssh/id_ed25519.pub
 fi
 
+echo "************** Status: Symlinks "
+ls -la ~ | grep "\->"
+echo "************** Status: Git Config"
+cat ~/.gitconfig
+echo "************** Status: Pubkey "
+cat ~/.ssh/id_ed25519.pub
