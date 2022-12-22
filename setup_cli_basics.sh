@@ -27,7 +27,7 @@ if [ ! -f ~/.ssh/id_ed25519 ]; then
 	ssh-keygen -t ed25519
 
 	echo "************** Reminder to setup GitHub key"
-	cat ~/dotfiles/files/GitHubKey.md
+	cat ~/dotfiles/doc/GitHubKey.md
 	cat ~/.ssh/id_rsa.pub
 fi
 
