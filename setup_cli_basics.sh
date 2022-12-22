@@ -19,6 +19,7 @@ if [ -f ~/.gitconfig ]; then
 	echo "************** Configure Git user"
 	git config --global user.email "edward@delaporte.us"
 	git config --global user.name "Edward Delaporte"
+	git config --global pull.ff only
 fi
 
 if [ ! -f ~/.ssh/id_ed25519 ]; then
