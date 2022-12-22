@@ -3,6 +3,11 @@ if [ ! -d ~/dotfiles ]; then
 	cd ~; git clone git@github.com:edthedev/dotfiles.git
 fi
 
+if [ ! -f ~/.bashrc]; then
+	echo "************** Setup Bash"
+	~/dotfiles/setup/bash.sh
+fi
+
 if [ ! -f ~/.screenrc ]; then
 	echo "************** Setup Screen"
 	ln -s ~/dotfiles/files/screenrc ~/.screenrc
