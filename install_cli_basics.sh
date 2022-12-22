@@ -14,15 +14,15 @@ if [ ! -f ~/.vimrc ]; then
 	sudo apt-get install -y vim-nox
 fi
 
-if [ ! -f ~/.config/powershell/Microsoft.PowerShell_profile.ps1 ]; then
-	echo "************** Install PowerShell"
-	sudo apt-get install -y powershell
-fi
+# if [ ! -f ~/.config/powershell/Microsoft.PowerShell_profile.ps1 ]; then
+# 	echo "************** Install PowerShell"
+# 	sudo apt-get install -y powershell
+# fi
 
 if [ ! -f ~/.screenrc ]; then
 	echo "************** Install Screen"
 	sudo apt-get install -y screen
 fi
 
-echo "************** Install Midnight Commander"
-sudo apt-get install mc
+# echo "************** Install Midnight Commander"
+# sudo apt-get install mc
