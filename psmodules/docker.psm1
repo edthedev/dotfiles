@@ -8,7 +8,6 @@ function Invoke-DockerPython{
   Invoke-Docker python
 }
 
-Export-ModuleMember -Function Start-DockerPython
 
 # function Export-VSCodeExtensions {
 #  code --list-extensions | Out-File -FilePath /src/dotfiles/vscode-extensions.txt
@@ -26,7 +25,7 @@ function Invoke-DockerKali{
 
 function Invoke-Docker {
   param(
-    [string]$version = kalilinux/kali-rolling
+    [string]$version = 'kalilinux/kali-rolling'
   )
   docker run -it -v c:\data:/data $version bash
 }
@@ -34,3 +33,9 @@ function Invoke-Docker {
 function Invoke-DockerOWASPJuiceShop {
   docker run --rm -p 3000:3000 bkimminich/juice-shop
 }
+
+Export-ModuleMember -Function Invoke-Docker
+Export-ModuleMember -Function Invoke-DockerData
+Export-ModuleMember -Function Invoke-DockerKali
+Export-ModuleMember -Function Invoke-DockerPython
+Export-ModuleMember -Function Invoke-DockerOWASPJuiceShop
