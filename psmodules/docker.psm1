@@ -31,6 +31,7 @@ function Invoke-Docker {
 }
 
 function Invoke-DockerOWASPJuiceShop {
+  Get-NetIPAddress | Select-Object IPAddress
   docker run --rm -p 3000:3000 bkimminich/juice-shop
 }
 
