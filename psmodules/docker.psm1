@@ -25,14 +25,19 @@ function Invoke-DockerKali{
 
 function Invoke-Docker {
   param(
-    [string]$version = 'kalilinux/kali-rolling'
+    [string]$version = 'kalilinux/kali-rolling',
+    [string]$cmd = 'bash'
   )
-  docker run -it -v c:\data:/data $version bash
+  docker run -it -v c:\data:/data $version $cmd
 }
 
 function Invoke-DockerOWASPJuiceShop {
   Get-NetIPAddress | Select-Object IPAddress
   docker run --rm -p 3000:3000 bkimminich/juice-shop
+}
+
+function Invoke-DockerHyrda {
+  docker run -it --entrypoint=/bin/bash -v c:\data:/data vanhauser/hydra
 }
 
 Export-ModuleMember -Function Invoke-Docker

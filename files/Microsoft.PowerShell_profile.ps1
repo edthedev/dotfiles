@@ -26,6 +26,7 @@ if($IsWindows){
 	$ENV:PATH+=";$env:src\flutter\bin" # Flutter for Dart
 }
 else {
+	$ENV:PATH+=";$env:src/bin" # anything else I need
 	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
 	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
 }
