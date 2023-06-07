@@ -1,0 +1,30 @@
+/* Stylesheet useful for making HTML dashboards from Markdown documents */
+body {
+    color: white;
+    background-color: #1e3877;
+}
+code {
+    color: white;
+}
+pre {
+    background-color: rgba(0, 122, 204, 0.5);
+}
+a {
+  color: #9ab6d9;
+  outline-style: dashed;
+  outline-width: medium;
+  padding: 1em;
+}
+h2 {
+  background-color:black;
+}
+li {
+  margin: 2em;
+}
+ul {
+  list-style-type: none;
+}
+
+.right {
+    float:right;
+}
