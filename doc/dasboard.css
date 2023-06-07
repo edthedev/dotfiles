@@ -36,6 +36,9 @@ a {
 }
 h2 {
   background-color:black;
+  border-radius: 0.5em;
+  padding: 0.3em;
+  padding-left:0.5em;
 }
 li {
   margin: 2em;
