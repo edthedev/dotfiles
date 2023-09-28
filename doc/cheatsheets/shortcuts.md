@@ -1,5 +1,4 @@
-## 
-
+# Shortcuts
 
 ## Shortcuts in VSCode
 
