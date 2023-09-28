@@ -44,6 +44,12 @@ I have a bit of JavaScript in the HTML file I use for my homepage. It causes the
 
 ## Shortcuts in MS PowerToys
 
+In `Keyboard Manager`, `Remap a Key`:
+
+To Mute/Unmute the `Teams` microphone with the dedicated `Volume Mute` button:
+
+- `Volume Mute` to `Ctrl+Shift+M`
+
 In `Keyboard Manager`, `Remap a Shortcut`:
 
 For `Raise Hand`:
