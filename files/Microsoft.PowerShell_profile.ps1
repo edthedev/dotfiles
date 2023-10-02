@@ -58,11 +58,14 @@ if($IsWindows){
 if($modPaths.length -eq 0){
 	Write-Host "No modules found."
 }
+$enabledMods = 'dash.psm1','docker.psm1';
 $modPaths | ForEach-Object {
 	$fileName = $_.FullName
-	if($filename -Like "*.psm1") {
-		Import-Module $fileName
-		Write-Host ">> Loaded $fileName"
+	if($enabledModules -Contains $_.Name ){
+		if($filename -Like "*.psm1") {
+			Import-Module $fileName
+			Write-Host ">> Loaded $fileName"
+		}
 	}
 }
 
