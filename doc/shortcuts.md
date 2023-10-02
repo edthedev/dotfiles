@@ -44,11 +44,15 @@ I have a bit of JavaScript in the HTML file I use for my homepage. It causes the
 
 ## Shortcuts in MS PowerToys
 
+### Remapped Keys
+
 In `Keyboard Manager`, `Remap a Key`:
 
 To Mute/Unmute the `Teams` microphone with the dedicated `Volume Mute` button:
 
 - `Volume Mute` to `Ctrl+Shift+M`
+
+### Remapped Shortcuts
 
 In `Keyboard Manager`, `Remap a Shortcut`:
 
@@ -61,3 +65,7 @@ For `Mute`:
 
 - `Alt+Shift+6` to `Ctrl+Shift+M` in app `teams`
 - `Alt+Shift+6` to `Ctrl+A` in app `zoom`
+
+For the VSCode/VSCodium terminal:
+
+- `Alt+Shift+4` to 'Ctrl+`' in app `All Apps`
