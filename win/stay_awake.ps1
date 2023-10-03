@@ -1,5 +1,5 @@
+param($minutes=90)
 $wsh = New-Object -ComObject WScript.Shell
-$minutes = 15
 do{
 	"Staying awake for $minutes minutes"
   $minutes-=1;
