@@ -41,33 +41,34 @@ $env:todolist = "C:\Users\delaport\Journal\"
 # alias renumber $HOME/src/x16-demo/
 
 $env:Journal = "~\Journal" # allows cd $env:journal
-$env:minion = "$env:src\minion"
+# $env:minion = "$env:src\minion"
 
 # Import some home grown PowerShell modules, if they are installed.
 #
 $modPaths = Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\psmodules"
-$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:minion\psmodule"
+# $modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:minion\psmodule"
 
 # https://github.com/uillinois-community/powershell-scripts
-$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\powershell-scripts\modules"
+# $modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\powershell-scripts\modules"
 
 # Windows Only Modules
-if($IsWindows){
-	$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\win_psmodules"
-}
-if($modPaths.length -eq 0){
-	Write-Host "No modules found."
-}
-$enabledMods = 'dash.psm1','docker.psm1';
-$modPaths | ForEach-Object {
-	$fileName = $_.FullName
-	if($enabledModules -Contains $_.Name ){
-		if($filename -Like "*.psm1") {
-			Import-Module $fileName
-			Write-Host ">> Loaded $fileName"
-		}
-	}
-}
+# if($IsWindows){
+# 	$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\win_psmodules"
+# }
+# if($modPaths.length -eq 0){
+# 	Write-Host "No modules found."
+# }
+
+# $enabledMods = 'dash.psm1','docker.psm1';
+# $modPaths | ForEach-Object {
+# 	$fileName = $_.FullName
+# 	if($enabledModules -Contains $_.Name ){
+# 		if($filename -Like "*.psm1") {
+# 			Import-Module $fileName
+# 			Write-Host ">> Loaded $fileName"
+# 		}
+# 	}
+# }
 
 
 
@@ -89,6 +90,7 @@ Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 
 # Unix dies hard.
 New-Alias which get-command
+New-Alias rm Remove-Item
 
 # Delay loading PoshGit for speed. 
 function Enable-PoshGit {
