@@ -11,9 +11,12 @@ Alt+Shift+(1 through 6):
     1. Journal: New Journal Note
     2. Journal: Open Today
     3. Search: Focus on Search View
-    4. Source Control: Focus on Source Control View
-    5. Remote Explorer: Foucs on Remotes
+    4. View: Toggle Terminal
+    5. View: Toggle Maximized Panel (Helpful for expanding terminal upward)
     6. View: Toggle Primary Side Bar Visibility
+
+> Tip: When reviewing shortcuts in VSCode, set the search to `User` to see your own.
+> Tip: There is an option to `Reset Keybinding` in the right-click menu.
 
 ## Shortcuts JavaScript
 
