@@ -8,33 +8,21 @@
 #}
 # $env:PSModulePath = $env:PSModulePath.Replace("\\ad.uillinois.edu\techsvc\home\$($ENV:USERNAME)\Documents\PowerShell\Modules;",'')
 
+function Add-ToProfile {
+    param (
+        $Path
+    )
+	$profileContents = [string]::join([environment]::newline, (get-content -path $Path))
+	invoke-expression $profileContents
+}
+
+
 $env:src = "~\src"
 if($IsWindows){
   $env:src = "c:\src"
 }
 
-if($IsWindows){
-	# Some Paths that are annoying to find/restore if the installer fails
-	$ENV:PATH+=";$env:src\bin" # anything else I need
-	$ENV:PATH+=";C:\Program Files\Microsoft VS Code\bin" # One Editor to rule them all
-	$ENV:PATH+=";C:\Program Files\Git\cmd" # Version control is nice.
-	$ENV:PATH+=";C:\ProgramData\chocolatey\bin" # Package management is nice.
-	$ENV:PATH+=";C:\bin\x16emu" # Package management is nice.
-	$ENV:PATH+=";C:\Program Files (x86)\GnuWin32\bin" # GNU Utils - i.e. rm
-	$ENV:PATH+=";C:\PENGUIN" # Flag to ensure my profile kicked in.
-	$ENV:PATH+=";$env:src\x16-demo\tools" # x16 python tools
-	$ENV:PATH+=";$env:src\flutter\bin" # Flutter for Dart
-}
-else {
-	$ENV:PATH+=";$env:src/bin" # anything else I need
-	$ENV:PATH+=":$HOME/x16/x16-emulator" # x16 Emulator
-	$ENV:PATH+=":$HOME/src/x16-demo/tools" # x16 python tools
-}
-
-# Command line tools
-$ENV:PATH+=";$env:src\chart" # command line chart utility edthedev\chart
-$ENV:PATH+=";$env:src\agenda" # command line chart utility edthedev\chart
-$ENV:PATH+=";$env:src\todolist" # todo list utility edthedev\todolist
+Add-ToProfile $env:src\dotfiles\files\paths.ps1
 $env:todolist = "C:\Users\delaport\Journal\"
 # New-Alias todo      todolist
 
@@ -150,3 +138,5 @@ New-Alias today Get-JournalAgenda
 function Invoke-FixWslVPN {
 	Get-NetAdapter | Where-Object {$_.InterfaceDescription -Match "Cisco AnyConnect Secure Mobility Client Virtual Miniport Adapter for Windows x64"} | Set-NetIPInterface -InterfaceMetric 6000
 }
+
+Write-Host "Real profile file is at $env:realProfile ($$env:realProfile)"
