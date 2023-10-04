@@ -90,7 +90,7 @@ Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 
 # Unix dies hard.
 New-Alias which get-command
-New-Alias rm Remove-Item
+# New-Alias rm Remove-Item
 
 # Delay loading PoshGit for speed. 
 function Enable-PoshGit {
