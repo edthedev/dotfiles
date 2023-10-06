@@ -1,4 +1,4 @@
-#WebDriverException: Message: unknown error: cannot determine loading status .EXAMPLE
+#WebDriverException: Message: nknown error: cannot determine loading status .EXAMPLE
 # . C:\src\dotfiles\Microsoft.PowerShell_profile.ps1
 
 # Courtesty of MKletz
@@ -23,62 +23,15 @@ if($IsWindows){
 }
 
 Add-ToProfile $env:src\dotfiles\files\paths.ps1
-$env:todolist = "C:\Users\delaport\Journal\"
-# New-Alias todo      todolist
+Add-ToProfile $env:src\dotfiles\files\env.ps1
 
-# alias renumber $HOME/src/x16-demo/
-
-$env:Journal = "~\Journal" # allows cd $env:journal
-# $env:minion = "$env:src\minion"
-
-# Import some home grown PowerShell modules, if they are installed.
-#
-$modPaths = Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\psmodules"
-# $modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:minion\psmodule"
-
-# https://github.com/uillinois-community/powershell-scripts
-# $modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\powershell-scripts\modules"
-
-# Windows Only Modules
-# if($IsWindows){
-# 	$modPaths += Get-Childitem -ErrorAction Ignore -Path "$env:src\dotfiles\win_psmodules"
-# }
-# if($modPaths.length -eq 0){
-# 	Write-Host "No modules found."
-# }
-
-# $enabledMods = 'dash.psm1','docker.psm1';
-# $modPaths | ForEach-Object {
-# 	$fileName = $_.FullName
-# 	if($enabledModules -Contains $_.Name ){
-# 		if($filename -Like "*.psm1") {
-# 			Import-Module $fileName
-# 			Write-Host ">> Loaded $fileName"
-# 		}
-# 	}
-# }
-
-
+# You can pry my unix commands out of my cold dead fingers
+Set-Alias which get-command
 
 # Linux-like up/down in shell
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward 
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward 
 Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
-
-# Minion alias commands - 'today'
-# . C:\src\minion\profiles\alias.ps1
-# . $env:minion\profiles\alias.ps1
-# Add Minion go executable to path.
-# . $env:minion\profiles\path.ps1
-# Add Minion to path
-# Write-Host "+ Added minion command to path."
-# if($IsWindows){
-# 	$ENV:PATH+=";$env:minion\go" # Flag to ensure my profile kicked in.
-# }
-
-# Unix dies hard.
-New-Alias which get-command
-# New-Alias rm Remove-Item
 
 # Delay loading PoshGit for speed. 
 function Enable-PoshGit {
@@ -87,14 +40,6 @@ function Enable-PoshGit {
 New-Alias pg    Enable-PoshGit
 Write-Host "+ Type 'pg' to enable PoshGit"
 
-function Invoke-X16Emu {
-	param(
-		[string]$File
-	)
-	x16emu.exe -bas $File -keymap en-us
-}
-
-New-Alias x16   Invoke-X16Emu
 
 if((Get-Location).Path -eq $HOME){
 	cd $env:src

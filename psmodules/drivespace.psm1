@@ -40,5 +40,5 @@ $Files = Get-Job -Name "FileCollection" | Receive-Job
 Get-Job -Name "FileCollection" | Remove-Job
 }
 
-Export-ModuleMember -Function Show-Drivespace 
+Export-ModuleMember -Function Show-DriveSpace 
 Export-ModuleMember -Function Show-LargeFiles
