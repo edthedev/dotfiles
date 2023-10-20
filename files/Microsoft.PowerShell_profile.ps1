@@ -10,6 +10,8 @@ function Enable-PoshGit {
 }
 New-Alias pg    Enable-PoshGit
 
+Set-Alias code codium  # Prefer Codium
+
 # You can pry my unix commands out of my cold dead fingers
 Set-Alias which get-command
 # Reject Windows heritage, act like Vi
