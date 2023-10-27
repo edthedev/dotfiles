@@ -18,10 +18,6 @@ Include this `div` tag to float panels to the right.
 
 </div>
 */
-body {
-    color: white;
-    background-color: #1e3877;
-}
 code {
     color: white;
 }
@@ -29,7 +25,6 @@ pre {
     background-color: rgba(0, 122, 204, 0.5);
 }
 a {
-  color: #9ab6d9;
   outline-style: dashed;
   outline-width: medium;
   padding: 1em;
@@ -49,4 +44,34 @@ ul {
 
 .right {
     float:right;
+}
+
+
+/* Dark Theme */
+:root {
+  /* Backgrounds */
+  --main-bg-color: #181818;
+  --code-bg-color: #222222;
+
+  /* Foregrounds */
+  --main-text-color: #bbbbbb;
+  --link-text-color: #22A7F0;
+  --visited-link-color: #7462E0;
+}
+
+body
+{
+	/* font-family: 'times new roman', times, serif; */
+  font-family: monospace;
+	font-size:2vw;
+  color: var(--main-text-color);
+	background-color: var(--main-bg-color) !important;
+  margin: 0em;
+}
+
+a {
+  color: var(--link-text-color);
+}
+a:visited {
+  color: var(--visited-link-color);
 }
