@@ -15,7 +15,7 @@ Set-Alias code codium  # Prefer Codium
 # You can pry my unix commands out of my cold dead fingers
 Set-Alias which get-command
 # Reject Windows heritage, act like Vi
-Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
+# Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 Set-PSReadlineOption -BellStyle Visual
 Set-PSReadlineOption -ViModeIndicator Prompt
 Set-PSReadlineOption -EditMode Vi
