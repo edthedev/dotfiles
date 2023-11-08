@@ -23,9 +23,11 @@ if($IsWindows){
 	Add-ToPath "$env:src\x16-demo\tools" -optional # x16 python tools
 	Add-ToPath "$env:src\flutter\bin" -optional # Flutter for Dart
 	Add-ToPath "$env:src\bin" -optional # anything else I need
+	Add-ToPath "$HOME\bin" -optional # anything else I need
 }
 else {
 	Add-ToPath "$env:src/bin" -optional # anything else I need
+	Add-ToPath "$HOME\bin" -optional # anything else I need
 	Add-ToPath "$HOME/x16/x16-emulator" -optional # x16 Emulator
 	Add-ToPath "$HOME/src/x16-demo/tools" -optional # x16 python tools
 }
