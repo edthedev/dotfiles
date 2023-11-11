@@ -1,8 +1,9 @@
-$env:src = "~\src"
-Import-Module $env:src\dotfiles\psmodules\add_to_profile.psm1
-Add-ToProfile $env:src\dotfiles\files\paths.ps1
-Add-ToProfile $env:src\dotfiles\files\env.ps1
-Add-ToProfile $env:src\dotfiles\files\load_modules.ps1
+$env:src = "$HOME\src"
+$env:dotfiles = "$HOME\dotfiles"
+Import-Module $env:dotfiles\psmodules\add_to_profile.psm1
+Add-ToProfile $env:dotfiles\files\paths.ps1
+Add-ToProfile $env:dotfiles\files\env.ps1
+Add-ToProfile $env:dotfiles\files\load_modules.ps1
 
 # Delay loading PoshGit for speed. 
 function Enable-PoshGit {
