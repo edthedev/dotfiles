@@ -1,5 +1,5 @@
 
-$modPath = "$env:dotfiles\psmodules"
-Import-Module "$modPath\dash.psm1"
-Import-Module "$modPath\file_management.psm1"
-Import-Module "$modPath\fix_vpn.psm1"
+$env:psmodules = "$env:dotfiles\psmodules"
+Import-Module "$env:psmodules\dash.psm1"
+Import-Module $env:PSModules\file_management.psm1
+Import-Module "$env:psmodules\fix_vpn.psm1"
