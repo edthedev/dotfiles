@@ -56,3 +56,18 @@ Set git username.
 git config --global user.email "edward@delaporte.us"
 git config --global user.name "Edward Delaporte"
 ```
+
+
+## Setup PowerShell Profile
+
+Edit your actual profile,
+```
+code $profile
+```
+
+And add something like:
+
+``` powershell
+$env:realProfile = "$HOME\dotfiles\files\Microsoft.PowerShell_profile.ps1"
+$profileContents = [string]::join([environment]::newline, (get-content -path $env:realProfile));invoke-expression $profileContents
+```
