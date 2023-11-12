@@ -3,7 +3,6 @@ $env:dotfiles = "$HOME\dotfiles"
 Import-Module $env:dotfiles\psmodules\add_to_profile.psm1
 Add-ToProfile $env:dotfiles\files\paths.ps1
 Add-ToProfile $env:dotfiles\files\env.ps1
-Add-ToProfile $env:dotfiles\files\load_modules.ps1
 
 # Delay loading PoshGit for speed. 
 function Enable-PoshGit {
@@ -23,5 +22,12 @@ Set-PSReadlineOption -EditMode Vi
 
 Write-Host "+ Type 'pg' to enable PoshGit"
 Write-Host 'See $env:realProfile for version controlled profile file.'
+
+# Load some modules
+$env:psmodules = "$env:dotfiles\psmodules"
+Import-Module "$env:psmodules\dash.psm1"
+Import-Module $env:PSModules\file_management.psm1
+Import-Module "$env:psmodules\fix_vpn.psm1"
+
 # Let's face it, I'm about to cd into my source directory
 if((Get-Location).Path -eq $HOME){ cd $env:src }
