@@ -28,7 +28,6 @@ I have a bit of JavaScript in the HTML file I use for my homepage. It causes the
 
 ```html
 <!-- Script to jump to links on keypresses 1 through 6 -->
-<script src="./jquery-3.7.0.min.js"></script>
 <script>
 	watch_keys = ['1','2','3','4','5','6'];
 	locations = [
@@ -39,13 +38,13 @@ I have a bit of JavaScript in the HTML file I use for my homepage. It causes the
 		'link here...',
 		'link here...',
 	];
-  $(document).on("keyup", function (e) {
+  document.onkeypress = function (e) {
     if(e.key in watch_keys)
-		window.location = locations[parseInt(e.key)-1]
+      window.location = locations[parseInt(e.key)-1]
     else {
       console.log(e);
     }
-});
+  }
 </script>
 ```
 
