@@ -1,6 +1,49 @@
 
-function Get-TravelTimes() {
+function Add-Address(){
+    Param(
+        [string]$addressFile = "Addresses.csv"
+        [string]$outFile= "Address_Details.csv"
+    )
+    $addressList = Get-Content $addressFile | ConvertFrom-Csv
+    $details = Get-Content $outFile| ConvertFrom-Csv
 
+    $addressList | ForEach-Object {
+        if($details -NotContains $_.Address)
+        {
+            $details.Address = $_.Address
+            $details.SqFt = $_.SqFt
+            $details.Cost = $_.Cost
+        }
+    }
+    $details | Export-Csv -NoTypeInformation -Path $outFile
+    Write-Host "Updated $outFile"
+}
+
+
+function Add-AddressLocations(){
+    Param(
+        [string]$outFile= "Address_Details.csv"
+    )
+    $details = Get-Content $outFile| ConvertFrom-Csv
+
+    $details | ForEach-Object {
+        if($_.Lat -eq '')
+        {
+            $posit = Get-MapCoords -Address $_.Address
+            $_.Lat = $posit.Lat
+            $_.Lon = $posit.Lon
+        }
+    }
+    $details | Export-Csv -NoTypeInformation -Path $outFile
+    Write-Host "Updated $outFile"
+}
+
+
+function Add-TravelTimes() {
+    Param(
+        [string]$outFile= "Address_Details.csv"
+    )
+    $details = Get-Content $outFile| ConvertFrom-Csv
 
 }
 
