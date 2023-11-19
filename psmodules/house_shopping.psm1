@@ -53,7 +53,7 @@ function Add-AddressLocations(){
         }
         $idx = $results.Add($updated)
     }
-    $results | Format-Table
+    $results | Format-List
     $answer = Read-Host -Prompt "Write updated file? y/N"
     if($answer -Eq "y") {
         $results | Export-Csv -NoTypeInformation -Path $outFile
