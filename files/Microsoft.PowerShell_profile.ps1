@@ -31,3 +31,9 @@ Import-Module "$env:psmodules\fix_vpn.psm1"
 
 # Let's face it, I'm about to cd into my source directory
 if((Get-Location).Path -eq $HOME){ cd $env:src }
+
+function Get-JournalAgenda() {
+    # Write-Host "Reading from $HOME\Journal\{YYYY}\{MM}-{DD}.md"
+    agenda.exe -path "$HOME\Journal\{YYYY}\{MM}-{DD}.md"
+}
+New-Alias today Get-JournalAgenda
