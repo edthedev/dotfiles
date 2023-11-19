@@ -1,5 +1,5 @@
 
-function Add-Address(){
+function Add-Addresses(){
     Param(
         [string]$addressFile = "Addresses.csv"
         [string]$outFile= "Address_Details.csv"

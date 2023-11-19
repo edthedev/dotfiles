@@ -1,4 +1,10 @@
 
+## Use
+
+
+Call `Add-Addresses` to copy records from `Addresses.csv` to `Address_Ddetails.csv`.
+
+Call `Add-AddressLocations` to fetch latitude and longitude for all addresses in `Address_Details.csv`.
 
 ## Reference
 
