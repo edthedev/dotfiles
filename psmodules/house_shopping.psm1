@@ -1,22 +1,30 @@
 
 function Add-Addresses(){
     Param(
-        [string]$addressFile = "Addresses.csv"
+        [string]$addressFile = "Addresses.csv",
         [string]$outFile= "Address_Details.csv"
     )
+    Copy-Item $outFile "$outFile.backup"
     $addressList = Get-Content $addressFile | ConvertFrom-Csv
     $details = Get-Content $outFile| ConvertFrom-Csv
 
+    $results = [System.Collections.ArrayList]@()
+    $details | ForEach-Object {
+        $idx = $results.Add($_)
+    }
     $addressList | ForEach-Object {
         if($details -NotContains $_.Address)
         {
-            $details.Address = $_.Address
-            $details.SqFt = $_.SqFt
-            $details.Cost = $_.Cost
+            $idx = $results.Add($_)
+            Write-Host "Aadded " + $_.Address
         }
     }
-    $details | Export-Csv -NoTypeInformation -Path $outFile
-    Write-Host "Updated $outFile"
+    $results | Format-Table
+    $answer = Read-Host -Prompt "Write updated file? y/N"
+    if($answer -Eq "y") {
+        $results | Export-Csv -NoTypeInformation -Path $outFile
+        Write-Host "Updated $outFile"
+    }
 }
 
 
@@ -24,6 +32,7 @@ function Add-AddressLocations(){
     Param(
         [string]$outFile= "Address_Details.csv"
     )
+    Copy-Item $outFile "$outFile.backup"
     $details = Get-Content $outFile| ConvertFrom-Csv
 
     $details | ForEach-Object {
@@ -34,7 +43,8 @@ function Add-AddressLocations(){
             $_.Lon = $posit.Lon
         }
     }
-    $details | Export-Csv -NoTypeInformation -Path $outFile
+    $details | Format-Table
+    # $details | Export-Csv -NoTypeInformation -Path $outFile
     Write-Host "Updated $outFile"
 }
 
