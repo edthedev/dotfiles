@@ -2,15 +2,20 @@ function Get-JournalAgenda() {
     agenda.exe -path "$HOME/Journal/{YYYY}/{MM}-{DD}.md"
 }
 
+function Measure-JournalTodos() {
+	$todocount = todolist | Measure-Object -Line
+	$env:todocount += '|'
+	$env:todocount += $todocount.lines
+}
+
 function Show-MyDashBoard() {
 	param(
 		[bool]$gitHub=$false
 	)
 	Write-Host ""
-	Write-Host "## Todo items for today:"
-	# Measure-JournalTodos
-	chart
-	# Get-JournalTodayTodos
+	Measure-JournalTodos
+	Write-Host "## Todo items for today: $env:todocount" 
+	chart -var todocount
 	Write-Host ""
 	Write-Host "## Agenda for today:"
 	Get-JournalAgenda
@@ -27,8 +32,8 @@ function Show-MyDashBoard() {
 		Invoke-AgileQuery -queries $queries | Select-AgileNoMilestone | Show-MarkdownFromGitHub
 	}
 	Write-Host ""
-	Write-Host "Use command 'todo' to list more tasks."
-	Write-Host "Use command 'chart' to show todo item progress."
+	Write-Host "Use command 'todolist' to list more tasks."
+	Write-Host "Use command 'chart -var todocount' to show todo item progress."
 	Write-Host "Use command 'agenda' to list the plan for today."
 }
 
