@@ -12,6 +12,10 @@ New-Alias pg    Enable-PoshGit
 
 Set-Alias code codium  # Prefer Codium
 
+# Dashboard
+New-Alias dash   Show-MyDashboard # from dash.psm1
+New-Alias today Get-JournalAgenda
+
 # You can pry my unix commands out of my cold dead fingers
 Set-Alias which get-command
 # Reject Windows heritage, act like Vi

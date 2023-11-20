@@ -3,6 +3,9 @@ function Get-JournalAgenda() {
 }
 
 function Show-MyDashBoard() {
+	param(
+		[bool]$gitHub=$false
+	)
 	Write-Host ""
 	Write-Host "## Todo items for today:"
 	# Measure-JournalTodos
@@ -12,15 +15,17 @@ function Show-MyDashBoard() {
 	Write-Host "## Agenda for today:"
 	Get-JournalAgenda
 	Write-Host ""
-	Write-Host "## GitHub Issues Assigned (Show-AgileMine)"
-	# Show-AgileMine
-	# Show-AgileMine -DaysAgo 6
-	Write-Host ""
-	Write-Host "## GitHub Issues with no milestone. (Select-AgileNoMilestone)"
-	Write-Host "(Get-AgileQuery -state 'Open' | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub)"
-	$milestone_repos = $env:github_repos.split(' ') | Where-Object { $_ -Match 'techservicesillinois' }
-    # $queries = Get-AgileQuery -state 'Open' -repos $milestone_repos
-	# Invoke-AgileQuery -queries $queries | Select-AgileNoMilestone | Show-MarkdownFromGitHub
+	if($github) {
+		Write-Host "## GitHub Issues Assigned (Show-AgileMine)"
+		Show-AgileMine
+		Show-AgileMine -DaysAgo 6
+		Write-Host ""
+		Write-Host "## GitHub Issues with no milestone. (Select-AgileNoMilestone)"
+		Write-Host "(Get-AgileQuery -state 'Open' | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub)"
+		$milestone_repos = $env:github_repos.split(' ') | Where-Object { $_ -Match 'techservicesillinois' }
+		$queries = Get-AgileQuery -state 'Open' -repos $milestone_repos
+		Invoke-AgileQuery -queries $queries | Select-AgileNoMilestone | Show-MarkdownFromGitHub
+	}
 	Write-Host ""
 	Write-Host "Use command 'todo' to list more tasks."
 	Write-Host "Use command 'chart' to show todo item progress."
