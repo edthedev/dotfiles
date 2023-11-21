@@ -29,3 +29,19 @@
 	```powershell
 	gh auth login
 	```
+
+## Setup PowerShell for GitHub
+
+1. Install PowerShell for GitHub
+
+	```powershell
+	Install-Module -Name PowerShellForGitHub -Scope CurrentUser
+	```
+
+1. Clone my multi-repo helper scripts
+
+	```powershell
+	cd ~/src
+	git clone git@github.com:uillinois-community/powershell-scripts.git
+
+	```

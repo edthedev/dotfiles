@@ -27,12 +27,16 @@ Set-PSReadlineOption -EditMode Vi
 Write-Host "+ Type 'pg' to enable PoshGit"
 Write-Host 'See $env:realProfile for version controlled profile file.'
 
-# Load some modules
+# Load dotfiles modules
 $env:psmodules = "$env:dotfiles\psmodules"
 Import-Module "$env:psmodules\dash.psm1"
 Import-Module $env:PSModules\file_management.psm1
 Import-Module "$env:psmodules\fix_vpn.psm1"
 Import-Module $env:PSModules\house_shopping.psm1
+
+# Load local source modules
+Import-Module $env:src\powershell-scripts\modules\AgileGitHub.psm1
+Import-Module $env:src\powershell-scripts\modules\MarkdownGitHub.psm1
 
 # Let's face it, I'm about to cd into my source directory
 if((Get-Location).Path -eq $HOME){ cd $env:src }
