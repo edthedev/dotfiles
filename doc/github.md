@@ -45,3 +45,10 @@
 	git clone git@github.com:uillinois-community/powershell-scripts.git
 
 	```
+
+1. Review the available commands
+
+	```powershell
+	get-command -module MarkDownGitHub
+	get-command -module AgileGitHub
+	```
