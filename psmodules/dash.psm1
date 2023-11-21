@@ -10,7 +10,7 @@ function Measure-JournalTodos() {
 
 function Show-MyDashBoard() {
 	param(
-		[bool]$gitHub=$false
+		[bool]$gitHub=$true
 	)
 	Write-Host ""
 	Measure-JournalTodos
