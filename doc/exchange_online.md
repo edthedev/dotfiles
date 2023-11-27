@@ -1,9 +1,13 @@
 
 ## Setup
 
-1. LOL. It defaults to `bash`. Change that.
+1. Start a cloud shell on the Exchange Admin website. 
 
-2. Probably one-time install
+2. The cloud shell defaults to `bash`. Change it to `PowerShell`.
+
+2. Run these commands once. 
+
+    The results of these commands will persisit in your Cloud Shell attached Azure storage.
 
     ```powershell
     Install-Module -Name PSWSMan -AcceptLicense -Confirm
@@ -11,7 +15,7 @@
     Import-Module ExchangeOnlineManagement
     ```
 
-3. Probably per session:
+3. Repeat these commands for each new Cloud Shell
 
     ```powershell
     Import-Module ExchangeOnlineManagement
@@ -22,7 +26,7 @@
 
 ### Distribution Group
 
-Seems like this is an older way to do it.
+A distribution list sends a copy of any incoming email to the inbox of every member. The list itself, has an email address, but does not have a mailbox, since a copy of every incoming message goes in the mailboxes of each list member.
 
 1. Create distribution group
 
@@ -56,6 +60,15 @@ Seems like this is an older way to do it.
 
 
 ### Or create an entire shared mailbox
+
+A shared mailbox is an actual separate mailbox. Messages sent to it will not be copied into the mailboxes of the members with access. Members with access to a shared mailbox may also be allowed to send email out.
+
+A shared mailbox should be used if:
+
+    - A team of people need to send email out from the email address
+    - Each email should only be handled by one person.
+
+> Warning: This recipe is likely incomplete, as I eventually decided not to use it.
 
 1. Create a shared mailbox
 
