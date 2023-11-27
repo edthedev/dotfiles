@@ -4,6 +4,8 @@
 
 In VSCode, I have quick keys assigned to Alt+Shift+1 through Alt+Shift+6.
 
+See also `files/vscodium/keybindings.json`
+
 Here's a helpful mapping in VSCode.
 
 Alt+Shift+(1 through 6):
