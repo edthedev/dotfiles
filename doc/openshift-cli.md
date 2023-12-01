@@ -31,6 +31,8 @@
 
 	Example: `files/openshift/calibre-web/route.yml`
 
+3. Update `compose.yml` with path to book files
+
 4. Use Create K8S files, from `compose.yml`
 
 	```powershell
@@ -41,6 +43,9 @@
 3. Deploy
  
 	```powershell
-	oc apply -f *.yml
+	oc apply -f calibre-web-service.yaml
+	oc apply -f calibre-web-deployment.yaml
+	oc apply -f calibre-web-claim0-persistentvolumeclaim.yaml
+	oc apply -f calibre-web-claim1-persistentvolumeclaim.yaml
+	oc apply -f route.yaml
 	```
-
