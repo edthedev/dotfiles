@@ -3,3 +3,8 @@ if[! -f /usr/local/go/bin/go]
 fi
 ln -s /usr/local/go/bin/go ~/bin/go
 ln -s /usr/local/go/bin/gofmt ~/bin/gofmt 
+
+## Install my utilities
+
+go install github.com/edthedev/todolist@latest
+go install github.com/edthedev/agenda@latest
