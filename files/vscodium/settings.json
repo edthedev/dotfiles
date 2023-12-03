@@ -382,5 +382,6 @@
     },
 
     "files.autoSave": "onFocusChange"
+    // "journal.base": "~/Documents"
 
 }

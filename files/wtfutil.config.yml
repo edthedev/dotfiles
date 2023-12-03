@@ -5,30 +5,30 @@ wtf:
       focused: orange
       normal: gray
   grid:
-    columns: [80, 40]
+    columns: [60, 60]
     rows: [15, 15]
   refreshInterval: 60
   mods:
     agenda:
       title: "Agenda"
       cmd: "agenda"
-      args: ["-path", "/Journal/{YYYY}/{MM}-{DD}.md"]
-      enabled: true
-      position:
-        top: 0
-        left: 1
-        width: 1
-        height: 1
-      refreshInterval: 60
-      type: cmdrunner
-    todolist:
-      title: "TODO List"
-      cmd: "todolist"
-      args: []
+      args: ["-path", "/home/edward/Journal/{YYYY}/{MM}-{DD}.md"]
       enabled: true
       position:
         top: 0
         left: 0
+        width: 1
+        height: 1
+      refreshInterval: 60
+      type: cmdrunner
+    on_deck:
+      title: "On Deck"
+      cmd: "todo-txt"
+      args: ["listpri", "A-C"]
+      enabled: true
+      position:
+        top: 0
+        left: 1
         width: 1
         height: 1
       refreshInterval: 60
