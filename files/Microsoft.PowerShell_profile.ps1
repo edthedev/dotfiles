@@ -30,9 +30,9 @@ Write-Host 'See $env:realProfile for version controlled profile file.'
 # Load dotfiles modules
 $env:psmodules = "$env:dotfiles\psmodules"
 Import-Module "$env:psmodules\dash.psm1"
-Import-Module $env:PSModules\file_management.psm1
+Import-Module $env:psmodules\file_management.psm1
 Import-Module "$env:psmodules\fix_vpn.psm1"
-Import-Module $env:PSModules\house_shopping.psm1
+Import-Module $env:psmodules\house_shopping.psm1
 
 # Load local source modules
 Import-Module $env:src\powershell-scripts\modules\AgileGitHub.psm1
