@@ -17,7 +17,9 @@ New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias today Get-JournalAgenda
 
 # You can pry my unix commands out of my cold dead fingers
-Set-Alias which get-command
+if($iswindows) {
+	Set-Alias which get-command
+}
 # Reject Windows heritage, act like Vi
 # Set-PSReadlineOption -HistorySavePath $env:src\PSHistory.log
 Set-PSReadlineOption -BellStyle Visual

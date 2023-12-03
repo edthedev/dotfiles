@@ -4,7 +4,11 @@ function Add-ToPath {
 		[switch]$Optional=$false
     )
 	if(Test-Path $Path){
-		$ENV:PATH+=";$PATH"
+		if($iswindows) {
+			$ENV:PATH+=";$PATH"
+		} else {
+			$ENV:PATH+=":$PATH"
+		}
 	} else {
 		if(-Not $Optional) {
 			Write-Error "Add-ToPath failed for $PATH"
@@ -27,7 +31,7 @@ if($IsWindows){
 }
 else {
 	Add-ToPath "$env:src/bin" -optional # anything else I need
-	Add-ToPath "$HOME\bin" -optional # anything else I need
+	Add-ToPath "$HOME/bin" # anything else I need
 	Add-ToPath "$HOME/x16/x16-emulator" -optional # x16 Emulator
 	Add-ToPath "$HOME/src/x16-demo/tools" -optional # x16 python tools
 }
