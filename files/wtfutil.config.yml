@@ -21,6 +21,18 @@ wtf:
         height: 1
       refreshInterval: 60
       type: cmdrunner
+    at_laptop:
+      title: "At My Laptop"
+      cmd: "todo-txt"
+      args: ["list", "@laptop"]
+      enabled: true
+      position:
+        top: 0
+        left: 1
+        width: 1
+        height: 1
+      refreshInterval: 60
+      type: cmdrunner
     on_deck:
       title: "On Deck"
       cmd: "todo-txt"
@@ -41,6 +53,18 @@ wtf:
       position:
         top: 2
         left: 0
+        width: 1
+        height: 1
+      refreshInterval: 60
+      type: cmdrunner
+    project2:
+      title: "Project 2 - Open Shift"
+      cmd: "todo-txt"
+      args: ["list", "+openshift"]
+      enabled: true
+      position:
+        top: 2
+        left: 1
         width: 1
         height: 1
       refreshInterval: 60
