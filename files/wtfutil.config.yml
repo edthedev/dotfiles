@@ -27,10 +27,35 @@ wtf:
       args: ["listpri", "A-C"]
       enabled: true
       position:
-        top: 0
+        top: 1
+        left: 0
+        width: 1
+        height: 1
+      refreshInterval: 60
+      type: cmdrunner
+    project1:
+      title: "Project 1 - December Trip"
+      cmd: "todo-txt"
+      args: ["list", "+dectrip"]
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        width: 1
+        height: 1
+      refreshInterval: 60
+      type: cmdrunner
+    proj_list:
+      title: "Project List"
+      cmd: "todo-txt"
+      args: ["listproj"]
+      enabled: true
+      position:
+        top: 1
         left: 1
         width: 1
         height: 1
       refreshInterval: 60
       type: cmdrunner
+
 
