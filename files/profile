@@ -6,7 +6,7 @@
 
 
 # Brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -29,4 +29,4 @@ fi
 
 # PyEnv
 # export PYENV_ROOT="/home/linuxbrew/.linuxbrew"
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"

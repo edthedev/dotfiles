@@ -116,10 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias pyenv='CC="$(brew --prefix gcc)/bin/gcc-11" pyenv'
-# alias pyenv='LDFLAGS=-lffi pyenv'
+# alias pyenv='CC="$(brew --prefix gcc)/bin/gcc-11" pyenv'
 
-eval "$(oh-my-posh --init --shell bash --config ~/oh-my-posh.omp.json)"
+# eval "$(oh-my-posh --init --shell bash --config ~/oh-my-posh.omp.json)"
 
 # Call Windows apps from within Windows Subsystem for Linux
 alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
