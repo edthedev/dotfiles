@@ -35,6 +35,7 @@ else {
 	Add-ToPath "$HOME/x16/x16-emulator" -optional # x16 Emulator
 	Add-ToPath "$HOME/src/x16-demo/tools" -optional # x16 python tools
 }
+Add-ToPath "$HOME/go/bin" -optional # x16 python tools
 
 # Command line tools
 Add-ToPath "$env:src\chart" -optional # command line chart utility edthedev\chart
