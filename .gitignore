@@ -5,8 +5,6 @@
 DONE.md
 .github_access_token
 env/*
-*.json
-OneTrust.ipynb
 *.conf
 *.*~
 *.swp
