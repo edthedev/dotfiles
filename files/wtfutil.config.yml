@@ -60,7 +60,7 @@ wtf:
     project2:
       title: "Project 2 - Open Shift"
       cmd: "todo-txt"
-      args: ["list", "+openshift"]
+      args: ["list", "+degoogle"]
       enabled: true
       position:
         top: 2
