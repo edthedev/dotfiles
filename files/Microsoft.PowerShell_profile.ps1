@@ -37,7 +37,7 @@ Import-Module "$env:psmodules\fix_vpn.psm1"
 Import-Module $env:psmodules\house_shopping.psm1
 
 # Load local source modules
-# Import-Module $env:src\powershell-scripts\modules\AgileGitHub.psm1
+Import-Module $env:src\powershell-scripts\modules\AgileGitHubCLI.psm1
 # Import-Module $env:src\powershell-scripts\modules\MarkdownGitHub.psm1
 
 # Let's face it, I'm about to cd into my source directory
