@@ -15,6 +15,7 @@ function Show-MyDashBoard() {
 		[switch]$gitHub=$false,
 		[switch]$bugs=$false,
 		[switch]$todo=$false,
+		[switch]$pr=$false,
 		[switch]$orphans=$false
 	)
 	$todocount = $true
@@ -43,6 +44,11 @@ function Show-MyDashBoard() {
 		Write-Host ""
 		Write-Host "## Todo List" 
 		todolist
+	}
+	if($pr) {
+		Write-Host ""
+		Write-Host "## Open Pull Requests"
+		Invoke-AgileCmd "gh pr list"
 	}
 	if($orphans) {
 		Write-Host ""
