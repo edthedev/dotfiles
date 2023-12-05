@@ -14,7 +14,7 @@ function Show-MyDashBoard() {
 		[switch]$agenda=$true,
 		[switch]$gitHub=$false,
 		[switch]$bugs=$false,
-		[switch]$todolist=$false,
+		[switch]$todo=$false,
 		[switch]$orphans=$false
 	)
 	$todocount = $true
@@ -39,7 +39,7 @@ function Show-MyDashBoard() {
 		Write-Host "## Known Bugs"
 		Invoke-AgileCmd "gh issue list -S 'label:bug'"
 	}
-	if($todolist) {
+	if($todo) {
 		Write-Host ""
 		Write-Host "## Todo List" 
 		todolist
