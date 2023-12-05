@@ -16,6 +16,7 @@ function Show-MyDashBoard() {
 		[switch]$bugs=$false,
 		[switch]$todo=$false,
 		[switch]$pr=$false,
+		[switch]$requested=$false,
 		[switch]$orphans=$false
 	)
 	$todocount = $true
@@ -44,6 +45,11 @@ function Show-MyDashBoard() {
 		Write-Host ""
 		Write-Host "## Todo List" 
 		todolist
+	}
+	if($requested){
+		Write-Host ""
+		Write-Host "## Open Stakeholder Requests"
+		invoke-agilecmd "gh issue list -S 'label:requested'"
 	}
 	if($pr) {
 		Write-Host ""
