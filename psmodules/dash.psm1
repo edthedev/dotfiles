@@ -10,13 +10,14 @@ function Measure-JournalTodos() {
 
 function Show-MyDashBoard() {
 	param(
-		[switch]$todocount=$true,
+		# [switch]$todocount=$true,
 		[switch]$agenda=$true,
 		[switch]$gitHub=$false,
-		[switch]$bugs=$true,
+		[switch]$bugs=$false,
 		[switch]$todolist=$false,
 		[switch]$orphans=$false
 	)
+	$todocount = $true
 	if($todocount){
 		Measure-JournalTodos
 		Write-Host ""
