@@ -21,20 +21,14 @@ function Show-MyDashBoard() {
 	Get-JournalAgenda
 	Write-Host ""
 	if($github) {
-		Write-Host "## GitHub Issues Assigned (Show-AgileMine)"
-		Show-AgileMine
-		Show-AgileMine -DaysAgo 6
-		Write-Host ""
-		Write-Host "## GitHub Issues with no milestone. (Select-AgileNoMilestone)"
-		Write-Host "(Get-AgileQuery -state 'Open' | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub)"
-		$milestone_repos = $env:github_repos.split(' ') | Where-Object { $_ -Match 'techservicesillinois' }
-		$queries = Get-AgileQuery -state 'Open' -repos $milestone_repos
-		Invoke-AgileQuery -queries $queries | Select-AgileNoMilestone | Show-MarkdownFromGitHub
+		Write-Host "## GitHub Status (gh status)"
+		Invoke-Expression "gh status"
 	}
 	Write-Host ""
 	Write-Host "Use command 'todolist' to list more tasks."
 	Write-Host "Use command 'chart -var todocount' to show todo item progress."
 	Write-Host "Use command 'agenda' to list the plan for today."
+	Write-Host "Use command 'Show-AgileNoMilestone' to display issues without a milestone."
 }
 
 function Show-MyTeamWork() {
