@@ -10,25 +10,44 @@ function Measure-JournalTodos() {
 
 function Show-MyDashBoard() {
 	param(
-		[bool]$gitHub=$true
+		[switch]$todocount=$true,
+		[switch]$agenda=$true,
+		[switch]$gitHub=$false,
+		[switch]$bugs=$true,
+		[switch]$todolist=$false,
+		[switch]$orphans=$false
 	)
-	Write-Host ""
-	Measure-JournalTodos
-	Write-Host "## Todo items for today: $env:todocount" 
-	chart -var todocount
-	Write-Host ""
-	Write-Host "## Agenda for today:"
-	Get-JournalAgenda
-	Write-Host ""
+	if($todocount){
+		Measure-JournalTodos
+		Write-Host ""
+		Write-Host "## Todo items for today: $env:todocount" 
+		chart -var todocount
+	}
+	if($agenda){
+		Write-Host ""
+		Write-Host "## Agenda for today:"
+		Get-JournalAgenda
+	}
 	if($github) {
+		Write-Host ""
 		Write-Host "## GitHub Status (gh status)"
 		Invoke-Expression "gh status"
 	}
-	Write-Host ""
-	Write-Host "Use command 'todolist' to list more tasks."
-	Write-Host "Use command 'chart -var todocount' to show todo item progress."
-	Write-Host "Use command 'agenda' to list the plan for today."
-	Write-Host "Use command 'Show-AgileNoMilestone' to display issues without a milestone."
+	if($bugs) {
+		Write-Host ""
+		Write-Host "## Known Bugs"
+		Invoke-AgileCmd "gh issue list -S 'label:bug'"
+	}
+	if($todolist) {
+		Write-Host ""
+		Write-Host "## Todo List" 
+		todolist
+	}
+	if($orphans) {
+		Write-Host ""
+		Write-Host "## Issues with No Milestone" 
+		Invoke-AgileCmd "gh issue list -S 'is:open is:issue no:milestone'"
+	}
 }
 
 function Show-MyTeamWork() {
