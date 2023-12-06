@@ -21,7 +21,7 @@
 
 	`go install github.com/kubernetes/kompose@latest`
 
-## Deployment
+## Convert from Docker to K8S
 
 1. Create a Docker compose file
 
@@ -40,7 +40,15 @@
 	`kompose convert`
 	```
 
-3. Deploy
+## Deploy
+
+1. Create an switch to a project
+
+	```powershell
+	oc new-project bookshelf
+	```
+
+2. Deploy resources
  
 	```powershell
 	oc apply -f calibre-web-service.yaml
