@@ -25,14 +25,14 @@ function Show-MyDashBoard() {
 		# [switch]$todocount=$true,
 		[switch]$agenda=$true,
 		[switch]$blocked,
+		[switch]$bugs,
 		[switch]$gitHub,
 		[switch]$help,
 		[switch]$leeroy,
-		[switch]$bugs,
-		[switch]$todo,
+		[switch]$orphans,
 		[switch]$pr,
 		[switch]$requested,
-		[switch]$orphans
+		[switch]$todo
 	)
 	$todocount = $true
 	if($todocount){
@@ -51,44 +51,44 @@ function Show-MyDashBoard() {
 		Write-Host "## Blocked & Blocker Issues:"
 		Invoke-AgileCmd "gh issue list -S 'label:blocked,blocker'"
 	}
+	if($bugs) {
+		Write-Host ""
+		Write-Host "## Known Bugs"
+		Invoke-AgileCmd "gh issue list -S 'label:bug'"
+	}
 	if($github) {
 		Write-Host ""
 		Write-Host "## GitHub Status (gh status)"
 		Invoke-Expression "gh status"
+	}
+	if($help) {
+		Write-Host "## Dasbhoard Help"
+		Get-Help Show-MyDashboard
 	}
 	if($leeroy){
 		Write-Host ""
 		Write-Host "## Leeroy Jenkins!:"
 		Invoke-AgileCmd "gh issue list -l 'leeroy jenkins'"
 	}
-	if($bugs) {
+	if($orphans) {
 		Write-Host ""
-		Write-Host "## Known Bugs"
-		Invoke-AgileCmd "gh issue list -S 'label:bug'"
-	}
-	if($todo) {
-		Write-Host ""
-		Write-Host "## Todo List" 
-		todolist
-	}
-	if($requested){
-		Write-Host ""
-		Write-Host "## Open Stakeholder Requests"
-		invoke-agilecmd "gh issue list -S 'label:requested'"
+		Write-Host "## Issues with No Milestone" 
+		Invoke-AgileCmd "gh issue list -S 'is:open is:issue no:milestone'"
 	}
 	if($pr) {
 		Write-Host ""
 		Write-Host "## Open Pull Requests"
 		Invoke-AgileCmd "gh pr list"
 	}
-	if($orphans) {
+	if($requested){
 		Write-Host ""
-		Write-Host "## Issues with No Milestone" 
-		Invoke-AgileCmd "gh issue list -S 'is:open is:issue no:milestone'"
+		Write-Host "## Open Stakeholder Requests"
+		invoke-agilecmd "gh issue list -S 'label:requested'"
 	}
-	if($help) {
-		Write-Host "## Dasbhoard Help"
-		Get-Help Show-MyDashboard
+	if($todo) {
+		Write-Host ""
+		Write-Host "## Todo List" 
+		todolist
 	}
 }
 
