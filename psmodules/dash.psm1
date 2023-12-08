@@ -8,11 +8,24 @@ function Measure-JournalTodos() {
 	$env:todocount += $todocount.lines
 }
 
+<#
+
+.SYNOPSIS
+
+Show a text dashboard.
+
+.EXAMPLE
+
+Include `Todo` list.
+Show-MyDashboard -todo
+
+#>
 function Show-MyDashBoard() {
 	param(
 		# [switch]$todocount=$true,
 		[switch]$agenda=$true,
 		[switch]$gitHub=$false,
+		[switch]$help,
 		[switch]$bugs=$false,
 		[switch]$todo=$false,
 		[switch]$pr=$false,
@@ -60,6 +73,10 @@ function Show-MyDashBoard() {
 		Write-Host ""
 		Write-Host "## Issues with No Milestone" 
 		Invoke-AgileCmd "gh issue list -S 'is:open is:issue no:milestone'"
+	}
+	if($help) {
+		Write-Host "## Dasbhoard Help"
+		Get-Help Show-MyDashboard
 	}
 }
 
