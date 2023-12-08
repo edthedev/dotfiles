@@ -24,13 +24,15 @@ function Show-MyDashBoard() {
 	param(
 		# [switch]$todocount=$true,
 		[switch]$agenda=$true,
-		[switch]$gitHub=$false,
+		[switch]$blocked,
+		[switch]$gitHub,
 		[switch]$help,
-		[switch]$bugs=$false,
-		[switch]$todo=$false,
-		[switch]$pr=$false,
-		[switch]$requested=$false,
-		[switch]$orphans=$false
+		[switch]$leeroy,
+		[switch]$bugs,
+		[switch]$todo,
+		[switch]$pr,
+		[switch]$requested,
+		[switch]$orphans
 	)
 	$todocount = $true
 	if($todocount){
@@ -44,10 +46,20 @@ function Show-MyDashBoard() {
 		Write-Host "## Agenda for today:"
 		Get-JournalAgenda
 	}
+	if($blocked){
+		Write-Host ""
+		Write-Host "## Blocked Issues:"
+		Invoke-AgileCmd "gh issue list -l 'blocked'"
+	}
 	if($github) {
 		Write-Host ""
 		Write-Host "## GitHub Status (gh status)"
 		Invoke-Expression "gh status"
+	}
+	if($leeroy){
+		Write-Host ""
+		Write-Host "## Leeroy Jenkins!:"
+		Invoke-AgileCmd "gh issue list -l 'leeroy jenkins'"
 	}
 	if($bugs) {
 		Write-Host ""
