@@ -59,7 +59,6 @@ function Invoke-StayAwakeWindows() {
 	# Thank you to http://www.zhornsoftware.co.uk/caffeine/
 }
 
-Export-ModuleMember -Function Invoke-StayAwake
 Export-ModuleMember -Function Invoke-StayAwakeWindows
 
 function Invoke-StayAwake() {
@@ -71,3 +70,4 @@ function Invoke-StayAwake() {
 	}until($minutes -lt 0)
 }
 
+Export-ModuleMember -Function Invoke-StayAwake
