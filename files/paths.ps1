@@ -42,6 +42,8 @@ Add-ToPath "$env:src\chart" -optional # command line chart utility edthedev\char
 Add-ToPath "$env:src\agenda" -optional # command line chart utility edthedev\chart
 Add-ToPath "$env:src\todolist" -optional # todo list utility edthedev\todolist
 
+# krew for K8S pluginsa - specifically vtrl
+Add-ToPath "$HOME/.krew/bin"
 
 # $env:path+=";C:\Program Files\Git\bin"
 # $env:path+=";C:\Program Files (x86)\Microsoft VS Code\"
