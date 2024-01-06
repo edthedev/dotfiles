@@ -8,33 +8,88 @@ function Measure-JournalTodos() {
 	$env:todocount += $todocount.lines
 }
 
+<#
+
+.SYNOPSIS
+
+Show a text dashboard.
+
+.EXAMPLE
+
+Include `Todo` list.
+Show-MyDashboard -todo
+
+#>
 function Show-MyDashBoard() {
 	param(
-		[bool]$gitHub=$true
+		# [switch]$todocount=$true,
+		[switch]$agenda=$true,
+		[switch]$blocked,
+		[switch]$bugs,
+		[switch]$gitHub,
+		[switch]$help,
+		[switch]$leeroy,
+		[switch]$orphans,
+		[switch]$pr,
+		[switch]$requested,
+		[switch]$todo
 	)
-	Write-Host ""
-	Measure-JournalTodos
-	Write-Host "## Todo items for today: $env:todocount" 
-	chart -var todocount
-	Write-Host ""
-	Write-Host "## Agenda for today:"
-	Get-JournalAgenda
-	Write-Host ""
-	if($github) {
-		Write-Host "## GitHub Issues Assigned (Show-AgileMine)"
-		Show-AgileMine
-		Show-AgileMine -DaysAgo 6
+	$todocount = $true
+	if($todocount){
+		Measure-JournalTodos
 		Write-Host ""
-		Write-Host "## GitHub Issues with no milestone. (Select-AgileNoMilestone)"
-		Write-Host "(Get-AgileQuery -state 'Open' | Invoke-AgileQuery | Select-AgileNoMilestone | Show-MarkdownFromGitHub)"
-		$milestone_repos = $env:github_repos.split(' ') | Where-Object { $_ -Match 'techservicesillinois' }
-		$queries = Get-AgileQuery -state 'Open' -repos $milestone_repos
-		Invoke-AgileQuery -queries $queries | Select-AgileNoMilestone | Show-MarkdownFromGitHub
+		Write-Host "## Todo items for today: $env:todocount" 
+		chart -var todocount
 	}
-	Write-Host ""
-	Write-Host "Use command 'todolist' to list more tasks."
-	Write-Host "Use command 'chart -var todocount' to show todo item progress."
-	Write-Host "Use command 'agenda' to list the plan for today."
+	if($agenda){
+		Write-Host ""
+		Write-Host "## Agenda for today:"
+		Get-JournalAgenda
+	}
+	if($blocked){
+		Write-Host ""
+		Write-Host "## Blocked & Blocker Issues:"
+		Invoke-AgileCmd "gh issue list -S 'label:blocked,blocker'"
+	}
+	if($bugs) {
+		Write-Host ""
+		Write-Host "## Known Bugs"
+		Invoke-AgileCmd "gh issue list -S 'label:bug'"
+	}
+	if($github) {
+		Write-Host ""
+		Write-Host "## GitHub Status (gh status)"
+		Invoke-Expression "gh status"
+	}
+	if($help) {
+		Write-Host "## Dasbhoard Help"
+		Get-Help Show-MyDashboard
+	}
+	if($leeroy){
+		Write-Host ""
+		Write-Host "## Leeroy Jenkins!:"
+		Invoke-AgileCmd "gh issue list -l 'leeroy jenkins'"
+	}
+	if($orphans) {
+		Write-Host ""
+		Write-Host "## Issues with No Milestone" 
+		Invoke-AgileCmd "gh issue list -S 'is:open is:issue no:milestone'"
+	}
+	if($pr) {
+		Write-Host ""
+		Write-Host "## Open Pull Requests"
+		Invoke-AgileCmd "gh pr list"
+	}
+	if($requested){
+		Write-Host ""
+		Write-Host "## Open Stakeholder Requests"
+		invoke-agilecmd "gh issue list -S 'label:requested'"
+	}
+	if($todo) {
+		Write-Host ""
+		Write-Host "## Todo List" 
+		todolist
+	}
 }
 
 function Show-MyTeamWork() {
