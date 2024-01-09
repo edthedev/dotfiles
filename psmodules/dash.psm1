@@ -8,6 +8,25 @@ function Measure-JournalTodos() {
 	$env:todocount += $todocount.lines
 }
 
+
+<#
+
+.EXAMPLE
+
+Get-CommitsSince -From 2023.01.01
+
+#>
+function Show-GitRevList() {
+	param(
+		[string]$from
+	)
+	Invoke-AgileCmd "git rev-list HEAD --count --since=$from"
+}
+
+Export-ModuleMember -Function Show-GitRevList
+
+
+
 <#
 
 .SYNOPSIS
