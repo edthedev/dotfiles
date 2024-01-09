@@ -19,7 +19,6 @@ wtf:
         left: 0
         width: 1
         height: 1
-      refreshInterval: 60
       type: cmdrunner
     at_laptop:
       title: "At My Laptop"
@@ -31,7 +30,6 @@ wtf:
         left: 1
         width: 1
         height: 1
-      refreshInterval: 60
       type: cmdrunner
     on_deck:
       title: "On Deck"
@@ -45,30 +43,42 @@ wtf:
         height: 1
       refreshInterval: 60
       type: cmdrunner
-    project1:
-      title: "Project 1 - December Trip"
+    project2:
+      title: "Project 2 - DeGoogle"
       cmd: "todo-txt"
-      args: ["list", "+dectrip"]
-      enabled: true
+      args: ["list", "+degoogle"]
+      enabled: false 
+      position:
+        top: 2
+        left: 1
+        width: 1
+        height: 1
+      type: cmdrunner
+      refreshInterval: 60
+    legacy:
+      title: "Project 1 - legacy"
+      cmd: "todo-txt"
+      args: ["list", "+legacy"]
+      enabled: true 
       position:
         top: 2
         left: 0
         width: 1
         height: 1
-      refreshInterval: 60
       type: cmdrunner
-    project2:
-      title: "Project 2 - Open Shift"
+      refreshInterval: 60
+    books:
+      title: "Project 2 - DeGoogle"
       cmd: "todo-txt"
-      args: ["list", "+degoogle"]
+      args: ["list", "+books"]
       enabled: true
       position:
         top: 2
         left: 1
         width: 1
         height: 1
-      refreshInterval: 60
       type: cmdrunner
+      refreshInterval: 60
     proj_list:
       title: "Project List"
       cmd: "todo-txt"
@@ -79,7 +89,6 @@ wtf:
         left: 1
         width: 1
         height: 1
-      refreshInterval: 60
       type: cmdrunner
 
 

@@ -46,7 +46,7 @@ Export-ModuleMember -Function Show-LargeFiles
 
 # Stay awake to allow large transfers to complete
 #    without permanently giving up battery saving features
-function Invoke-StayAwake() {
+function Invoke-StayAwakeWindows() {
 	param($minutes=90)
 	$wsh = New-Object -ComObject WScript.Shell
 	do{
@@ -57,6 +57,17 @@ function Invoke-StayAwake() {
 	Start-Sleep -seconds 59
 	}until($minutes -lt 0)
 	# Thank you to http://www.zhornsoftware.co.uk/caffeine/
+}
+
+Export-ModuleMember -Function Invoke-StayAwakeWindows
+
+function Invoke-StayAwake() {
+	param($minutes=90)
+	do{
+		"Staying awake for $minutes minutes"
+		systemd-inhibit sleep 60
+		$minutes-=1;
+	}until($minutes -lt 0)
 }
 
 Export-ModuleMember -Function Invoke-StayAwake
