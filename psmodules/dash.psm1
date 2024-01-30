@@ -68,7 +68,7 @@ function Show-MyDashBoard() {
 	if($blocked){
 		Write-Host ""
 		Write-Host "## Blocked & Blocker Issues:"
-		Invoke-AgileCmd "gh issue list -S 'label:blocked,blocker'"
+		Invoke-AgileCmd "gh issue list -S 'label:blocked,blocker,needs context'"
 	}
 	if($bugs) {
 		Write-Host ""
