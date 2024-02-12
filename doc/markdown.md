@@ -34,7 +34,7 @@ Then `Ctrl+Shift+P`, `Run Command` and select `markdown to HTML`.
 
 ### Setup
 
-Install `wkhtml2pdf.exe` somewhere on my path. 
+Install [wkhtml2pdf.exe](https://wkhtmltopdf.org/) somewhere on my path. 
 
 ### Use
 
