@@ -119,5 +119,11 @@ function Show-MyTeamWork() {
 	}
 }
 
+function Write-AgileClosedData() {
+	$gh_cmd = 'gh issue list --state closed --json title,closedAt,milestone,url'
+	Write-AgileToFile -gh_command $gh_cmd
+}
+
+Export-ModuleMember -Function Write-AgileClosedData
 Export-ModuleMember -Function Show-MyDashboard
 Export-ModuleMember -Function Show-MyTeamWork
