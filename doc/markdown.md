@@ -1,6 +1,6 @@
 
 
-## Markdown to PDF
+## Markdown to HTML
 
 The usual VSCode plugins add a lot of weird junk (telemetry, perhaps), so I decided to start using brute force and minimal `GoLang` code to convert my Markdown into HTML.
 
@@ -34,7 +34,7 @@ Then `Ctrl+Shift+P`, `Run Command` and select `markdown to HTML`.
 
 ### Setup
 
-Install `wkhtml2pdf.exe` somewhere on my path. 
+Install [wkhtml2pdf.exe](https://wkhtmltopdf.org/) somewhere on my path. 
 
 ### Use
 
