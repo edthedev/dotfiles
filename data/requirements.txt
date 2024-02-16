@@ -1,4 +1,5 @@
 ipykernel
 jupyter_core
+matplotlib
 pandas
 pyarrow
