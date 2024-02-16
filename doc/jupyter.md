@@ -4,8 +4,12 @@
 # Install ipykernel at user level
 pip install -U ipykernel
 
+# From https://stackoverflow.com/questions/18734739/using-ipython-jupyter-notebooks-under-version-control
+
 # Tell git to clean data out before committing a notebook
-cp ~/dotfiles/files/gitattributes ~/.gitattributes
+git config --global core.attributesfile $HOME\dotfiles\files\gitattributes
+git config --global filter.dropoutput_ipynb.clean ~\dotfiles\util\jupyter_git_clean.py
+git config --global filter.dropoutput_ipynb.smudge cat
 ```
 
 Did not work
