@@ -28,19 +28,26 @@ if($IsWindows){
 	Add-ToPath "$env:src\flutter\bin" -optional # Flutter for Dart
 	Add-ToPath "$env:src\bin" -optional # anything else I need
 	Add-ToPath "$HOME\bin" -optional # anything else I need
+
+	# Command line tools
+	Add-ToPath "$env:src\chart" -optional # command line chart utility edthedev\chart
+	Add-ToPath "$env:src\agenda" -optional # command line chart utility edthedev\chart
+	Add-ToPath "$env:src\todolist" -optional # todo list utility edthedev\todolist
+
 }
 else {
 	Add-ToPath "$env:src/bin" -optional # anything else I need
 	Add-ToPath "$HOME/bin" # anything else I need
 	Add-ToPath "$HOME/x16/x16-emulator" -optional # x16 Emulator
 	Add-ToPath "$HOME/src/x16-demo/tools" -optional # x16 python tools
+
+	# Command line tools
+	Add-ToPath "$env:src/chart" -optional # command line chart utility edthedev\chart
+	Add-ToPath "$env:src/agenda" -optional # command line chart utility edthedev\chart
+	Add-ToPath "$env:src/todolist" -optional # todo list utility edthedev\todolist
 }
 Add-ToPath "$HOME/go/bin" -optional # x16 python tools
 
-# Command line tools
-Add-ToPath "$env:src\chart" -optional # command line chart utility edthedev\chart
-Add-ToPath "$env:src\agenda" -optional # command line chart utility edthedev\chart
-Add-ToPath "$env:src\todolist" -optional # todo list utility edthedev\todolist
 
 # krew for K8S pluginsa - specifically vtrl
 Add-ToPath "$HOME/.krew/bin"
