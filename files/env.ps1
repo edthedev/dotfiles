@@ -1,5 +1,6 @@
 $env:Journal = "~\Journal" # allows cd $env:journal
 $env:todolist = "C:\Users\delaport\Journal\"
+$ENV:todotxt = "$ENV:todolist\todo.txt"
 # Tell my scripts which GitHub repositories to look in.
 $env:GITHUB_USERNAME = 'edthedev'
 $env:GITHUB_CLONE_PATH = '~\src'

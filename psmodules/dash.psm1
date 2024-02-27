@@ -108,6 +108,7 @@ function Show-MyDashBoard() {
 		Write-Host ""
 		Write-Host "## Todo List" 
 		todolist
+		todotxt
 	}
 }
 
