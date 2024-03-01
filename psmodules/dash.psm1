@@ -106,8 +106,10 @@ function Show-MyDashBoard() {
 	}
 	if($todo) {
 		Write-Host ""
-		Write-Host "## Todo List" 
+		Write-Host "## Journal Todo Items" 
 		todolist
+		Write-Host ""
+		Write-Host "## Todo.txt File" 
 		todotxt
 	}
 }
