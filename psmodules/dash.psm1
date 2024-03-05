@@ -68,7 +68,8 @@ function Show-MyDashBoard() {
 	if($blocked){
 		Write-Host ""
 		Write-Host "## Blocked & Blocker Issues:"
-		Invoke-AgileCmd "gh issue list -S 'label:blocked,blocker,needs context,question'"
+		$blockerQuery = "label:blocker,blight,bug,blocked,'phone a friend',question,'needs context'"
+		Invoke-AgileCmd "gh issue list -S \"$blockerQuery\""
 	}
 	if($bugs) {
 		Write-Host ""
@@ -111,14 +112,6 @@ function Show-MyDashBoard() {
 		Write-Host ""
 		Write-Host "## Todo.txt File" 
 		todotxt
-	}
-}
-
-function Show-MyTeamWork() {
-	$team = @('ddriddle', 'zcarrington', 'tzturner', 'mpitcel', 'edthedev')
-	$team | ForEach-Object {
-		"## $_ - Issues Assigned"
-		Get-AgileQuery -Assignee $_ | Invoke-AgileQuery | Show-MarkdownFromGitHub
 	}
 }
 
