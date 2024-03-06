@@ -42,7 +42,7 @@ Show-MyDashboard -todo
 function Show-MyDashBoard() {
 	param(
 		# [switch]$todocount=$true,
-		[switch]$agenda=$true,
+		# [switch]$agenda,
 		[switch]$blocked,
 		[switch]$bugs,
 		[switch]$gitHub,
@@ -60,6 +60,7 @@ function Show-MyDashBoard() {
 		Write-Host "## Todo items for today: $env:todocount" 
 		chart -var todocount
 	}
+	$agenda = $true
 	if($agenda){
 		Write-Host ""
 		Write-Host "## Agenda for today:"
