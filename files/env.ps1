@@ -11,7 +11,14 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/farmit',
 	'techservicesillinois/SecOps-Powershell-CSOC',
 	'techservicesillinois/SecOps-Powershell-CISDSC',
-	'techservicesillinois/secops-splunk-null-router'
+	'techservicesillinois/secops-splunk-null-router',
+	'techservicesillinois/splunk-soar-template',
+	'techservicesillinois/SecOps-PowerShell-CISDSCTemplates',
+	'techservicesillinois/secops-soar-tdx',
+	'techservicesillinois/secops-splunk-null-router',
+	'techservicesillinois/soar-clearpass/issues/6',
+	'techservicesillinois/midpoint'
+
 ) -join ' '
 # 'uillinois-community/uillinois-community.github.io',
 $ENV:TS_REPOS = $ENV:GITHUB_REPOS.split(' ') | Where { $_ -like 'techser*' }
