@@ -16,7 +16,7 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/SecOps-PowerShell-CISDSCTemplates',
 	'techservicesillinois/secops-soar-tdx',
 	'techservicesillinois/secops-splunk-null-router',
-	'techservicesillinois/soar-clearpass/issues/6',
+	'techservicesillinois/soar-clearpass',
 	'techservicesillinois/midpoint'
 
 ) -join ' '
