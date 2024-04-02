@@ -17,6 +17,7 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/secops-soar-tdx',
 	'techservicesillinois/secops-splunk-null-router',
 	'techservicesillinois/soar-clearpass',
+	'techservicesillinois/phantom-toolbox',
 	'techservicesillinois/midpoint'
 
 ) -join ' '
