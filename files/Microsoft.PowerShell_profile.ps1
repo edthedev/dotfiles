@@ -34,10 +34,23 @@ $env:psmodules = "$env:dotfiles\psmodules"
 Import-Module "$env:psmodules\dash.psm1"
 Import-Module $env:psmodules\file_management.psm1
 Import-Module "$env:psmodules\fix_vpn.psm1"
-Import-Module $env:psmodules\house_shopping.psm1
+
+
+
+$maybe_mods = @(
+	"$env:src\travel-times\travel-times.psm1",
+    "$env:src\powershell-scripts\modules\AgileGitHubCLI.psm1"
+	)
+$maybe_mods | ForEach-Object {
+	if(Test-Path $_) {
+		Import-Module $_
+	} else {
+		Write-Host "Not found: $_"
+	}
+}
+
 
 # Load local source modules
-Import-Module $env:src\powershell-scripts\modules\AgileGitHubCLI.psm1
 # Import-Module $env:src\powershell-scripts\modules\MarkdownGitHub.psm1
 
 # Let's face it, I'm about to cd into my source directory

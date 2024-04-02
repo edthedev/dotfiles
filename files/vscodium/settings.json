@@ -259,7 +259,7 @@
 
     "editor.fontFamily": "Cascadia Code PL,Consolas, 'Courier New', monospace",
 
-    "workbench.startupEditor": "none",
+    "workbench.startupEditor": "terminal",
 
     "dashboard.projectData": null,
 
@@ -381,7 +381,20 @@
 
     },
 
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "workbench.editor.showTabs": "none",
+    "zenMode.showTabs": "none",
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+    "terminal.integrated.accessibleViewFocusOnCommandExecution": true,
+    "terminal.integrated.tabs.focusMode": "singleClick",
+    "terminal.integrated.tabs.hideCondition": "never",
+    "workbench.panel.defaultLocation": "left",
+    "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
+    "terminal.explorerKind": "external",
+    "terminal.integrated.tabs.enabled": false
     // "journal.base": "~/Documents"
 
 }
