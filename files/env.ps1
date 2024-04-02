@@ -11,14 +11,13 @@ $env:GITHUB_REPOS = @(
 	'techservicesillinois/farmit',
 	'techservicesillinois/SecOps-Powershell-CSOC',
 	'techservicesillinois/SecOps-Powershell-CISDSC',
-	'techservicesillinois/secops-splunk-null-router',
-	'techservicesillinois/splunk-soar-template',
 	'techservicesillinois/SecOps-PowerShell-CISDSCTemplates',
+	'techservicesillinois/splunk-soar-template',
 	'techservicesillinois/secops-soar-tdx',
 	'techservicesillinois/secops-splunk-null-router',
+	'techservicesillinois/secops-splunk-illinois-midpoint',
 	'techservicesillinois/soar-clearpass',
-	'techservicesillinois/phantom-toolbox',
-	'techservicesillinois/midpoint'
+	'techservicesillinois/phantom-toolbox'
 
 ) -join ' '
 # 'uillinois-community/uillinois-community.github.io',
