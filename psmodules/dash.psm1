@@ -17,7 +17,7 @@ function Measure-JournalTodos() {
 
 .EXAMPLE
 
-Get-CommitsSince -From 2023.01.01
+Show-GitRevList -From 2023.01.01
 
 #>
 function Show-GitRevList() {
