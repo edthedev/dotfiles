@@ -4,8 +4,12 @@ function Get-JournalAgenda() {
 
 function Measure-JournalTodos() {
 	$todocount = todolist | Measure-Object -Line
+	if(Test-Path $env:todohist) {
+		$env:todocount = Get-Content -Path $env:todohist
+	}
 	$env:todocount += '|'
 	$env:todocount += $todocount.lines
+	$env:todocount | Out-File -Path $env:todohist
 }
 
 
