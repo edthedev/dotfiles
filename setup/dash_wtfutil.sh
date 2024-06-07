@@ -1,5 +1,5 @@
 mkdir -p ~/.config/wtf
-rm ~/.config/wtf/config.yml
+rm -f ~/.config/wtf/config.yml
 ln -s ~/dotfiles/files/wtfutil.config.yml ~/.config/wtf/config.yml
 
 mkdir -p ~/.todo
