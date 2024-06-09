@@ -59,7 +59,7 @@ wtf:
     legacy:
       title: "Agenda"
       cmd: "agenda"
-      args: []
+      args: ["-path", "/home/edward/Journal/{YYYY}/{MM}-{DD}.md"]
       enabled: true 
       position:
         top: 2
@@ -67,7 +67,7 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-      refreshInterval: 60
+      refreshInterval: 600
     books:
       title: "Project 2 - DeGoogle"
       cmd: "todo-txt"
