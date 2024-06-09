@@ -1,20 +1,8 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "shift+alt+1",
-        "command": "journal.note"
-    },
-    {
-        "key": "shift+alt+2",
+        "key": "alt+home",
         "command": "journal.today"
-    },
-    {
-        "key": "alt+right",
-        "command": "journal.tomorrow"
-    },
-    {
-        "key": "alt+left",
-        "command": "journal.yesterday"
     },
     {
         "key": "shift+alt+5",
@@ -54,5 +42,10 @@
         "key": "ctrl+k z",
         "command": "-workbench.action.toggleZenMode",
         "when": "!isAuxiliaryWindowFocusedContext"
+    },
+    {
+        "key": "alt+home",
+        "command": "-list.focusAnyFirst",
+        "when": "listFocus && !inputFocus && !treestickyScrollFocused"
     }
 ]
