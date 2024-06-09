@@ -9,10 +9,10 @@ wtf:
     rows: [5,15, 15]
   refreshInterval: 60
   mods:
-    agenda:
+    check_backups:
       title: "Backups"
-      cmd: "checkback"
-      args: ["-path", "/mnt/nas/home/Backup/blaster/home/edward/minetest/worlds/SurfaceWorld/map.sqlite"]
+      cmd: "/home/edward/dotfiles/files/check_backups.sh"
+      args: ["~/dotfiles/files/check_backups.sh"]
       enabled: true
       position:
         top: 0
