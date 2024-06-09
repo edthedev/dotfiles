@@ -11,8 +11,8 @@ wtf:
   mods:
     check_backups:
       title: "Backups"
-      cmd: "/home/edward/dotfiles/files/check_backups.sh"
-      args: ["~/dotfiles/files/check_backups.sh"]
+      cmd: "sh"
+      args: ["/home/edward/dotfiles/files/check_backups.sh"]
       enabled: true
       position:
         top: 0
@@ -20,6 +20,7 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
+      refreshInterval: 6000
     at_laptop:
       title: "At My Laptop"
       cmd: "todo-txt"
