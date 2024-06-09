@@ -388,13 +388,14 @@
     "zenMode.fullScreen": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.hideStatusBar": false,
-    "terminal.integrated.accessibleViewFocusOnCommandExecution": true,
     "terminal.integrated.tabs.focusMode": "singleClick",
     "terminal.integrated.tabs.hideCondition": "never",
     "workbench.panel.defaultLocation": "left",
     "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
     "terminal.explorerKind": "external",
-    "terminal.integrated.tabs.enabled": false
+    "terminal.integrated.tabs.enabled": false,
+    "accessibility.hideAccessibleView": true,
+    "accessibility.accessibleView.closeOnKeyPress": false
     // "journal.base": "~/Documents"
 
 }
