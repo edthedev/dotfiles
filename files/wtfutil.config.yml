@@ -69,9 +69,9 @@ wtf:
       type: cmdrunner
       refreshInterval: 600
     books:
-      title: "Project 2 - DeGoogle"
+      title: "Context @web"
       cmd: "todo-txt"
-      args: ["list", "+books"]
+      args: ["list", "@web"]
       enabled: true
       position:
         top: 2
