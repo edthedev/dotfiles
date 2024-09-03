@@ -50,7 +50,8 @@ Add-ToPath "$HOME/go/bin" -optional # x16 python tools
 
 
 # krew for K8S pluginsa - specifically vtrl
-Add-ToPath "$HOME/.krew/bin"
+Add-ToPath -optional "$HOME/.krew/bin"
+Add-ToPath -optional 'C:\Users\delaport\AppData\Roaming\Python\Python312\Scripts'
 
 # $env:path+=";C:\Program Files\Git\bin"
 # $env:path+=";C:\Program Files (x86)\Microsoft VS Code\"
