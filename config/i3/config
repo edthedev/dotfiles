@@ -46,7 +46,8 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus right
+# bindsym $mod+l focus right
+bindsym $mod+l i3lock
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -172,5 +173,5 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 client.focused          #2e3436 #2e3436 #ffffff #2e3436   #2e3436
 exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/macaw-poly2.jpg
-exec_always --no-startup-id xautolock -time 15 -locker xscreensaver --nosplash
+exec_always --no-startup-id xautolock -time 15 -locker mate-screensaver --nosplash
 exec_always --no-startup-id synology-drive
