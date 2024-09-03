@@ -1,5 +1,5 @@
-$env:Journal = "~\Journal" # allows cd $env:journal
-$env:todolist = "C:\Users\delaport\Journal\"
+$env:Journal = "~\Box\2024.Journal" # allows cd $env:journal
+$env:todolist = "C:\Users\delaport\Box\2024.Journal"
 $ENV:todotxt = "$ENV:todolist\todo.txt"
 $ENV:todohist = "$ENV:todolist\todo.hist.csv"
 # Tell my scripts which GitHub repositories to look in.
