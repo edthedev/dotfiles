@@ -5,8 +5,8 @@ wtf:
       focused: orange
       normal: gray
   grid:
-    columns: [60, 60]
-    rows: [5,15, 15]
+    columns: [40, 40]
+    rows: [5,15,15]
   refreshInterval: 60
   mods:
     check_backups:
@@ -24,7 +24,7 @@ wtf:
     at_laptop:
       title: "At My Laptop"
       cmd: "todo-txt"
-      args: ["list", "@laptop"]
+      args: ["list", "@web"]
       enabled: true
       position:
         top: 1
