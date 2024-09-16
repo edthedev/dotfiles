@@ -393,9 +393,10 @@
     "workbench.panel.defaultLocation": "left",
     "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
     "terminal.explorerKind": "external",
-    "terminal.integrated.tabs.enabled": false,
     "accessibility.hideAccessibleView": true,
-    "accessibility.accessibleView.closeOnKeyPress": false
+    "accessibility.accessibleView.closeOnKeyPress": false,
+    "terminal.integrated.defaultLocation": "editor",
+    "editor.minimap.enabled": false
     // "journal.base": "~/Documents"
 
 }
