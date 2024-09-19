@@ -16,6 +16,10 @@ Set-Alias code codium  # Prefer Codium
 New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias today Get-JournalAgenda
 
+# Vi
+New-Alias vi nvim
+New-Alias vim nvim
+
 # You can pry my unix commands out of my cold dead fingers
 if($iswindows) {
 	Set-Alias which get-command
