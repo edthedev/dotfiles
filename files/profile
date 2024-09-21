@@ -4,9 +4,9 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
-
-# Brew
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -25,8 +25,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-
-# PyEnv
-# export PYENV_ROOT="/home/linuxbrew/.linuxbrew"
-# eval "$(pyenv init --path)"
