@@ -1,1 +1,1 @@
-sudo apt install rpi-imager
+flatpak install rpi-imager
