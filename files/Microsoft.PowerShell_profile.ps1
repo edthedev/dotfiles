@@ -39,11 +39,9 @@ Import-Module "$env:psmodules\dash.psm1"
 Import-Module $env:psmodules\file_management.psm1
 Import-Module "$env:psmodules\fix_vpn.psm1"
 
-
-
 $maybe_mods = @(
 	"$env:src\travel-times\travel-times.psm1",
-    "$env:src\powershell-scripts\modules\AgileGitHubCLI.psm1"
+	"$env:src\powershell-scripts\modules\AgileGitHubCLI.psm1"
 	)
 $maybe_mods | ForEach-Object {
 	if(Test-Path $_) {
