@@ -2,9 +2,10 @@ from invoke import task
 import os
 
 
+flat_pak_root = f"{home}/.var/app/net.minetest.Minetest"
 home = os.path.expanduser('~')
 easy_dir = f"{home}/minetest/"
-link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest/"  # flatpak
+link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest"  # flatpak
 # link_to = f"{home}/.minetest/"  # default 
 
 @task
@@ -38,17 +39,24 @@ def restore(c, dir):
     c.run(f"mv {dir}/* {world_folder}")
     print("Finished")
 
-@task
+# DONT - flatpak hates symlinks
 def link(c):
+    # c.run(f"ls -al {link_to}")
     if os.path.isdir(link_to):
         print("Moving existing files...")
         c.run(f"mv {link_to} {easy_dir}")
+    if not os.path.isdir(easy_dir):
+        raise ValueError(f"{easy_dir} not found.")
+    if os.path.exists(link_to):
+        print(f"Doing nothing. {link_to} exists.")
     if os.path.isdir(easy_dir) and not os.path.exists(link_to):
         print("Linking...")
-        c.run("ln -s {easy_dir} {link_to}")
+        c.run(f"ln -s {easy_dir} {link_to}")
+    # c.run(f"ls -al {link_to}")
 
 @task
 def status(c):
-    print(f"Minetest data is at {link_to}")
-    c.run(f"ls -al {link_to}/..")
+    print(f"Minetest data assumed to be at {link_to}")
+    print(f"Easy folder assumed to be {easy_dir}")
+    c.run(f"ls -ald {link_to} | grep minetest")
 
