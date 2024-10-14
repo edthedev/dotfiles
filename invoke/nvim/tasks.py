@@ -14,9 +14,21 @@ if(platform.system() == 'Linux'):
     config_dir = f"{home}/.config/nvim"
 
 @task
+def link(c):
+    c.run(f"ls -al {config_dir}")
+    c.run(f"ln -s {home}/dotfiles/files/init.lua {config_dir}/init.lua")
+
+@task
+def plug(c):
+    c.run(f"curl -fLo {config_dir}/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+    c.run(f"cd {config_dir}/autoload; tree .")
+
+@task
 def status(c):
     result = c.run('Get-Command nvim', shell=ps)
     print(f"Nvim installed? {result.ok}")
 
     print(f"Config dir is {config_dir}")
     c.run(f"ls {config_dir}", shell=ps)
+
+
