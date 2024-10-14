@@ -1,11 +1,17 @@
 from invoke import task
 import os
+import platform
 
 # $env:INVOKE_RUN_SHELL='C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
 
 home = os.path.expanduser('~')
-config_dir = f"{home}/AppData/Local/nvim"
+
 ps = r'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+config_dir = f"{home}/AppData/Local/nvim"
+
+if(platform.system() == 'Linux'):
+    ps = r'/usr/bin/pwsh'
+    config_dir = f"{home}/.config/nvim"
 
 @task
 def status(c):
