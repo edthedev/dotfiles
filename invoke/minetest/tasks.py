@@ -62,4 +62,12 @@ def status(c):
     print(f"+ Easy folder assumed to be {easy_dir}")
     print(f"+ ls ---")
     c.run(f"ls -ald {link_to} | grep minetest")
+    print(f"+ List Worlds ---")
+    cmd = "flatpak run net.minetest.Minetest --gameid list"
+    cmd = "flatpak run net.minetest.Minetest --gameid minetest --worldlist path"
+    c.run(cmd)
 
+@task
+def serve(c, world="SurfaceWorld"):
+    cmd = f"flatpak run net.minetest.Minetest --gameid minetest --server --world {world}"
+    c.run(cmd)
