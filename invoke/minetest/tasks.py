@@ -1,12 +1,14 @@
 from invoke import task
 import os
 
-
-flat_pak_root = f"{home}/.var/app/net.minetest.Minetest"
 home = os.path.expanduser('~')
+flat_pak_root = f"{home}/.var/app/net.minetest.Minetest"
 easy_dir = f"{home}/minetest/"
-link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest"  # flatpak
-# link_to = f"{home}/.minetest/"  # default 
+
+# flatpak
+link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest"  
+# default
+# link_to = f"{home}/.minetest/"
 
 @task
 def debug(c):
@@ -56,7 +58,8 @@ def link(c):
 
 @task
 def status(c):
-    print(f"Minetest data assumed to be at {link_to}")
-    print(f"Easy folder assumed to be {easy_dir}")
+    print(f"+ Minetest data assumed to be at {link_to}")
+    print(f"+ Easy folder assumed to be {easy_dir}")
+    print(f"+ ls ---")
     c.run(f"ls -ald {link_to} | grep minetest")
 
