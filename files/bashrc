@@ -127,4 +127,5 @@ alias paste="/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -nopr
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/bin/platform-tools:$PATH"
+export LUANTI="$HOME/.var/app/net.minetest.Minetest/.minetest"
 
