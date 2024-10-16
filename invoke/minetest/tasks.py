@@ -64,11 +64,16 @@ def status(c):
     print(f"+ ls ---")
     c.run(f"ls -ald {link_to} | grep minetest")
 
+
 @task
-def world_list(c):
-    print(f"+ List Worlds ---")
+def games(c):
+    print(f"+ List Games ---")
     cmd = f"{run_mt} --gameid list"
     c.run(cmd)
+
+@task
+def worlds(c):
+    print(f"+ List Worlds ---")
     cmd = f"{run_mt} --gameid minetest --worldlist path"
     c.run(cmd)
 
