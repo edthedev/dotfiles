@@ -72,6 +72,10 @@ def games(c):
     c.run(cmd)
 
 @task
+def play(c):
+    c.run(f"{run_mt}")
+
+@task
 def worlds(c):
     print(f"+ List Worlds ---")
     cmd = f"{run_mt} --gameid minetest --worldlist path"
@@ -85,5 +89,5 @@ def version(c):
 
 @task
 def serve(c, world="SurfaceWorld"):
-    cmd = f"{run_mt} --gameid minetest --server --world {world}"
+    cmd = f"{run_mt} --gameid minetest --server --worldname {world}"
     c.run(cmd)
