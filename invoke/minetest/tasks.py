@@ -4,6 +4,7 @@ import os
 home = os.path.expanduser('~')
 flat_pak_root = f"{home}/.var/app/net.minetest.Minetest"
 easy_dir = f"{home}/minetest/"
+run_mt = f"flatpak run net.minetest.Minetest"
 
 # flatpak
 link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest"  
@@ -62,12 +63,22 @@ def status(c):
     print(f"+ Easy folder assumed to be {easy_dir}")
     print(f"+ ls ---")
     c.run(f"ls -ald {link_to} | grep minetest")
+
+@task
+def world_list(c):
     print(f"+ List Worlds ---")
-    cmd = "flatpak run net.minetest.Minetest --gameid list"
-    cmd = "flatpak run net.minetest.Minetest --gameid minetest --worldlist path"
+    cmd = f"{run_mt} --gameid list"
+    c.run(cmd)
+    cmd = f"{run_mt} --gameid minetest --worldlist path"
+    c.run(cmd)
+
+
+@task
+def version(c):
+    cmd = f"{run_mt} --version"
     c.run(cmd)
 
 @task
 def serve(c, world="SurfaceWorld"):
-    cmd = f"flatpak run net.minetest.Minetest --gameid minetest --server --world {world}"
+    cmd = f"{run_mt} --gameid minetest --server --world {world}"
     c.run(cmd)
