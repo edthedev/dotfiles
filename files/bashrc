@@ -124,6 +124,7 @@ fi
 alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
 alias clip="/mnt/c/Windows/system32/clip.exe"
 alias paste="/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -command Get-Clipboard"
+alias in="source $HOME/venv/invoke/bin/activate;cd $HOME/dotfiles/invoke"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/bin/platform-tools:$PATH"
