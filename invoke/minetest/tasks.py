@@ -1,8 +1,12 @@
 from invoke import task
+
+import datetime
 import os
 
 home = os.path.expanduser('~')
 flat_pak_root = f"{home}/.var/app/net.minetest.Minetest"
+root = f"{flat_pak_root}/.minetest"
+mod_dir = f"{root}/mods"
 easy_dir = f"{home}/minetest/"
 run_mt = f"flatpak run net.minetest.Minetest"
 
@@ -91,3 +95,22 @@ def version(c):
 def serve(c, world="SurfaceWorld"):
     cmd = f"{run_mt} --gameid minetest --server --worldname {world}"
     c.run(cmd)
+
+@task
+def bkmod(c, name=None):
+    '''Save the current set of mods and create an empty mod directory.'''
+    if not name:
+        name = datetime.datetime.now().strftime("%Y%h%d%H%M")
+    c.run(f"mv {mod_dir} {root}/mods_{name}")
+    c.run(f"mkdir -p {mod_dir}")
+    c.run(f"ls {root}")
+
+@task
+def rmod(c, name):
+    '''Restore a backed up set of mods.'''
+    bk = datetime.datetime.now().strftime("%Y%h%d%H%M")
+    c.run(f"mv {mod_dir} {root}/mods_{bk}")
+    c.run(f"mv {root}/mods_{name} {mod_dir}")
+    c.run(f"ls {root}")
+
+
