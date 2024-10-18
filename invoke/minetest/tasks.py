@@ -108,8 +108,13 @@ def bkmod(c, name=None):
 @task
 def rmod(c, name):
     '''Restore a backed up set of mods.'''
-    bk = datetime.datetime.now().strftime("%Y%h%d%H%M")
-    c.run(f"mv {mod_dir} {root}/mods_{bk}")
+    if len(os.listdir(f"{mod_dir}")) != 0:
+        bk = datetime.datetime.now().strftime("%Y%h%d%H%M")
+        print(f"Backed up non-emtpy mod dir to mods_{bk}.")
+        c.run(f"mv {mod_dir} {root}/mods_{bk}")
+    else:
+        print("Removing empty mod dir.")
+        c.run(f"rmdir {mod_dir}")
     c.run(f"mv {root}/mods_{name} {mod_dir}")
     c.run(f"ls {root}")
 
