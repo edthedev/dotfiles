@@ -116,7 +116,11 @@ def rmod(c, name):
         print("Removing empty mod dir.")
         c.run(f"rmdir {mod_dir}")
     c.run(f"mv {root}/mods_{name} {mod_dir}")
+    print(f"mods_{name} restored to mods")
+    print("ls of root")
     c.run(f"ls {root}")
+    print("ls of mods")
+    c.run(f"ls {root}/mods")
 
 @task
 def logs(c, lines=20):
