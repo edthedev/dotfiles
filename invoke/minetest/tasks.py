@@ -118,4 +118,9 @@ def rmod(c, name):
     c.run(f"mv {root}/mods_{name} {mod_dir}")
     c.run(f"ls {root}")
 
+@task
+def logs(c, lines=20):
+    '''Output some logs'''
+    c.run(f"tail -n {lines} {root}/debug.txt")
+
 
