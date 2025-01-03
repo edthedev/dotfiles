@@ -19,13 +19,8 @@ function Add-ToPath {
 if($IsWindows){
 	# Some Paths that are annoying to find/restore if the installer fails
 	Add-ToPath "C:\Program Files\Git\cmd" # Version control is nice.
-	Add-ToPath "C:\Program Files\Microsoft VS Code\bin" -optional # One Editor to rule them all
-	Add-ToPath "C:\Program Files\Git\cmd" # Version control is nice.
 	Add-ToPath "C:\ProgramData\chocolatey\bin" # Package management is nice.
 	Add-ToPath "C:\Program Files (x86)\GnuWin32\bin" -optional # GNU Utils - i.e. rm
-	Add-ToPath "C:\bin\x16emu" -optional # X16 Emulator
-	Add-ToPath "$env:src\x16-demo\tools" -optional # x16 python tools
-	Add-ToPath "$env:src\flutter\bin" -optional # Flutter for Dart
 	Add-ToPath "$env:src\bin" -optional # anything else I need
 	Add-ToPath "$HOME\bin" -optional # anything else I need
 
@@ -34,6 +29,7 @@ if($IsWindows){
 	Add-ToPath "$env:src\agenda" -optional # command line chart utility edthedev\chart
 	Add-ToPath "$env:src\todolist" -optional # todo list utility edthedev\todolist
 
+  Add-ToPath "C:\ProgramData\mingw64\mingw64\bin" # for GCC for LazyVim
 }
 else {
 	Add-ToPath "$env:src/bin" -optional # anything else I need
@@ -47,7 +43,6 @@ else {
 	Add-ToPath "$env:src/todolist" -optional # todo list utility edthedev\todolist
 }
 Add-ToPath "$HOME/go/bin" -optional # x16 python tools
-
 
 # krew for K8S pluginsa - specifically vtrl
 Add-ToPath -optional "$HOME/.krew/bin"
