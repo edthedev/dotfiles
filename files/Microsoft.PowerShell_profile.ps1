@@ -51,6 +51,7 @@ $maybe_mods | ForEach-Object {
 	}
 }
 
+$env:nvim_config = "$HOME\AppData\Local\nvim"
 
 # Load local source modules
 # Import-Module $env:src\powershell-scripts\modules\MarkdownGitHub.psm1
