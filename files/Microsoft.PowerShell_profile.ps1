@@ -29,9 +29,48 @@ function journal {
     }
     nvim $path
 }
+
 function dotfiles {
     nvim "$HOME\dotfiles"
 }
+
+function open {
+    param (
+        [string]$searchText
+    )
+    $directories = @(
+        "$HOME\Box\Journal",
+        "$HOME\Box\SecDevLimited",
+        "$HOME\Box\Privacy & Cybersecurity\Cybersecurity Development"
+    )
+
+    $totalFiles = 0
+    $processedFiles = 0
+
+    foreach ($directory in $directories) {
+        if (Test-Path $directory) {
+            $totalFiles += (Get-ChildItem -Path $directory -Recurse -File).Count
+        } else {
+            Write-Host "Directory '$directory' does not exist."
+        }
+    }
+
+    $resultFiles = @()
+    $textFileExtensions = @(".txt", ".log", ".csv", ".json", ".xml", ".md")
+    foreach ($directory in $directories) {
+        Get-ChildItem -Path $directory -Recurse -File | Where-Object { $textFileExtensions -contains $_.Extension } | ForEach-Object {
+            $fileContent = Get-Content -Path $_.FullName -Raw
+        
+            if ($fileContent -match $searchText) {
+                $resultFiles += $_.FullName
+            }
+            $processedFiles++
+                Write-Progress -Activity "Searching Files" -Status "$processedFiles / $totalFiles files processed" -PercentComplete (($processedFiles / $totalFiles) * 100)
+        }
+    }
+    nvim $resultFiles
+}
+
 
 # Vi
 New-Alias vi nvim
