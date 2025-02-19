@@ -15,6 +15,23 @@ Set-Alias code codium  # Prefer Codium
 # Dashboard
 New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias today Get-JournalAgenda
+function journal {
+    param(
+        [switch]$limited = $false,
+        [switch]$shared = $false
+    )
+    $path = "$HOME\Box\Journal"
+    if($limited) {
+        $path = "$HOME\Box\SecDevLimited"
+    }
+    if($shared) {
+        $path = "$HOME\Box\Privacy & Cybersecurity\Cybersecurity Development"
+    }
+    nvim $path
+}
+function dotfiles {
+    nvim "$HOME\dotfiles"
+}
 
 # Vi
 New-Alias vi nvim
