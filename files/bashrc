@@ -130,3 +130,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/bin/platform-tools:$PATH"
 export LUANTI_DATA="$HOME/.var/app/net.minetest.Minetest/.minetest"
 export LUANTI_RUN="flatpak run net.minetest.Minetest"
+
+# GoLang
+export GOROOT=/home/edward/.go
+export PATH=$GOROOT/bin:$PATH
