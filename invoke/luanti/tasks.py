@@ -9,6 +9,7 @@ root = f"{flat_pak_root}/.minetest"
 mod_dir = f"{root}/mods"
 easy_dir = f"{home}/minetest/"
 run_mt = f"flatpak run net.minetest.Minetest"
+world_dir = f"{root}/worlds"
 
 # flatpak
 link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest"  
@@ -131,5 +132,4 @@ def listmods(c):
 def logs(c, lines=20):
     '''Output some logs'''
     c.run(f"tail -n {lines} {root}/debug.txt")
-
 
