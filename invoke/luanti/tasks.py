@@ -10,6 +10,7 @@ mod_dir = f"{root}/mods"
 easy_dir = f"{home}/minetest/"
 run_mt = f"flatpak run net.minetest.Minetest"
 world_dir = f"{root}/worlds"
+scripts = f"{home}/ansible/luanti"
 
 # flatpak
 link_to = f"{home}/.var/app/net.minetest.Minetest/.minetest"  
@@ -132,4 +133,18 @@ def listmods(c):
 def logs(c, lines=20):
     '''Output some logs'''
     c.run(f"tail -n {lines} {root}/debug.txt")
+
+@task
+def backup(c):
+    stopped = input("Is the server stopped?")
+    if(stopped != 'y'):
+        print("so go stop the server...")
+        exit()
+    print("okay...backing up.")
+    c.run(f"{scripts}/do_luanti.sh {scripts}/backup.sh")
+    c.run(f"{scripts}/check_db.sh")
+
+@task
+def checkdb(c):
+    c.run(f"{scripts}/check_db.sh")
 
