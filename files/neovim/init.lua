@@ -25,6 +25,8 @@ vim.cmd [[
   " For example, to add vim-fugitive:
   " Plugin 'tpope/vim-fugitive'
   Plugin 'vim-pandoc/vim-pandoc-syntax'
+  Plugin 'nvim-lua/plenary.nvim'
+  Plugin 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
   
   call vundle#end()            " Required
   filetype plugin indent on    " Required
@@ -35,6 +37,10 @@ vim.cmd [[
 
 
   let g:pandoc#syntax#conceal#use = 0
+  set tabstop=4
+  set shiftwidth=4
+  set expandtab
+
 
 ]]
 
@@ -45,5 +51,10 @@ vim.g.mapleader = ' '
 
 vim.api.nvim_set_keymap("n", "<leader>j", ":Note<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>d", ":Note<CR>daily<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope find_files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>g", ":Telescope live_grep<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>b", ":Telescope buffers<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>h", ":Telescope help_tags<CR>", { noremap = true, silent = true })
 
 
