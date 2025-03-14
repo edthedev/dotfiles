@@ -17,17 +17,20 @@ New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias today Get-JournalAgenda
 function journal {
     param(
+        [ValidateSet('limited','shared','journal', 'dotfiles')]
+        [string]$key,
         [switch]$limited = $false,
-        [switch]$shared = $false
+        [switch]$shared = $false,
+        [switch]$dotfiles = $false
     )
     $path = "$HOME\Box\Journal"
-    if($limited) {
-        $path = "$HOME\Box\SecDevLimited"
+    switch($key){
+        'limited' { $path = "$HOME\Box\SecDevLimited" }
+        'shared' { $path = "$HOME\Box\Privacy & Cybersecurity\Cybersecurity Development" }
+        'journal' { $path = "$HOME\Box\Journal" }
+        'dotfiles' { $path = "$HOME\dotfiles" }
     }
-    if($shared) {
-        $path = "$HOME\Box\Privacy & Cybersecurity\Cybersecurity Development"
-    }
-    nvim $path
+    cd $path; nvim $path
 }
 
 function dotfiles {
