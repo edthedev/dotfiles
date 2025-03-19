@@ -27,6 +27,7 @@ vim.cmd [[
   Plugin 'vim-pandoc/vim-pandoc-syntax'
   Plugin 'nvim-lua/plenary.nvim'
   Plugin 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+  Plugin 'hat0uma/csvview.nvim'
   
   call vundle#end()            " Required
   filetype plugin indent on    " Required
@@ -45,6 +46,8 @@ vim.cmd [[
 ]]
 
 
+require('csvview').setup()
+
 -- vim.print("what?")
 vim.opt.number = true
 vim.g.mapleader = ' '
@@ -56,5 +59,7 @@ vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope find_files<CR>", { noremap
 vim.api.nvim_set_keymap("n", "<leader>g", ":Telescope live_grep<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>b", ":Telescope buffers<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>h", ":Telescope help_tags<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader>c", ":CsvViewToggle<CR>", { noremap = true, silent = true })
 
 
