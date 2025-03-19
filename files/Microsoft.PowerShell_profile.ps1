@@ -17,7 +17,7 @@ New-Alias dash   Show-MyDashboard # from dash.psm1
 New-Alias today Get-JournalAgenda
 function journal {
     param(
-        [ValidateSet('limited','shared','journal', 'dotfiles')]
+        [ValidateSet('limited','shared','journal', 'dotfiles', 'nvim')]
         [string]$key,
         [switch]$limited = $false,
         [switch]$shared = $false,
@@ -29,6 +29,7 @@ function journal {
         'shared' { $path = "$HOME\Box\Privacy & Cybersecurity\Cybersecurity Development" }
         'journal' { $path = "$HOME\Box\Journal" }
         'dotfiles' { $path = "$HOME\dotfiles" }
+        'nvim' { $path = "$HOME\AppData\Local\nvim" }
     }
     cd $path; nvim $path
 }
