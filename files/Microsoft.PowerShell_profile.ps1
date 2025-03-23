@@ -1,5 +1,14 @@
 $env:src = "$HOME\src"
-$env:dotfiles = "$HOME\dotfiles"
+$env:dotfiles = Join-Path $HOME "dotfiles"
+$env:journal = Join-Path $HOME "Journal"
+$env:nvim = Join-Path $HOME "\AppData\Local\nvim"
+
+if($IsWindows) {
+	$env:journal = Join-Path $HOME "Box\Journal"
+	$env:nvim = Join-Path $HOME "\AppData\Local\nvim"
+}
+
+
 Import-Module $env:dotfiles\psmodules\add_to_profile.psm1
 Add-ToProfile $env:dotfiles\files\paths.ps1
 Add-ToProfile $env:dotfiles\files\env.ps1
@@ -23,13 +32,13 @@ function journal {
         [switch]$shared = $false,
         [switch]$dotfiles = $false
     )
-    $path = "$HOME\Box\Journal"
+    $path = $journal
     switch($key){
         'limited' { $path = "$HOME\Box\SecDevLimited" }
         'shared' { $path = "$HOME\Box\Privacy & Cybersecurity\Cybersecurity Development" }
         'journal' { $path = "$HOME\Box\Journal" }
-        'dotfiles' { $path = "$HOME\dotfiles" }
-        'nvim' { $path = "$HOME\AppData\Local\nvim" }
+        'dotfiles' { $path = $env:dotfiles }
+        'nvim' { $path = $env:nvim }
     }
     cd $path; nvim $path
 }
