@@ -7,7 +7,7 @@ wtf:
   grid:
     columns: [80,40]
     rows: [3,3,7,40]
-  refreshInterval: 60
+  refreshInterval: 600
   mods:
     check_backups:
       title: "Backups"
@@ -22,9 +22,9 @@ wtf:
       type: cmdrunner
       refreshInterval: 6000
     todo_count:
-      title: "Todo"
-      cmd: "echo"
-      args: ["Hello"]
+      title: "Todo Count"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/todo_count.sh"]
       enabled: true
       position:
         top: 0
@@ -32,18 +32,7 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-    more:
-      title: "More"
-      cmd: "bash"
-      args: ["/home/delaport/dotfiles/files/ts/todo_count.sh"]
-      enabled: true
-      position:
-        top: 0
-        left: 2
-        width: 1
-        height: 1
-      type: cmdrunner
-      refreshInterval: 600
+      refreshInterval: 60
     in_review:
       title: "In Review"
       cmd: "bash"
@@ -55,7 +44,6 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-      refreshInterval: 600
     count_in_review:
       title: "Count In Review"
       cmd: "bash"
@@ -67,7 +55,6 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-      refreshInterval: 600
     count_in_progress:
       title: "Count In Progress"
       cmd: "bash"
@@ -79,7 +66,6 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-      refreshInterval: 600
     in_progress:
       title: "In Progress"
       cmd: "bash"
@@ -91,7 +77,6 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-      refreshInterval: 60
     backlog:
       title: "GitHub Backlog"
       cmd: "bash"
@@ -100,7 +85,6 @@ wtf:
       position:
         top: 3
         left: 0
-        width: 1
+        width: 2
         height: 1
       type: cmdrunner
-      refreshInterval: 60
