@@ -5,8 +5,8 @@ wtf:
       focused: orange
       normal: gray
   grid:
-    columns: [60, 60]
-    rows: [3,7,40]
+    columns: [80,40]
+    rows: [3,3,7,40]
   refreshInterval: 60
   mods:
     check_backups:
@@ -22,9 +22,9 @@ wtf:
       type: cmdrunner
       refreshInterval: 6000
     todo_count:
-      title: "Todo Count"
-      cmd: "bash"
-      args: ["/home/delaport/dotfiles/files/ts/todo_count.sh"]
+      title: "Todo"
+      cmd: "echo"
+      args: ["Hello"]
       enabled: true
       position:
         top: 0
@@ -32,16 +32,63 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
-      refreshInterval: 6000
+    more:
+      title: "More"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/todo_count.sh"]
+      enabled: true
+      position:
+        top: 0
+        left: 2
+        width: 1
+        height: 1
+      type: cmdrunner
+      refreshInterval: 600
+    in_review:
+      title: "In Review"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/list-gh-in-review.sh"]
+      enabled: true
+      position:
+        top: 1
+        left: 0
+        width: 1
+        height: 1
+      type: cmdrunner
+      refreshInterval: 600
+    count_in_review:
+      title: "Count In Review"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/count-gh-in-review.sh"]
+      enabled: true
+      position:
+        top: 1
+        left: 1
+        width: 1
+        height: 1
+      type: cmdrunner
+      refreshInterval: 600
+    count_in_progress:
+      title: "Count In Progress"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/count-gh-in-progress.sh"]
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        width: 1
+        height: 1
+      type: cmdrunner
+      refreshInterval: 600
     in_progress:
       title: "In Progress"
       cmd: "bash"
       args: ["/home/delaport/dotfiles/files/ts/list-gh-in-progress.sh"]
       enabled: true
       position:
-        top: 1
+        top: 2
         left: 0
-        width: 2
+        width: 1
         height: 1
       type: cmdrunner
       refreshInterval: 60
@@ -51,9 +98,9 @@ wtf:
       args: ["/home/delaport/dotfiles/files/ts/list-gh-board.sh"]
       enabled: true
       position:
-        top: 2
+        top: 3
         left: 0
-        width: 2
+        width: 1
         height: 1
       type: cmdrunner
       refreshInterval: 60
