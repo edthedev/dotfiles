@@ -6,7 +6,7 @@ wtf:
       normal: gray
   grid:
     columns: [120]
-    rows: [3,45]
+    rows: [3,3,45]
   refreshInterval: 60
   mods:
     check_backups:
@@ -21,13 +21,25 @@ wtf:
         height: 1
       type: cmdrunner
       refreshInterval: 6000
+    todo_count:
+      title: "Todo Count"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/todo_count.sh"]
+      enabled: true
+      position:
+        top: 1
+        left: 0
+        width: 1
+        height: 1
+      type: cmdrunner
+      refreshInterval: 6000
     backlog:
       title: "GitHub Backlog"
       cmd: "bash"
       args: ["/home/delaport/dotfiles/files/ts/list-gh-board.sh"]
       enabled: true
       position:
-        top: 1
+        top: 2
         left: 0
         width: 1
         height: 1
