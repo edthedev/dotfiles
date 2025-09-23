@@ -6,7 +6,7 @@ wtf:
       normal: gray
   grid:
     columns: [80,40]
-    rows: [3,3,7,40]
+    rows: [3,3,3, 4,40]
   refreshInterval: 600
   mods:
     check_backups:
@@ -66,6 +66,17 @@ wtf:
         width: 1
         height: 1
       type: cmdrunner
+    count_done:
+      title: "Count Done"
+      cmd: "bash"
+      args: ["/home/delaport/dotfiles/files/ts/count-gh-done.sh"]
+      enabled: true
+      position:
+        top: 3
+        left: 1
+        width: 1
+        height: 1
+      type: cmdrunner
     in_progress:
       title: "In Progress"
       cmd: "bash"
@@ -75,7 +86,7 @@ wtf:
         top: 2
         left: 0
         width: 1
-        height: 1
+        height: 2
       type: cmdrunner
     backlog:
       title: "GitHub Backlog"
@@ -83,7 +94,7 @@ wtf:
       args: ["/home/delaport/dotfiles/files/ts/list-gh-board.sh"]
       enabled: true
       position:
-        top: 3
+        top: 4
         left: 0
         width: 2
         height: 1
