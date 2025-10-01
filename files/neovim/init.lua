@@ -1,4 +1,4 @@
-local nvjournal = require("plugins.nvjournal")
+local nvjournal = require("nvjournal")
 nvjournal.setup()
 
 vim.print("Setup Vundle")
@@ -27,7 +27,7 @@ vim.cmd [[
   Plugin 'vim-pandoc/vim-pandoc-syntax'
   Plugin 'nvim-lua/plenary.nvim'
   Plugin 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
-  Plugin 'hat0uma/csvview.nvim'
+  " Plugin 'hat0uma/csvview.nvim'
   
   call vundle#end()            " Required
   filetype plugin indent on    " Required
@@ -46,7 +46,7 @@ vim.cmd [[
 ]]
 
 
-require('csvview').setup()
+-- require('csvview').setup()
 
 -- vim.print("what?")
 vim.opt.number = true
